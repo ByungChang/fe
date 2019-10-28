@@ -6,7 +6,7 @@
     app
     clipped
     color="deep-orange darken-1">
-    <v-list-item-group v-model="item" color="primary">
+    <v-list-item-group color="primary">
       <v-list-item
         v-for="(item, i) in items"
         :key="i"

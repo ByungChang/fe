@@ -1,6 +1,8 @@
 <template>
   <v-card> 
     <companyAdd></companyAdd>
+    <userDetail></userDetail>
+
     <v-card-title>
       기업 관리
       <v-spacer></v-spacer>
@@ -35,13 +37,17 @@
           class="ma-3"
           size="100"        
         >
-          <v-img :src="require(`@/assets/aaa.png`)"></v-img>
+          <v-img :src="require(`@/assets/${item.src}`)"></v-img>
         </v-avatar>
         <v-avatar v-else
           size="40"        
         >
-          <v-img :src="require(`@/assets/aaa.png`)"></v-img>
+          <v-img :src="require(`@/assets/${item.src}`)"></v-img>
         </v-avatar>
+      </template>
+
+       <template v-slot:item.comName="{item}">
+   <v-list-item style="text-align:left" :to="to" >{{item.comName}}</v-list-item>
       </template>
 
       <!--table에서 active는 초록색, block은 빨간색으로 나타내는 template getColor methods사용-->
@@ -51,9 +57,9 @@
 
       <!--table action의 아이템 영역에 아이콘 삽입-->
       <template v-slot:item.action="{ item }">
-          <v-btn 
-          @click="btnClick('edit')" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-          <v-btn icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
+    <v-btn @click="btnClick('edit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
+    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
       </template>
     </v-data-table>
     
@@ -71,16 +77,21 @@
 <script>
   import axios from 'axios'
   import companyAdd from '@/components/userComponents/companyAdd.vue'
+  import userDetail from '@/components/userComponents/userDetail.vue'
+
   import { EventBus } from "../components/userComponents/eventBus";
 
   export default {
     components:{
       //userFooterComponent
-      companyAdd
+      companyAdd,
+      userDetail
     },
     data () {
       return {
-        indexa:0,
+        to:{
+          path:'/userManagement'
+        },
         x:window.innerWidth,
         search:'',
         page: 1,
@@ -92,16 +103,18 @@
           { text: '유저수', value: 'userNum', align:'center'},
           { text: 'HYPER VSN', value: 'hvNum', align:'center'  },
           { text: '계약 만료일', value: 'expiredDate' , align:'center' },
-          { text: '수정/삭제', value: 'action',sortable: false, align:'center'},
+          { text: '정보보기/수정/삭제', value: 'action',sortable: false, align:'center'},
         ],
         companies: [
           {
             src:'korea.png',
-            comName: '코스윌',
+            comName: '강동구',
             status: 'active',
             userNum: 20,
             hvNum: 30,
             endDay: '2019-12-20',
+            businessNum:48850703,
+            comEmail:'la703@naver.com'
           },
           {
             src:'korea.png',
@@ -110,6 +123,8 @@
             userNum: 27,
             hvNum: 8,
             endDay: '2020-03-20',
+            businessNum: 66473248,
+            comEmail:'y3333@cosweal.com'
           },
           {
             src:'korea.png',
@@ -118,8 +133,12 @@
             userNum: 27,
             hvNum: 8,
             endDay: '2021-01-01',
+            businessNum: 25254546,
+            comEmail:'gitt@gmail.com'
           },
         ],
+            number:-1
+
       }
     },
     mounted(){
@@ -138,6 +157,8 @@
         this.companies = r.data.companies
         console.log(this.companies)
       });
+
+
     },
     methods:{
       btnStatus(){
@@ -153,9 +174,31 @@
         console.log(what)
         EventBus.$emit("companyAdd", what)
       },
-      statusChange(status){
-          
-      }
+      statusChange(item){
+           this.number=this.posts.indexOf(item)
+            if(this.posts[this.number].status =='active'){
+              this.posts[this.number].status ='block'
+            }
+            else if(this.posts[this.number].status =='block'){
+              this.posts[this.number].status ='active'
+            }
+   
+              // itemIndex = this.posts.indexOf(item)
+                             // console.log(this.posts.indexOf(item))
+                             // console.log(this.number)
+                            //  console.log(item.comName)           
+           },
+           editTable(item){
+             EventBus.$emit("comEditInfo", item)
+                  // console.log(item)
+           },
+           userDetail(item){
+             EventBus.$emit("companyDetail", item )
+           },
+           deleteTable(item){
+        const index = this.posts.indexOf(item)
+        confirm('정말로 삭제하시겠습니까?') && this.posts.splice(index, 1)
+           },
    }
   }
 </script>
