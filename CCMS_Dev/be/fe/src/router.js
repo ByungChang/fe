@@ -32,6 +32,12 @@ export default new Router({
       component: () => import( './views/company.vue')
     },
     {
+      path: '/userManagement',
+      name: 'userManagement',
+      component: () => import( '@/components/userComponents/userManagement.vue')
+    },
+    
+    {
       path: '*',
       name: 'e404',
       component: () => import( './views/e404.vue')

@@ -50,10 +50,9 @@
    <v-list-item style="text-align:left" :to="to" >{{item.name}}</v-list-item>
       </template>
 
-      <!--table에서 active는 초록색, block은 빨간색으로 나타내는 template getColor methods사용-->
       <template v-slot:item.status="{ item }">
-              <v-btn  @click="statusChange(item.status)" :color="getColor(item.status)">{{item.status}}</v-btn>
-      </template>
+        <v-btn @click="statusChange(item)" :color="getColor(item.status)">{{item.status}}</v-btn>
+ </template>
 
       <!--table action의 아이템 영역에 아이콘 삽입-->
       <template v-slot:item.action="{ item }">
@@ -175,12 +174,13 @@
         EventBus.$emit("companyAdd", what)
       },
       statusChange(item){
-           this.number=this.posts.indexOf(item)
-            if(this.posts[this.number].status =='active'){
-              this.posts[this.number].status ='block'
+           this.number=this.companies.indexOf(item)
+            if(this.companies[this.number].status =='active'){
+              console.log(this.companies[this.number].status)
+              this.companies[this.number].status ='block'
             }
-            else if(this.posts[this.number].status =='block'){
-              this.posts[this.number].status ='active'
+            else if(this.companies[this.number].status =='block'){
+              this.companies[this.number].status ='active'
             }
    
               // itemIndex = this.posts.indexOf(item)
@@ -196,8 +196,8 @@
              EventBus.$emit("companyDetail", item )
            },
            deleteTable(item){
-        const index = this.posts.indexOf(item)
-        confirm('정말로 삭제하시겠습니까?') && this.posts.splice(index, 1)
+        const index = this.companies.indexOf(item)
+        confirm('정말로 삭제하시겠습니까?') && this.companies.splice(index, 1)
            },
    }
   }

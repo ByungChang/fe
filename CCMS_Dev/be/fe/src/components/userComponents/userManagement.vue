@@ -49,8 +49,8 @@
               </v-avatar>
  </template>
  
- <template v-slot:item.comName="{item}">
-   <v-list-item style="text-align:left">{{item.comName}}</v-list-item>
+ <template v-slot:item.userName="{item}">
+   <v-list-item style="text-align:left">{{item.userName}}</v-list-item>
  </template>
 
  
@@ -125,7 +125,7 @@
             value: 'name',
  
           },
-          { text: '사용자', value: 'comName', align:'center'},
+          { text: '사용자', value: 'userName', align:'center'},
           { text: '상태', value: 'status',align:'center',  },
           { text: 'HYPER VSN', value: 'hvNum',  },
           { text: '계약 만료일', value: 'endDay' , },
@@ -134,7 +134,7 @@
         posts: [
           {
             src:'aaa.png',
-            comName: '이마트 천호역점',
+            userName: '이마트 천호역점',
             status: 'active',
             hvNum: 30,
             endDay: '2019-12-20',
@@ -142,14 +142,14 @@
           },
           {
             src:'aaa.png',
-            comName: '롯데리아 길동사거리점',
+            userName: '롯데리아 길동사거리점',
             status: 'block',
             hvNum: 8,
             endDay: '2020-03-20',
           },
           {
             src:'aaa.png',
-            comName: '나이키 강동역점',
+            userName: '나이키 강동역점',
             status: 'block',
             hvNum: 8,
             endDay: '2021-01-01',

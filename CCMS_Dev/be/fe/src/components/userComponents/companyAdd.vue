@@ -53,16 +53,13 @@
       ></v-text-field>
     </v-col>
  
-    <v-col cols="12" >
-      <v-select
-         v-model="select"
-        :items="items"
-         label="Hypervision"
-         multiple
-         >
-         <v-btn>
-         </v-btn>
-      </v-select>
+     <v-col cols="12">
+      <v-text-field
+        v-model="hv"
+        :counter="20"
+        label="HyperVison*"
+        required
+      ></v-text-field>
     </v-col>
  
  
@@ -144,6 +141,7 @@ import { EventBus } from "./eventBus";
   export default {
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
+      readonly:true,
       formTitle:'',
       menu: false,
       dialog: false,
@@ -167,6 +165,7 @@ import { EventBus } from "./eventBus";
       imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
+      hv:'',
       
       date: '',
       dateRules:[
@@ -179,10 +178,6 @@ import { EventBus } from "./eventBus";
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
  
- 
-      items: [
-        'hv-1', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
-      ],
         actitems: [
         'active', 'block'
       ],

@@ -1,18 +1,15 @@
 <template>
+    
     <v-form
       ref="form"
       v-model="valid"
-      :lazy-validation="lazy"
     >
         <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
-        <v-dialog v-model="dialog"  max-width="600px">
-      <template v-slot:activator="{ on }">
-            <v-btn @click="btnClick" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-      </template>
+        <v-dialog v-model="dialog" scrollable max-width="600px">
       <v-card>
           <v-app-bar dark color="blue-grey">
         <v-card-title>
-          <span>기업 회원 수정</span>
+          <span>{{formTitle}}</span>
         </v-card-title>
           <v-spacer></v-spacer>
           <v-btn 
@@ -32,14 +29,14 @@
         v-model="name"
         :counter="20"
         :rules="nameRules"
-        label="기업명*"
+        label="사용자명*"
         required
       ></v-text-field>
     </v-col>
  
     <v-col cols="12">
       <v-select
-         v-model="actselect"
+         v-model="status"
         :items="actitems"
          label="활성화 여부*"
          >
@@ -55,20 +52,22 @@
         required
       ></v-text-field>
     </v-col>
- 
-    <v-col cols="12" >
-      <v-select
-         v-model="select"
-        :items="items"
-         label="Hypervision"
-         multiple
-         >
-         <v-btn>
-         </v-btn>
-      </v-select>
-    </v-col>
 
-    <v-col cols="12">
+
+     <v-col cols="12">
+      <v-text-field
+        v-model="hv"
+        :counter="20"
+        label="HyperVison*"
+        required
+      ></v-text-field>
+    </v-col>
+ 
+ 
+ 
+    
+ 
+   <!-- <v-col cols="12">
       <v-text-field
         v-model="business"
         :counter="20"
@@ -76,7 +75,7 @@
         label="사업자번호*"
         required
       ></v-text-field>
-    </v-col>
+    </v-col>-->
  
     <v-col cols="12">
       <v-text-field
@@ -110,21 +109,23 @@
       >
         <template v-slot:activator="{ on }">
           <v-text-field
-            v-model="date"
+            v-model="endDay"
+            :rules="endDayRules"
             label="만료일"
-            prepend-icon="event"
-            readonly
+            :readonly="readonly"
+            prepend-icon="mdi-calendar"
             v-on="on"
           ></v-text-field>
         </template>
         <v-date-picker locale="ko"
- v-model="date" @input="menu = false"></v-date-picker>
+ v-model="endDay" @input="menu = false"></v-date-picker>
       </v-menu>
     </v-col>
  
     <v-col cols="12" >
       <v-file-input
     :rules="imgRules"
+    v-model="picture"
     accept="image/png, image/jpeg, image/bmp"
     placeholder="사진 추가"
     prepend-icon="mdi-camera"
@@ -157,17 +158,25 @@
 </template>
  
 <script>
+
+import { EventBus } from "./eventBus";
+
   export default {
+
     data: () => ({
-      date: new Date().toISOString().substr(0, 10),
+      //endDay: new Date().toISOString().substr(0, 10),
+      formTitle:'',
       menu: false,
       dialog: false,
       valid: true,
       select: null,
-      actselect: null,
+      status: '',
+      picture: null,   
+      readonly: true,
+    
       name: '',
       nameRules: [
-        v => !!v || '기업명을 입력해주세요',
+        v => !!v || '사용자명을 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
  
@@ -177,17 +186,28 @@
         v => /.+@.+\..+/.test(v) || '잘못된 형식의 이메일 입니다',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
-      imagRules: [
+      imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
+      hv:'',
       
- 
-      business: '',
-      businessRules: [
-        v => !!v || '사업자번호를 입력해주세요',
-        v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
+      
+    endDay: '',
+      endDayRules:[
+      v => !!v || '만료일을 입력해주세요',
       ],
+    //   business: '',
+    //   businessRules: [
+    //     v => !!v || '사업자번호를 입력해주세요',
+    //     v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
+    //   ],
  
+      address: '',
+      addressRules: [
+        v => !!v || '주소를 입력해주세요',
+        v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
+      ],
+
       address: '',
       addressRules: [
         v => !!v || '주소를 입력해주세요',
@@ -201,14 +221,45 @@
       ],
  
  
-      items: [
-        'hv-1', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
-      ],
+    //   items: [
+    //     'hv-1', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
+    //   ],
         actitems: [
         'active', 'block'
       ],
     }),
- 
+    mounted(){
+        EventBus.$on("userAdd", (what) => {
+          //console.log(what)
+            // if(what==='add')
+            // {
+            //     this.formTitle='기업 추가'
+            // }
+            // if(what==='edit')
+            // {
+            //     this.formTitle='기업 정보 수정'
+            // }
+            if(what==='userAdd')
+            {
+                this.formTitle='사용자 추가'
+            }
+            if(what==='userEdit')
+            {
+                this.formTitle='사용자 정보 수정'
+            }
+             this.dialog = true;
+
+        
+    });
+    EventBus.$on("userEditInfo",(item) => {
+                           this.name=item.userName
+                           this.status=item.status
+                           this.endDay=item.endDay
+                           console.log(this.name)
+                           
+
+    });
+    },
     methods: {
       validate () {
         if (this.$refs.form.validate()) {
@@ -222,9 +273,7 @@
         this.$refs.form.resetValidation()
          
         },
-        btnClick(){
-            this.dialog=true
-        }
+        
      
     },
   }
