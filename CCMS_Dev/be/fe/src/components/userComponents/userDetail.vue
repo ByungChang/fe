@@ -114,14 +114,14 @@ export default {
           this.userAccess=true
     });
     EventBus.$on("companyDetail",(item) => {
-          this.lists2[0].title=item.comName   
+          this.lists2[0].title=item.name   
           this.lists2[1].title=item.status 
           //this.lists[2].title=item.hv
-          this.lists2[3].title=item.endDay  
+          this.lists2[3].title=item.expiredDate  
           this.lists2[4].title=item.comEmail  
           this.lists2[5].title=item.businessNum  
 
-          this.formTitle=item.comName
+          this.formTitle=item.name
 
           this.dialog=true
           this.userAccess=false

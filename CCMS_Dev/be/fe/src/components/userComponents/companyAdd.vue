@@ -5,7 +5,7 @@
       v-model="valid"
     >
         <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
-        <v-dialog v-model="dialog"  max-width="600px">
+        <v-dialog v-model="dialog" scrollable max-width="600px">
       <v-card>
           <v-app-bar dark color="blue-grey">
         <v-card-title>
@@ -36,7 +36,7 @@
  
     <v-col cols="12">
       <v-select
-         v-model="actselect"
+         v-model="status"
         :items="actitems"
          label="활성화 여부*"
          >
@@ -78,27 +78,6 @@
       ></v-text-field>
     </v-col>
  
-    <v-col cols="12">
-      <v-text-field
-        v-model="address"
-        :counter="30"
-        :rules="addressRules"
-        label="주소*"
-        required
-      ></v-text-field>
-    </v-col>
- 
-    <v-col cols="12">
-      <v-text-field
-        v-model="tel"
-        :counter="12"
-        :rules="telRules"
-        label="연락처*"
-        required
-      ></v-text-field>
-    </v-col>
- 
-   
     <v-col cols="12" >
       <v-menu
         v-model="menu"
@@ -112,8 +91,9 @@
           <v-text-field
             v-model="date"
             label="만료일"
+           :rules="dateRules"
+           :readonly="readonly"
             prepend-icon="mdi-calendar"
-            readonly
             v-on="on"
           ></v-text-field>
         </template>
@@ -124,6 +104,7 @@
  
     <v-col cols="12" >
       <v-file-input
+    v-model="picture"
     :rules="imgRules"
     accept="image/png, image/jpeg, image/bmp"
     placeholder="사진 추가"
@@ -162,13 +143,15 @@ import { EventBus } from "./eventBus";
 
   export default {
     data: () => ({
-      date: new Date().toISOString().substr(0, 10),
+      //date: new Date().toISOString().substr(0, 10),
       formTitle:'',
       menu: false,
       dialog: false,
       valid: true,
       select: null,
-      actselect: null,
+      status: '',
+      picture: null,
+
       name: '',
       nameRules: [
         v => !!v || '기업명을 입력해주세요',
@@ -185,23 +168,15 @@ import { EventBus } from "./eventBus";
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
       
- 
+      date: '',
+      dateRules:[
+      v => !!v || '만료일을 입력해주세요',
+      ],
+
       business: '',
       businessRules: [
         v => !!v || '사업자번호를 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
-      ],
- 
-      address: '',
-      addressRules: [
-        v => !!v || '주소를 입력해주세요',
-        v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
-      ],
- 
-      tel: '',
-      telRules: [
-        v => !!v || '연락처 입력해주세요',
-        v => (v && v.length <= 12) || '12글자 초과 하실 수 없습니다.',
       ],
  
  
@@ -224,6 +199,11 @@ import { EventBus } from "./eventBus";
             }
              this.dialog = true;
 
+    });
+    EventBus.$on("comEditInfo",(item) => {
+                           this.name=item.comName
+                           this.status=item.status
+                           this.endDay=item.endDay                           
     });
     },
     methods: {

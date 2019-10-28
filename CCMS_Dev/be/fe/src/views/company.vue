@@ -46,8 +46,8 @@
         </v-avatar>
       </template>
 
-       <template v-slot:item.comName="{item}">
-   <v-list-item style="text-align:left" :to="to" >{{item.comName}}</v-list-item>
+       <template v-slot:item.name="{item}">
+   <v-list-item style="text-align:left" :to="to" >{{item.name}}</v-list-item>
       </template>
 
       <!--table에서 active는 초록색, block은 빨간색으로 나타내는 template getColor methods사용-->
@@ -108,31 +108,31 @@
         companies: [
           {
             src:'korea.png',
-            comName: '강동구',
+            name: '강동구',
             status: 'active',
             userNum: 20,
             hvNum: 30,
-            endDay: '2019-12-20',
+            expiredDate: '2019-12-20',
             businessNum:48850703,
             comEmail:'la703@naver.com'
           },
           {
             src:'korea.png',
-            comName: '아디다스',
+            name: '아디다스',
             status: 'block',
             userNum: 27,
             hvNum: 8,
-            endDay: '2020-03-20',
+            expiredDate: '2020-03-20',
             businessNum: 66473248,
             comEmail:'y3333@cosweal.com'
           },
           {
             src:'korea.png',
-            comName: '나이키',
+            name: '나이키',
             status: 'block',
             userNum: 27,
             hvNum: 8,
-            endDay: '2021-01-01',
+            expiredDate: '2021-01-01',
             businessNum: 25254546,
             comEmail:'gitt@gmail.com'
           },

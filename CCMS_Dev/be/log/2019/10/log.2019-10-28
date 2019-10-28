@@ -409,3 +409,16 @@
 2019-10-28 15:57:23 [METHOD] - "/board"에 get실행완료
 2019-10-28 15:57:24 [METHOD] - "/company"에 get실행
 2019-10-28 15:57:24 [METHOD] - "/company"에 get실행완료
+2019-10-28 16:34:30 [METHOD] - "/board"에 get실행
+2019-10-28 16:34:30 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 16:34:30 [METHOD] - "/board"에 get실행완료
+2019-10-28 16:34:32 [METHOD] - "/company"에 get실행
+2019-10-28 16:34:32 [METHOD] - "/company"에 get실행완료
+2019-10-28 16:40:23 [METHOD] - "/company"에 get실행
+2019-10-28 16:40:23 [METHOD] - "/company"에 get실행완료
+2019-10-28 16:48:24 [METHOD] - "/company"에 get실행
+2019-10-28 16:48:24 [METHOD] - "/company"에 get실행완료
+2019-10-28 16:52:05 [METHOD] - "/company"에 get실행
+2019-10-28 16:52:05 [METHOD] - "/company"에 get실행완료
+2019-10-28 16:53:25 [METHOD] - "/company"에 get실행
+2019-10-28 16:53:25 [METHOD] - "/company"에 get실행완료
