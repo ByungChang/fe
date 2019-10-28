@@ -7,7 +7,7 @@ const createError = require('http-errors');
 const path = require('path');
 //const passport = require('passport');
 const history = require('connect-history-api-fallback');
-const log = require('logerator')
+const log = require('logerator')//
 
 //var cors = require('cors');
 const { sequelize } = require('./models');
