@@ -63,20 +63,6 @@
       ></v-text-field>
     </v-col>
  
- 
- 
-    
- 
-   <!-- <v-col cols="12">
-      <v-text-field
-        v-model="business"
-        :counter="20"
-        :rules="businessRules"
-        label="사업자번호*"
-        required
-      ></v-text-field>
-    </v-col>-->
- 
     <v-col cols="12">
       <v-text-field
         v-model="address"
@@ -230,15 +216,7 @@ import { EventBus } from "./eventBus";
     }),
     mounted(){
         EventBus.$on("userAdd", (what) => {
-          //console.log(what)
-            // if(what==='add')
-            // {
-            //     this.formTitle='기업 추가'
-            // }
-            // if(what==='edit')
-            // {
-            //     this.formTitle='기업 정보 수정'
-            // }
+     
             if(what==='userAdd')
             {
                 this.formTitle='사용자 추가'
@@ -248,16 +226,12 @@ import { EventBus } from "./eventBus";
                 this.formTitle='사용자 정보 수정'
             }
              this.dialog = true;
-
-        
     });
     EventBus.$on("userEditInfo",(item) => {
                            this.name=item.userName
                            this.status=item.status
                            this.endDay=item.endDay
                            console.log(this.name)
-                           
-
     });
     },
     methods: {
@@ -266,12 +240,10 @@ import { EventBus } from "./eventBus";
           this.snackbar = true
         }
       },
- 
        modalClose(){
         this.dialog = false
         this.$refs.form.reset()
         this.$refs.form.resetValidation()
-         
         },
         
      

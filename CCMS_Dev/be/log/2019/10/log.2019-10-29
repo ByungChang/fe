@@ -9,3 +9,96 @@
 2019-10-29 13:16:13 [METHOD] - "/board/comment"에 post실행종료
 2019-10-29 13:16:16 [METHOD] - "/board/comment/add"에 post실행
 2019-10-29 13:16:16 [METHOD] - "/board/comment/add"에 post실행완료
+2019-10-29 14:15:58 [METHOD] - "/board"에 get실행
+2019-10-29 14:15:58 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 14:15:58 [METHOD] - "/board"에 get실행완료
+2019-10-29 14:16:07 [METHOD] - "/board/comment"에 post실행
+2019-10-29 14:16:07 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 14:16:25 [METHOD] - "/board"에 put실행
+2019-10-29 14:16:25 [QUERY] - UPDATE `boards` SET `title`=?,`content`=?,`updatedAt`=? WHERE `id` = ?
+2019-10-29 14:16:25 [METHOD] - "/board"에 put실행완료
+2019-10-29 14:16:29 [METHOD] - "/board"에 get실행
+2019-10-29 14:16:29 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 14:16:30 [METHOD] - "/board"에 get실행완료
+2019-10-29 14:18:30 [METHOD] - "/board"에 post실행
+2019-10-29 14:18:30 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-29 14:18:34 [METHOD] - "/board"에 get실행
+2019-10-29 14:18:34 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 14:18:34 [METHOD] - "/board"에 get실행완료
+2019-10-29 14:18:48 [METHOD] - "/board"에 post실행
+2019-10-29 14:18:48 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-29 14:18:49 [METHOD] - "/board"에 get실행
+2019-10-29 14:18:49 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 14:18:49 [METHOD] - "/board"에 get실행완료
+2019-10-29 14:19:26 [METHOD] - "/company"에 get실행
+2019-10-29 14:19:26 [METHOD] - "/company"에 get실행완료
+2019-10-29 14:27:59 [METHOD] - "/board/comment"에 post실행
+2019-10-29 14:27:59 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 14:29:03 [METHOD] - "/board/comment"에 post실행
+2019-10-29 14:29:03 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 14:34:26 [METHOD] - "/board"에 put실행
+2019-10-29 14:34:26 [QUERY] - UPDATE `boards` SET `title`=?,`content`=?,`updatedAt`=? WHERE `id` = ?
+2019-10-29 14:34:26 [METHOD] - "/board"에 put실행완료
+2019-10-29 14:34:33 [METHOD] - "/board"에 get실행
+2019-10-29 14:34:33 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 14:34:33 [METHOD] - "/board"에 get실행완료
+2019-10-29 14:40:15 [METHOD] - "/board/comment"에 post실행
+2019-10-29 14:40:15 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:53:04 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:53:04 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:58:59 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:58:59 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:59:01 [METHOD] - "/board"에 delete실행
+2019-10-29 15:59:01 [QUERY] - DELETE FROM `boards` WHERE `id` = 46
+2019-10-29 15:59:01 [METHOD] - "/board"에 delete실행완료
+2019-10-29 15:59:02 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:02 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:02 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:05 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:05 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:05 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:08 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:08 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:08 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:12 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:59:12 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:59:16 [METHOD] - "/board"에 delete실행
+2019-10-29 15:59:16 [QUERY] - DELETE FROM `boards` WHERE `id` = 5
+2019-10-29 15:59:16 [METHOD] - "/board"에 delete실행완료
+2019-10-29 15:59:16 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:16 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:16 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:19 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:59:19 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:59:21 [METHOD] - "/board"에 delete실행
+2019-10-29 15:59:21 [QUERY] - DELETE FROM `boards` WHERE `id` = 8
+2019-10-29 15:59:21 [METHOD] - "/board"에 delete실행완료
+2019-10-29 15:59:21 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:21 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:21 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:24 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:59:24 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:59:26 [METHOD] - "/board"에 delete실행
+2019-10-29 15:59:26 [QUERY] - DELETE FROM `boards` WHERE `id` = 9
+2019-10-29 15:59:26 [METHOD] - "/board"에 delete실행완료
+2019-10-29 15:59:27 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:27 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:27 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:37 [METHOD] - "/board"에 post실행
+2019-10-29 15:59:37 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-29 15:59:38 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:38 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:38 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:46 [METHOD] - "/board"에 post실행
+2019-10-29 15:59:46 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-29 15:59:52 [METHOD] - "/board"에 get실행
+2019-10-29 15:59:52 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 15:59:52 [METHOD] - "/board"에 get실행완료
+2019-10-29 15:59:54 [METHOD] - "/board/comment"에 post실행
+2019-10-29 15:59:54 [METHOD] - "/board/comment"에 post실행종료
+2019-10-29 15:59:59 [METHOD] - "/board"에 put실행
+2019-10-29 15:59:59 [QUERY] - UPDATE `boards` SET `title`=?,`content`=?,`updatedAt`=? WHERE `id` = ?
+2019-10-29 15:59:59 [METHOD] - "/board"에 put실행완료
+2019-10-29 16:00:00 [METHOD] - "/board"에 get실행
+2019-10-29 16:00:00 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-29 16:00:00 [METHOD] - "/board"에 get실행완료

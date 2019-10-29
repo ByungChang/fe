@@ -2,7 +2,7 @@
   <v-card> 
     <companyAdd></companyAdd>
     <userDetail></userDetail>
-
+    <ConfirmSnackBar></ConfirmSnackBar>
     <v-card-title>
       기업 관리
       <v-spacer></v-spacer>
@@ -58,7 +58,7 @@
       <template v-slot:item.action="{ item }">
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn @click="btnClick('edit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
       </template>
     </v-data-table>
     
@@ -77,14 +77,15 @@
   import axios from 'axios'
   import companyAdd from '@/components/userComponents/companyAdd.vue'
   import userDetail from '@/components/userComponents/userDetail.vue'
-
+  import ConfirmSnackBar from '@/components/userComponents/ConfirmSnackBar.vue'
   import { EventBus } from "../components/userComponents/eventBus";
 
   export default {
     components:{
       //userFooterComponent
       companyAdd,
-      userDetail
+      userDetail,
+      ConfirmSnackBar
     },
     data () {
       return {
@@ -196,10 +197,10 @@
            userDetail(item){
              EventBus.$emit("companyDetail", item )
            },
-           deleteTable(item){
-        const index = this.companies.indexOf(item)
-        confirm('정말로 삭제하시겠습니까?') && this.companies.splice(index, 1)
-           },
+           deleteComment(item){
+                EventBus.$emit("triggerDelComment",item)//item.id,this.comments);
+                console.log('emit됨')
+            },
    }
   }
 </script>

@@ -53,7 +53,6 @@
         <v-list-item
           v-for="(item, i) in hvlists"
           :key="i"
-          @click=""
         >
           <v-list-item-content>
             <v-list-item-title style="text-align:right" v-text="item"></v-list-item-title>
@@ -61,15 +60,42 @@
         </v-list-item>
       </v-list-group>
 </v-list>
-<!--<v-list v-else>
-      <v-list-item v-for="(item, i) in lists2" 
-        :key="i">
+<v-list v-else two-line>
+      <v-list-item  
+       v-for="(item, i) in lists2" 
+       :key="i" >
+        <v-list-item-icon>
+          <v-icon color="indigo">{{item.icon}}</v-icon>
+        </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title >{{ item.title }}</v-list-item-title>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-subtitle>{{item.titleHead}}</v-list-item-subtitle> 
         </v-list-item-content>
-      </v-list-item>
-<v-divider inset></v-divider>
-</v-list>-->
+      </v-list-item> 
+
+        <v-list-group
+        color="indigo"
+      >
+        <template v-slot:activator>
+          <v-list-item-icon>
+            <v-icon color="indigo">mdi-help</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>HV title을 가져와야함</v-list-item-title>
+            <v-list-item-subtitle>하이퍼비전 목록</v-list-item-subtitle>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item
+          v-for="(item, i) in hvlists"
+          :key="i"
+        >
+          <v-list-item-content>
+            <v-list-item-title style="text-align:right" v-text="item"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-group>
+</v-list>
           </v-card-text>
   </v-card>
 </v-dialog>
@@ -100,12 +126,11 @@ export default {
 
          lists2: 
             [
-        { title: '', icon: 'mdi-account-check',},
-        { title: '', icon: 'mdi-lock', },
-        { title: '', icon: 'mdi-antenna', },
-        { title: '', icon: 'mdi-calendar',},
-        { title: '', icon: 'mdi-email', },
-        { title: '', icon: 'mdi-domain', },
+        { title: '', icon: 'mdi-account-check',titleHead:'기업'},
+        { title: '', icon: 'mdi-lock',titleHead:'활성화 상태' },
+        { title: '', icon: 'mdi-calendar',titleHead:'계약 만료일'},
+        { title: '', icon: 'mdi-email',titleHead:'이메일' },
+        { title: '', icon: 'mdi-domain',titleHead:'사업자 번호' },
 
            ],
         }
