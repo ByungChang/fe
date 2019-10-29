@@ -37,6 +37,11 @@ export default {
         });
     
     },
+    methods:{
+        confirmNo(){
+            this.confirm=false
+        }
+    }
     
 }
 </script>
