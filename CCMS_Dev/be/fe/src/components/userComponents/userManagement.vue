@@ -3,6 +3,7 @@
 <v-card> 
   <userAdd></userAdd>
   <userDetail></userDetail>
+  <ConfirmSnackBar></ConfirmSnackBar>
 
     <v-card-title>
       사용자 관리
@@ -77,7 +78,7 @@
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
  
@@ -101,13 +102,16 @@
 <script>
    import userDetail from '@/components/userComponents/userDetail.vue'
    import userAdd from '@/components/userComponents/userAdd.vue'
+   import ConfirmSnackBar from './ConfirmSnackBar.vue'
+
    import { EventBus } from "./eventBus";
 
   export default {
     components:{
       //userFooterComponent
       userAdd,
-      userDetail
+      userDetail,
+      ConfirmSnackBar
     },
     data () {
       
@@ -138,6 +142,7 @@
             status: 'active',
             hvNum: 30,
             endDay: '2019-12-20',
+            userEmail: 'abc@co.kr'
             //action:'오니?',
           },
           {
@@ -146,6 +151,8 @@
             status: 'block',
             hvNum: 8,
             endDay: '2020-03-20',
+            userEmail: 'abc@co.kr'
+
           },
           {
             src:'aaa.png',
@@ -153,6 +160,8 @@
             status: 'block',
             hvNum: 8,
             endDay: '2021-01-01',
+            userEmail: 'abc@co.kr'
+
           },
           
         ],
@@ -160,9 +169,6 @@
       }
     },
      methods:{
-            btnStatus(){
-                
-            },
             getColor(status)
             {
               if(status=='active')
@@ -191,16 +197,18 @@
            },
            editTable(item){
              EventBus.$emit("userEditInfo", item)
+             console.log(this.item.userEmail)
+
                   // console.log(item)
            },
            userDetail(item){
              EventBus.$emit("userDetail", item)
            },
     
-           deleteTable(item){
-        const index = this.posts.indexOf(item)
-        confirm('정말로 삭제하시겠습니까?') && this.posts.splice(index, 1)
-           },
+           deleteComment(item){
+             EventBus.$emit("DelComment",item)//item.id,this.comments);
+             console.log('emit됨')
+            },
         }
   }
 </script>

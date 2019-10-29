@@ -125,9 +125,9 @@
       <v-card-actions>
         <v-spacer></v-spacer>
          <v-btn
-         :disabled="!valid"
+         :disabled="valid"
          color="success"
-        @click="validate"
+         @click="saveClick()"
          >
          저장
          </v-btn>
@@ -139,6 +139,8 @@
          </v-btn>
         </v-card-actions>
       </v-card>
+         <AlertSnackBar></AlertSnackBar>
+
     </v-dialog>
     </v-form>
 </template>
@@ -146,9 +148,13 @@
 <script>
 
 import { EventBus } from "./eventBus";
+import AlertSnackBar from './AlertSnackBar'
+
 
   export default {
-
+      components:{
+      AlertSnackBar
+      },
     data: () => ({
       //endDay: new Date().toISOString().substr(0, 10),
       formTitle:'',
@@ -226,26 +232,25 @@ import { EventBus } from "./eventBus";
                 this.formTitle='사용자 정보 수정'
             }
              this.dialog = true;
-    });
-    EventBus.$on("userEditInfo",(item) => {
-                           this.name=item.userName
-                           this.status=item.status
-                           this.endDay=item.endDay
-                           console.log(this.name)
-    });
-    },
-    methods: {
-      validate () {
-        if (this.$refs.form.validate()) {
-          this.snackbar = true
-        }
-      },
-       modalClose(){
-        this.dialog = false
-        this.$refs.form.reset()
-        this.$refs.form.resetValidation()
+         });
+         EventBus.$on("userEditInfo",(item) => {
+            this.name=item.userName
+            this.status=item.status
+            this.endDay=item.endDay
+            this.email=item.userEmail
+            console.log(this.name)
+         });
         },
-        
+       methods: {
+      
+        modalClose(){
+          this.dialog = false
+          this.$refs.form.reset()
+          this.$refs.form.resetValidation()
+          },
+        saveClick() {
+          EventBus.$emit("SaveItem",('user'))
+          },
      
     },
   }

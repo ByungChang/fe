@@ -14,23 +14,32 @@
     </v-snackbar>
 </template>
 <script>
-import axios from 'axios'
-import eventBus from "./eventBus.js";
+//import axios from 'axios'
+  import { EventBus } from "./eventBus";
 
 export default {
     data() {
         return {
             alert:false,
+            access:false
         }
     },
     mounted(){
-        eventBus.$on('triggerAlert', (item) => { 
-            this.alert = true
+        EventBus.$on("SaveItem",(item) => { 
+             this.alert = true
+            if(item=='user')
+            this.access=false
+
+            if(item=='company')
+            this.access=true
         });
     },
     methods:{
         alertConfirm(){
-            location.href='/board'
+            if(this.access==false)
+            location.href='/userManagement'
+            if(this.access==true)
+            location.href='/company'
         }
     }
 }

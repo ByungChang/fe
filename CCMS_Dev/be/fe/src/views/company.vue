@@ -198,7 +198,7 @@
              EventBus.$emit("companyDetail", item )
            },
            deleteComment(item){
-                EventBus.$emit("triggerDelComment",item)//item.id,this.comments);
+                EventBus.$emit("DelComment",item)//item.id,this.comments);
                 console.log('emit됨')
             },
    }

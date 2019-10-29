@@ -23,7 +23,13 @@ export default {
         }
     },
     mounted(){
-        EventBus.$on("triggerDelComment", (item/*item,comments*/) => { 
+        EventBus.$on("DelComment", (item/*item,comments*/) => { 
+            this.confirm = true
+            // this.commentId = item
+            // this.comments = comments
+            // this.CommentORPost = 'Comment'
+        });
+        EventBus.$on("Del", (item/*item,comments*/) => { 
             this.confirm = true
             // this.commentId = item
             // this.comments = comments

@@ -6,6 +6,7 @@
     >
         <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
         <v-dialog v-model="dialog" scrollable max-width="600px">
+          <AlertSnackBar></AlertSnackBar>
       <v-card>
           <v-app-bar dark color="blue-grey">
         <v-card-title>
@@ -137,8 +138,13 @@
 <script>
 import axios from 'axios'
 import { EventBus } from "./eventBus";
+  import AlertSnackBar from './AlertSnackBar.vue'
+
 
   export default {
+      components:{
+        AlertSnackBar
+      },
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
       readonly:true,
@@ -203,19 +209,20 @@ import { EventBus } from "./eventBus";
     },
     methods: {
       saveClick () {
-        axios.post('/api/company', {
-          name : this.name,
-          busNumber : this.business,
-          address : this.address,
-          tel : this.tel,
-          expiredDate : this.date,
-        })
-        .then((r) => {
-            console.log('post완료')
-        })
-        .catch((e) => {
-            console.error(e.message)
-        })
+        // axios.post('/api/company', {
+        //   name : this.name,
+        //   busNumber : this.business,
+        //   address : this.address,
+        //   tel : this.tel,
+        //   expiredDate : this.date,
+        // })
+        // .then((r) => {
+        //     console.log('post완료')
+        // })
+        // .catch((e) => {
+        //     console.error(e.message)
+        // })
+        EventBus.$emit("SaveItem",('company'))
       },
  
        modalClose(){
