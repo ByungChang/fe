@@ -57,9 +57,9 @@
      <v-col cols="12">
       <v-text-field
         v-model="hv"
-        :counter="20"
         label="HyperVison*"
         required
+        prepend-inner-icon="mdi-plus"
       ></v-text-field>
     </v-col>
  
@@ -99,7 +99,7 @@
             :rules="endDayRules"
             label="만료일"
             :readonly="readonly"
-            prepend-icon="mdi-calendar"
+            prepend-inner-icon="mdi-calendar"
             v-on="on"
           ></v-text-field>
         </template>
@@ -114,7 +114,7 @@
     v-model="picture"
     accept="image/png, image/jpeg, image/bmp"
     placeholder="사진 추가"
-    prepend-icon="mdi-camera"
+    prepend-inner-icon="mdi-camera"
     label="사진"
   ></v-file-input>
     </v-col>
