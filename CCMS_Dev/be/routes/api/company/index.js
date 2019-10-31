@@ -10,6 +10,7 @@ router.use(express.json())
 router.get('/', async (req, res, next) => {
   try{
     logger.method('"/company"에 get실행')
+
     let result = await Branch.findAll({
       where:{
         isMain: 'Y'
@@ -49,7 +50,6 @@ router.post('/', async (req, res, next) => {
       }
     })
     var companyId = result.dataValues.id  
-    console.log(companyId )
     await Branch.create({
       name : `${name} 본점`,
       expiredDate,
@@ -73,6 +73,30 @@ router.post('/', async (req, res, next) => {
     res.send({ success: false, msg: e.message })
   }
 });
+
+router.post('/user', async (req, res, next) => {
+try{
+  logger.method('"/company/user"에 post실행')
+  let result = await Branch.findAll({
+    where:{
+      companyId: req.body.companyId
+    }},
+    {
+      logging: (str) => {
+      str = str.substr(21);
+      logger.query(str)
+    }
+  })
+  logger.method('"/company/user"에 post실행완료')
+  //res.redirect('public/index.html');
+  res.send({users : result})
+}
+catch(e){
+  logger.error('"/company/user"에 post에서 ERROR' + ' : ' + e)
+  res.send({ success: false, msg: e.message })
+}
+});
+
 
 router.all('*', function (req, res, next) {
   logger.error('"/company"에 없는 경로')

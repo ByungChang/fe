@@ -34,6 +34,7 @@ export default new Router({
     {
       path: '/userManagement',
       name: 'userManagement',
+      props:true,
       component: () => import( '@/components/userComponents/userManagement.vue')
     },
     

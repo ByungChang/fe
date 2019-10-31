@@ -1,7 +1,7 @@
 <template>
   <v-card>   
     <v-card-title>
-      게시판
+      Q&A
       <v-spacer></v-spacer>
       <v-text-field 
         v-model="search"
@@ -116,11 +116,7 @@
         getMd: '',
         
         form: {
-          id:1,
-          title: '',
-          writer:'',
-          content: '',
-          createdAt:''
+
         },
         titleRules: [
             v => !!v || '제목을 입력해주세요',
@@ -175,9 +171,17 @@
             
             this.posts = r.data.posts
             this.posts.reverse()
-            this.posts.sort(function (a, b) { 
-            return a.board_post.name < b.board_post.name ? -1 : 1;  
-        });
+            this.posts.sort(function (a, b) {
+            
+              if(a.board_post.name !== b.board_post.name){
+                return a.board_post.name < b.board_post.name ? -1 : 1;  
+              }
+              else
+                return a.id > b.id ? -1 : 1;
+            });
+            // this.posts.sort(function (a, b) { 
+            //   return a.board_post.name < b.board_post.name ? -1 : 1;  
+            // });
         console.log(this.posts)
     })
     .catch((e) => {
@@ -215,7 +219,6 @@
         }
       },
       getColor (item) {
-          console.log('겟컬러')
           if (item === '공지') return 'red'
               else return 'grey'
       },
@@ -226,6 +229,8 @@
           this.form.title = item.title
           this.form.writer = item.user.userNm
           this.form.content = item.content
+          if(item.board_files.length !== 0)
+            this.form.file = item.board_files
 
           if(item.createdAt.length < 10){
               var today = new Date()
@@ -239,7 +244,6 @@
           })
           .then((r) => {
               let j=0;
-              console.log(r)
               for(j=0;j<r.data.comments.length;j++){
                   var y = r.data.comments[j].createdAt.substr(0, 4);
                   var m = r.data.comments[j].createdAt.substr(5, 2);

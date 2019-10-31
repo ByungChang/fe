@@ -438,3 +438,112 @@
 2019-10-28 17:45:49 [METHOD] - "/company"에 get실행완료
 2019-10-28 17:52:33 [METHOD] - "/company"에 get실행
 2019-10-28 17:52:33 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:08:27 [METHOD] - "/board"에 get실행
+2019-10-28 18:08:27 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:08:27 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:08:32 [METHOD] - "/company"에 get실행
+2019-10-28 18:08:32 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:12:29 [METHOD] - "/company"에 get실행
+2019-10-28 18:12:29 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:12:30 [METHOD] - "/board"에 get실행
+2019-10-28 18:12:30 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:12:30 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:12:31 [METHOD] - "/company"에 get실행
+2019-10-28 18:12:31 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:12:32 [METHOD] - "/board"에 get실행
+2019-10-28 18:12:32 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:12:32 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:12:33 [METHOD] - "/company"에 get실행
+2019-10-28 18:12:33 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:12:36 [METHOD] - "/board"에 get실행
+2019-10-28 18:12:36 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:12:36 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:12:55 [METHOD] - "/company"에 get실행
+2019-10-28 18:12:55 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:15:14 [METHOD] - "/company"에 get실행
+2019-10-28 18:15:14 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:18:49 [METHOD] - "/company"에 get실행
+2019-10-28 18:18:49 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:18:55 [METHOD] - "/company"에 get실행
+2019-10-28 18:18:55 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:18:57 [METHOD] - "/company"에 get실행
+2019-10-28 18:18:57 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:20:02 [METHOD] - "/company"에 get실행
+2019-10-28 18:20:02 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:23:04 [METHOD] - "/board"에 get실행
+2019-10-28 18:23:04 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:23:04 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:23:08 [METHOD] - "/board"에 post실행
+2019-10-28 18:23:08 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:23:09 [METHOD] - "/board"에 get실행
+2019-10-28 18:23:09 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:23:09 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:23:15 [METHOD] - "/board"에 post실행
+2019-10-28 18:23:15 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:23:16 [METHOD] - "/board"에 get실행
+2019-10-28 18:23:16 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:23:16 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:23:46 [METHOD] - "/board"에 get실행
+2019-10-28 18:23:46 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:23:46 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:23:59 [METHOD] - "/board"에 post실행
+2019-10-28 18:23:59 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:24:00 [METHOD] - "/board"에 get실행
+2019-10-28 18:24:00 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:24:00 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:25:54 [METHOD] - "/board"에 get실행
+2019-10-28 18:25:54 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:25:54 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:26:02 [METHOD] - "/board"에 post실행
+2019-10-28 18:26:02 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:26:03 [METHOD] - "/board"에 get실행
+2019-10-28 18:26:03 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:26:03 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:26:23 [METHOD] - "/board"에 post실행
+2019-10-28 18:26:23 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:26:24 [METHOD] - "/board"에 get실행
+2019-10-28 18:26:24 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:26:24 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:30:30 [METHOD] - "/board"에 get실행
+2019-10-28 18:30:30 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:30:30 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:30:35 [METHOD] - "/board"에 post실행
+2019-10-28 18:30:35 [ERROR] - "/board"에 post에서 ERROR : TypeError: Board.create(...).success is not a function
+2019-10-28 18:30:36 [METHOD] - "/board"에 get실행
+2019-10-28 18:30:36 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
+2019-10-28 18:30:36 [METHOD] - "/board"에 get실행완료
+2019-10-28 18:30:55 [METHOD] - "/company"에 get실행
+2019-10-28 18:30:55 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:31:04 [METHOD] - "/company"에 get실행
+2019-10-28 18:31:04 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:47:59 [METHOD] - "/company"에 get실행
+2019-10-28 18:47:59 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:49:39 [METHOD] - "/company"에 get실행
+2019-10-28 18:49:39 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:56:32 [METHOD] - "/company"에 get실행
+2019-10-28 18:56:32 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:56:39 [METHOD] - "/company"에 get실행
+2019-10-28 18:56:39 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:59:27 [METHOD] - "/company"에 get실행
+2019-10-28 18:59:27 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:59:29 [ERROR] - "/company"에 없는 경로
+2019-10-28 19:00:09 [METHOD] - "/company"에 get실행
+2019-10-28 19:00:09 [METHOD] - "/company"에 get실행완료
+2019-10-28 19:00:10 [METHOD] - "/company/user"에 get실행
+2019-10-28 19:00:10 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-28 19:00:15 [METHOD] - "/company/user"에 get실행
+2019-10-28 19:00:15 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-28 19:00:17 [METHOD] - "/company"에 get실행
+2019-10-28 19:00:17 [METHOD] - "/company"에 get실행완료
+2019-10-28 19:00:19 [METHOD] - "/company"에 get실행
+2019-10-28 19:00:19 [METHOD] - "/company"에 get실행완료
+2019-10-28 19:00:20 [METHOD] - "/company/user"에 get실행
+2019-10-28 19:00:20 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-28 19:00:56 [METHOD] - "/company"에 get실행
+2019-10-28 19:00:56 [METHOD] - "/company"에 get실행완료
+2019-10-28 19:00:58 [METHOD] - "/company/user"에 get실행
+2019-10-28 19:00:58 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-28 19:06:42 [METHOD] - "/company"에 get실행
+2019-10-28 19:06:42 [METHOD] - "/company"에 get실행완료
+2019-10-28 19:06:44 [METHOD] - "/company/user"에 get실행
+2019-10-28 19:06:44 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value

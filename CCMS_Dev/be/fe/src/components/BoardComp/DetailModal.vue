@@ -5,7 +5,6 @@
       persistent
     >
         <ConfirmSnackBar></ConfirmSnackBar>
-
         <v-card>
             <v-system-bar window dark>
                 <span>작성일 : {{form.createdAt}}</span>
@@ -30,9 +29,9 @@
             </v-system-bar>
         
             <v-card-title 
-            style="color:white;background-color:#230871">{{form.title}}
+                style="color:white;background-color:#230871">{{form.title}}
             </v-card-title>
-            
+
             <v-container
                 class="overflow-y-auto"
                 style="max-height: 500px"
@@ -41,6 +40,21 @@
                 <v-layout wrap row>
                     <v-flex>
                         <viewer  :value="form.content" style="min-height:300px;"  class="ma-4"></viewer>
+                        <v-divider style="background-color:#000000" ></v-divider>
+                            <v-layout wrap row v-if="form.file">
+                                <v-flex>
+                                    <v-list>
+                                        <v-list-item
+                                            v-for="item in form.file"
+                                            :key="item.file.orgName"
+                                        >
+                                            <v-list-item-title>
+                                                <v-btn depressed small @click="fileDown(item.file.orgName)"><v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}</v-btn>
+                                            </v-list-item-title>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-flex>
+                            </v-layout>
                         <v-divider style="background-color:#000000" ></v-divider>
                         <v-list three-line>
                             <v-list-item
@@ -54,7 +68,7 @@
                         
                                 <v-list-item-title>
                                     <strong>{{item.user.userNm}}</strong> {{item.createdAt}}<!--item.title-->
-                                    <v-list-item-content>{{item.content}} </v-list-item-content>
+                                    <v-list-item-content>{{item.content}} </v-list-item-content>  
                                 </v-list-item-title>
 
                                 <v-icon v-if="user === item.user.userNm"
@@ -116,13 +130,8 @@
                 confirmComment:false,
                 confirmCommentText:'',
                 flag:'',
-                form: {
-                    id:1,
-                    title: '',
-                    writer:'',
-                    content: '',
-                    createdAt:''
-                },
+                list:[1,2,3,4,5],
+                form: {},
                 comments:[],
                 commentAdd:"",
                 user:'',
@@ -138,7 +147,9 @@
             DModalClose(){
                 this.form.title = ''
                 this.form.content = ''
+                this.form.file=''
                 this.DModal = false
+                
             },
             UModalClose(){
                 this.form.title = ''
@@ -172,7 +183,8 @@
                         content:'',
                         createdAt:'',
                         id:0,
-                        }
+                    }
+
                     const comment = {
                         content: this.commentAdd,
                         boardId: this.boardId,
@@ -199,6 +211,24 @@
                 this.DModal = false
                 eventBus.$emit('triggerEditModal',item);
             },
+            fileDown(item){
+                let fileName = item;
+                console.log(fileName)
+                axios.post('/api/board/fileDown',{fileName : fileName}, {
+                    responseType: "blob"
+                }).then((response) => {
+                    var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                    var fileLink = document.createElement('a');
+
+                    fileLink.href = fileURL;
+                    fileLink.setAttribute('download', fileName);
+                    document.body.appendChild(fileLink);
+
+                    fileLink.click();
+                }).catch((e)=> {
+                    console.log(e);
+                })
+            }
         },
         components:{
             'ConfirmSnackBar':ConfirmSnackBar

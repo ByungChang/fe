@@ -56,8 +56,6 @@ export default {
         {
             var aa = "(data:image/png;base64,"
 
-
-
             this.commentSell.content = this.commentModify
             this.commentDialog=false
 
@@ -67,13 +65,6 @@ export default {
             )
             .then((r) => {
                 let i=0;
-                
-                // 이렇게 되는지 확인만 해줘요~~
-                /*
-                comments.array.forEach(comment => {
-                    comment.id === this.commentId
-                });
-                */
 
                 for(i=0;i<this.comments.length;i++){
                     if(this.comments[i].id === this.commentId){

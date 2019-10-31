@@ -37,17 +37,17 @@
           class="ma-3"
           size="100"        
         >
-          <v-img :src="require(`@/assets/${item.src}`)"></v-img>
+          <v-img :src="require(`@/assets/aaa.png`)"></v-img>
         </v-avatar>
         <v-avatar v-else
           size="40"        
         >
-          <v-img :src="require(`@/assets/${item.src}`)"></v-img>
+          <v-img :src="require(`@/assets/aaa.png`)"></v-img>
         </v-avatar>
       </template>
 
        <template v-slot:item.name="{item}">
-   <v-list-item style="text-align:left" :to="to" >{{item.name}}</v-list-item>
+   <v-list-item style="text-align:left" @click="companyDetail(item)" >{{item.name}}</v-list-item>
       </template>
 
       <template v-slot:item.status="{ item }">
@@ -74,11 +74,15 @@
 </template>
  
 <script>
+  import Vue from "vue"
+  import moment from "moment"
+  import VueMomentJS from "vue-momentjs"
   import axios from 'axios'
   import companyAdd from '@/components/userComponents/companyAdd.vue'
   import userDetail from '@/components/userComponents/userDetail.vue'
-
   import { EventBus } from "../components/userComponents/eventBus";
+
+  Vue.use(VueMomentJS, moment)
 
   export default {
     components:{
@@ -105,36 +109,36 @@
           { text: '정보보기/수정/삭제', value: 'action',sortable: false, align:'center'},
         ],
         companies: [
-          {
-            src:'korea.png',
-            name: '강동구',
-            status: 'active',
-            userNum: 20,
-            hvNum: 30,
-            expiredDate: '2019-12-20',
-            businessNum:48850703,
-            comEmail:'la703@naver.com'
-          },
-          {
-            src:'korea.png',
-            name: '아디다스',
-            status: 'block',
-            userNum: 27,
-            hvNum: 8,
-            expiredDate: '2020-03-20',
-            businessNum: 66473248,
-            comEmail:'y3333@cosweal.com'
-          },
-          {
-            src:'korea.png',
-            name: '나이키',
-            status: 'block',
-            userNum: 27,
-            hvNum: 8,
-            expiredDate: '2021-01-01',
-            businessNum: 25254546,
-            comEmail:'gitt@gmail.com'
-          },
+          // {
+          //   src:'korea.png',
+          //   name: '강동구',
+          //   status: 'active',
+          //   userNum: 20,
+          //   hvNum: 30,
+          //   expiredDate: '2019-12-20',
+          //   businessNum:48850703,
+          //   comEmail:'la703@naver.com'
+          // },
+          // {
+          //   src:'korea.png',
+          //   name: '아디다스',
+          //   status: 'block',
+          //   userNum: 27,
+          //   hvNum: 8,
+          //   expiredDate: '2020-03-20',
+          //   businessNum: 66473248,
+          //   comEmail:'y3333@cosweal.com'
+          // },
+          // {
+          //   src:'korea.png',
+          //   name: '나이키',
+          //   status: 'block',
+          //   userNum: 27,
+          //   hvNum: 8,
+          //   expiredDate: '2021-01-01',
+          //   businessNum: 25254546,
+          //   comEmail:'gitt@gmail.com'
+          // },
         ],
             number:-1
 
@@ -144,22 +148,22 @@
       axios.get('/api/company', {})
       .then((r) => {
         console.log(r.data)
-        console.log(r.data.companies.length)
-        let j=0;
-        for(j=0;j<r.data.companies.length;j++){
-            var y = r.data.companies[j].expiredDate.substr(0, 4);
-            var m = r.data.companies[j].expiredDate.substr(5, 2);
-            var d = r.data.companies[j].expiredDate.substr(8, 2);
+        r.data.companies.forEach((company) => {
+            company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
+        });
 
-            r.data.companies[j].expiredDate = y+'-'+m+'-'+d
-        }
+
+        // for(company in r.data.companies){
+        //     company.expiredDate = this.$moment(r.data.companies[j].expiredDate).format('YYYY-MM-DD')
+        // }
         this.companies = r.data.companies
-        console.log(this.companies)
       });
-
-
     },
     methods:{
+      companyDetail(item){
+        let CId = item.companyId
+        this.$router.replace({name:'userManagement', params:{CId}});
+      },
       btnStatus(){
           
       },
@@ -174,31 +178,27 @@
         EventBus.$emit("companyAdd", what)
       },
       statusChange(item){
-           this.number=this.companies.indexOf(item)
-            if(this.companies[this.number].status =='active'){
-              console.log(this.companies[this.number].status)
-              this.companies[this.number].status ='block'
-            }
-            else if(this.companies[this.number].status =='block'){
-              this.companies[this.number].status ='active'
-            }
-   
-              // itemIndex = this.posts.indexOf(item)
-                             // console.log(this.posts.indexOf(item))
-                             // console.log(this.number)
-                            //  console.log(item.comName)           
-           },
-           editTable(item){
-             EventBus.$emit("comEditInfo", item)
-                  // console.log(item)
-           },
-           userDetail(item){
-             EventBus.$emit("companyDetail", item )
-           },
-           deleteTable(item){
+        this.number=this.companies.indexOf(item)
+        if(this.companies[this.number].status =='active'){
+          console.log(this.companies[this.number].status)
+          this.companies[this.number].status ='block'
+        }
+        else if(this.companies[this.number].status =='block'){
+          this.companies[this.number].status ='active'
+        }
+
+        },
+      editTable(item){
+        EventBus.$emit("comEditInfo", item)
+            // console.log(item)
+      },
+      userDetail(item){
+        EventBus.$emit("companyDetail", item )
+      },
+      deleteTable(item){
         const index = this.companies.indexOf(item)
         confirm('정말로 삭제하시겠습니까?') && this.companies.splice(index, 1)
-           },
+      },
    }
   }
 </script>

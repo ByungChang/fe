@@ -68,7 +68,7 @@ export default {
             else if(this.CommentORPost === 'Post'){
                 axios.delete('/api/board', 
                 {
-                    data: { id: this.boardId } 
+                    data: { boardId: this.boardId } 
                 })
                 .then((r) => {
                     location.href = '/board'
