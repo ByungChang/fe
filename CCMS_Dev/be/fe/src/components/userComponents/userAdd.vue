@@ -31,6 +31,7 @@
         :rules="nameRules"
         label="사용자명*"
         required
+        prepend-inner-icon="mdi-account-check"
       ></v-text-field>
     </v-col>
  
@@ -39,6 +40,7 @@
          v-model="status"
         :items="actitems"
          label="활성화 여부*"
+         prepend-inner-icon="mdi-lock"
          >
       </v-select>
     </v-col>
@@ -49,19 +51,13 @@
         :counter="20"
         :rules="emailRules"
         label="이메일*"
+        prepend-inner-icon="mdi-email"
         required
       ></v-text-field>
     </v-col>
 
 
-     <v-col cols="12">
-      <v-text-field
-        v-model="hv"
-        label="HyperVison*"
-        required
-        prepend-inner-icon="mdi-plus"
-      ></v-text-field>
-    </v-col>
+     <HyperVisonSelect></HyperVisonSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -69,6 +65,7 @@
         :counter="30"
         :rules="addressRules"
         label="주소*"
+        prepend-inner-icon="mdi-map-marker"
         required
       ></v-text-field>
     </v-col>
@@ -79,6 +76,7 @@
         :counter="12"
         :rules="telRules"
         label="연락처*"
+        prepend-inner-icon="mdi-phone"
         required
       ></v-text-field>
     </v-col>
@@ -113,8 +111,8 @@
     :rules="imgRules"
     v-model="picture"
     accept="image/png, image/jpeg, image/bmp"
-    placeholder="사진 추가"
-    prepend-inner-icon="mdi-camera"
+    prepend-inner-icon=mdi-camera
+    prepend-icon=""
     label="사진"
   ></v-file-input>
     </v-col>
@@ -149,11 +147,13 @@
 
 import { EventBus } from "./eventBus";
 import AlertSnackBar from './AlertSnackBar'
+import HyperVisonSelect from './HyperVisonSelect'
 
 
   export default {
       components:{
-      AlertSnackBar
+      AlertSnackBar,
+      HyperVisonSelect
       },
     data: () => ({
       //endDay: new Date().toISOString().substr(0, 10),
