@@ -1,12 +1,6 @@
 <template>
   <v-col cols="12">
-     <v-menu
-        :close-on-content-click="false"
-        :nudge-right="10"
-        transition="scale-transition"
-        offset-y
-        min-width="290px"
-      > 
+      <v-dialog v-model="dialog" scrollable max-width="400px">
         <template v-slot:activator="{ on }">
           <v-text-field
             v-model="hvText"
@@ -15,11 +9,14 @@
             v-on="on"
           ></v-text-field>
         </template>
-        <v-card max-width="400px" class="mx-auto">
+       
+        <v-card>
+            <div>
            <v-chip close @click:close="remove(item)" v-for="item in selected" :key="item.name">
              {{item.name}}
    
            </v-chip>
+            </div>
           <v-card-title class="font-weight-bold">
             하이퍼비전 리스트
             <v-spacer></v-spacer>
@@ -31,9 +28,7 @@
             hide-details
             >
             </v-text-field>
-                      </v-card-title>
-            
-            
+         </v-card-title>
         <v-data-table
         :items-per-page="perpage=5"
          v-model="selected"
@@ -45,18 +40,18 @@
          class="font-weight-bold"
          >
         </v-data-table>
-        <v-row justify="center">
-        <v-btn @click="hvSelect" dark>선택완료</v-btn>
-        </v-row >
+         <v-btn  @click="hvSelect" dark>선택완료</v-btn>
+       
         </v-card>
+        </v-dialog>
 
-      </v-menu>
     </v-col>
 </template>
 <script>
   export default {
     data () {
       return {
+        dialog:false,
         hvText:'',
         selected:[],
         search: '',
@@ -118,8 +113,11 @@
       //this.selected = [...this.selected]
       },
       hvSelect(){
+         this.dialog=false
+         if(this.selected.length >= 1)
         this.hvText=this.selected[0].name+'등('+this.selected.length +')개 선택됨'
-       
+         else
+         this.hvText='*선택된 하이퍼비전이 없습니다.*'
       }
     }
   }

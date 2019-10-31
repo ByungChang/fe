@@ -31,6 +31,7 @@
         :counter="20"
         :rules="nameRules"
         label="기업명*"
+        prepend-inner-icon="mdi-account-check"
         required
       ></v-text-field>
     </v-col>
@@ -40,6 +41,7 @@
          v-model="status"
         :items="actitems"
          label="활성화 여부*"
+         prepend-inner-icon="mdi-lock"
          >
       </v-select>
     </v-col>
@@ -50,21 +52,12 @@
         :counter="20"
         :rules="emailRules"
         label="이메일*"
+        prepend-inner-icon="mdi-email"
         required
       ></v-text-field>
     </v-col>
  
-     <v-col cols="12">
-      <v-text-field
-        v-model="hv"
-        :counter="20"
-        label="HyperVison*"
-        required
-      ></v-text-field>
-    </v-col>
- 
- 
-    
+    <HyperVisonSelect></HyperVisonSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -72,6 +65,7 @@
         :counter="20"
         :rules="businessRules"
         label="사업자번호*"
+        prepend-inner-icon="mdi-dimain"
         required
       ></v-text-field>
     </v-col>
@@ -138,12 +132,14 @@
 <script>
 import axios from 'axios'
 import { EventBus } from "./eventBus";
-  import AlertSnackBar from './AlertSnackBar.vue'
+import AlertSnackBar from './AlertSnackBar.vue'
+import HyperVisonSelect from './HyperVisonSelect'
 
 
   export default {
       components:{
-        AlertSnackBar
+        AlertSnackBar,
+        HyperVisonSelect
       },
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
@@ -171,7 +167,6 @@ import { EventBus } from "./eventBus";
       imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
-      hv:'',
       
       date: '',
       dateRules:[
