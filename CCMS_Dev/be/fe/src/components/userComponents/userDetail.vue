@@ -36,30 +36,33 @@
         </v-list-item-content>
       </v-list-item> 
 
-        <v-list-group
-        color="indigo"
-        
-      >
-        <template v-slot:activator>
+        <v-dialog max-width="400px" scrollable v-model="dialogHv">
+        <template v-slot:activator="{ on }">
+          <v-list>
+            <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>HV title을 가져와야함</v-list-item-title>
-            <v-list-item-subtitle>하이퍼비전 목록</v-list-item-subtitle>
+            <v-list-item-title v-on="on">HV title을 가져와야함</v-list-item-title>
           </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </template>
-
-        <v-list-item
-          v-for="(item, i) in hvlists"
-          :key="i"
-        >
-          <v-list-item-content>
-            <v-list-item-title style="text-align:right" v-text="item"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
+        <v-card>
+           <v-app-bar dark  color="purple">
+          <v-app-title>하이퍼비전 목록</v-app-title>
+          <v-spacer></v-spacer>
+          <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
+           </v-app-bar>
+           <div>
+           <v-chip color="green" outlined>목록1</v-chip>
+           </div>
+          
+        </v-card>
+        </v-dialog>     
 </v-list>
+
 <v-list v-else two-line>
       <v-list-item  
        v-for="(item, i) in lists2" 
@@ -73,28 +76,31 @@
         </v-list-item-content>
       </v-list-item> 
 
-        <v-list-group
-        color="indigo"
-      >
-        <template v-slot:activator>
+       <v-dialog max-width="400px" scrollable v-model="dialogHv">
+        <template v-slot:activator="{ on }">
+          <v-list>
+            <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>HV title을 가져와야함</v-list-item-title>
-            <v-list-item-subtitle>하이퍼비전 목록</v-list-item-subtitle>
+            <v-list-item-title v-on="on">HV title을 가져와야함</v-list-item-title>
           </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </template>
-
-        <v-list-item
-          v-for="(item, i) in hvlists"
-          :key="i"
-        >
-          <v-list-item-content>
-            <v-list-item-title style="text-align:right" v-text="item"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
+        <v-card>
+           <v-app-bar dark  color="purple">
+          <v-app-title>하이퍼비전 목록</v-app-title>
+          <v-spacer></v-spacer>
+          <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
+           </v-app-bar>
+           <div>
+           <v-chip color="green" outlined>목록1</v-chip>
+           </div>
+          
+        </v-card>
+        </v-dialog>
 </v-list>
           </v-card-text>
   </v-card>
@@ -106,9 +112,10 @@ import { EventBus } from "./eventBus";
 export default {
     data(){
         return{
-         hvlists:[
-           'hv-11111', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
-         ],
+         dialogHv:false,
+        //  hvlists:[
+        //    'hv-11111', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
+        //  ],
 
          formTitle:'',
          userAccess:true, 

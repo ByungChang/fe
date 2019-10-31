@@ -48,6 +48,8 @@
     </v-col>
 </template>
 <script>
+import { EventBus } from "./eventBus";
+
   export default {
     data () {
       return {
@@ -105,6 +107,12 @@
 
         ],
       }
+    },
+    mounted(){
+         EventBus.$on("HyperVisonClean", (what) => {
+                    this.hvText=''
+                    this.selected=[]
+         });
     },
     methods:{
       remove(item){

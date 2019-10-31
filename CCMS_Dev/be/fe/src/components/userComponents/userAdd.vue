@@ -123,7 +123,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
          <v-btn
-         :disabled="valid"
+         :disabled="!valid"
          color="success"
          @click="saveClick()"
          >
@@ -161,18 +161,20 @@ import HyperVisonSelect from './HyperVisonSelect'
       menu: false,
       dialog: false,
       valid: true,
-      select: null,
-      status: '',
-      picture: null,   
       readonly: true,
-    
+      picture: null,   
+      status: '',
       name: '',
+      email: '',
+      endDay: '',
+      address: '',
+      tel: '',
+
       nameRules: [
         v => !!v || '사용자명을 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
  
-      email: '',
       emailRules: [
         v => !!v || 'E-mail을 입력해주세요',
         v => /.+@.+\..+/.test(v) || '잘못된 형식의 이메일 입니다',
@@ -181,32 +183,20 @@ import HyperVisonSelect from './HyperVisonSelect'
       imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
-      hv:'',
       
       
-    endDay: '',
       endDayRules:[
       v => !!v || '만료일을 입력해주세요',
       ],
-    //   business: '',
-    //   businessRules: [
-    //     v => !!v || '사업자번호를 입력해주세요',
-    //     v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
-    //   ],
- 
-      address: '',
-      addressRules: [
-        v => !!v || '주소를 입력해주세요',
-        v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
-      ],
 
+ 
       address: '',
       addressRules: [
         v => !!v || '주소를 입력해주세요',
         v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
       ],
  
-      tel: '',
+      
       telRules: [
         v => !!v || '연락처 입력해주세요',
         v => (v && v.length <= 12) || '12글자 초과 하실 수 없습니다.',
@@ -245,8 +235,15 @@ import HyperVisonSelect from './HyperVisonSelect'
       
         modalClose(){
           this.dialog = false
-          this.$refs.form.reset()
+          //this.$refs.form.reset()
           this.$refs.form.resetValidation()
+          this.status=''
+          this.name=''
+          this.email=''
+          this.endDay=''
+          this.address=''
+          this.tel=''
+          EventBus.$emit("HyperVisonClean",(true))
           },
         saveClick() {
           EventBus.$emit("SaveItem",('user'))
