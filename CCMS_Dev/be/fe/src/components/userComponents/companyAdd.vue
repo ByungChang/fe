@@ -6,6 +6,7 @@
     >
         <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
         <v-dialog v-model="dialog" scrollable max-width="600px">
+          <AlertSnackBar></AlertSnackBar>
       <v-card>
           <v-app-bar dark color="blue-grey">
         <v-card-title>
@@ -30,6 +31,7 @@
         :counter="20"
         :rules="nameRules"
         label="기업명*"
+        prepend-inner-icon="mdi-account-check"
         required
       ></v-text-field>
     </v-col>
@@ -39,6 +41,7 @@
          v-model="status"
         :items="actitems"
          label="활성화 여부*"
+         prepend-inner-icon="mdi-lock"
          >
       </v-select>
     </v-col>
@@ -49,21 +52,12 @@
         :counter="20"
         :rules="emailRules"
         label="이메일*"
+        prepend-inner-icon="mdi-email"
         required
       ></v-text-field>
     </v-col>
  
-     <v-col cols="12">
-      <v-text-field
-        v-model="hv"
-        :counter="20"
-        label="HyperVison*"
-        required
-      ></v-text-field>
-    </v-col>
- 
- 
-    
+    <HyperVisonSelect></HyperVisonSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -71,6 +65,7 @@
         :counter="20"
         :rules="businessRules"
         label="사업자번호*"
+        prepend-inner-icon="mdi-domain"
         required
       ></v-text-field>
     </v-col>
@@ -90,7 +85,7 @@
             label="만료일"
            :rules="dateRules"
            :readonly="readonly"
-            prepend-icon="mdi-calendar"
+            prepend-inner-icon="mdi-calendar"
             v-on="on"
           ></v-text-field>
         </template>
@@ -105,7 +100,8 @@
     :rules="imgRules"
     accept="image/png, image/jpeg, image/bmp"
     placeholder="사진 추가"
-    prepend-icon="mdi-camera"
+    prepend-inner-icon="mdi-camera"
+    prepend-icon=""
     label="사진"
   ></v-file-input>
     </v-col>
@@ -137,8 +133,15 @@
 <script>
 import axios from 'axios'
 import { EventBus } from "./eventBus";
+import AlertSnackBar from './AlertSnackBar.vue'
+import HyperVisonSelect from './HyperVisonSelect'
+
 
   export default {
+      components:{
+        AlertSnackBar,
+        HyperVisonSelect
+      },
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
       readonly:true,
@@ -146,17 +149,17 @@ import { EventBus } from "./eventBus";
       menu: false,
       dialog: false,
       valid: true,
-      select: null,
       status: '',
       picture: null,
-
       name: '',
+      email: '',
+      date: '',
+      business: '',
       nameRules: [
         v => !!v || '기업명을 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
  
-      email: '',
       emailRules: [
         v => !!v || 'E-mail을 입력해주세요',
         v => /.+@.+\..+/.test(v) || '잘못된 형식의 이메일 입니다',
@@ -165,14 +168,12 @@ import { EventBus } from "./eventBus";
       imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
-      hv:'',
       
-      date: '',
       dateRules:[
       v => !!v || '만료일을 입력해주세요',
       ],
 
-      business: '',
+      
       businessRules: [
         v => !!v || '사업자번호를 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
@@ -194,34 +195,43 @@ import { EventBus } from "./eventBus";
             }
              this.dialog = true;
 
-    });
-    EventBus.$on("comEditInfo",(item) => {
+           });
+        EventBus.$on("comEditInfo",(item) => {
                            this.name=item.comName
                            this.status=item.status
                            this.endDay=item.endDay                           
-    });
-    },
-    methods: {
-      saveClick () {
-        axios.post('/api/company', {
-          name : this.name,
-          busNumber : this.business,
-          address : this.address,
-          tel : this.tel,
-          expiredDate : this.date,
-        })
-        .then((r) => {
-            console.log('post완료')
-        })
-        .catch((e) => {
-            console.error(e.message)
-        })
+           });
+         },
+       methods: {
+          saveClick () {
+        // axios.post('/api/company', {
+        //   name : this.name,
+        //   busNumber : this.business,
+        //   address : this.address,
+        //   tel : this.tel,
+        //   expiredDate : this.date,
+        // })
+        // .then((r) => {
+        //     console.log('post완료')
+        // })
+        // .catch((e) => {
+        //     console.error(e.message)
+        // })
+        EventBus.$emit("SaveItem",('company'))
       },
  
        modalClose(){
         this.dialog = false
-        this.$refs.form.reset()
+        //this.$refs.form.reset()
         this.$refs.form.resetValidation()
+        this.status= '',
+        this.picture= null,
+        this.name= ''
+        this.email= ''
+        this.date= ''
+        this.business= ''
+        EventBus.$emit("HyperVisonClean",(true))
+          
       },
     },
   }

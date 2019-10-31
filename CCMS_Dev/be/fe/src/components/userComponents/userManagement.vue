@@ -3,6 +3,7 @@
 <v-card> 
   <userAdd></userAdd>
   <userDetail></userDetail>
+  <ConfirmSnackBar></ConfirmSnackBar>
 
     <v-card-title>
       사용자 관리
@@ -62,7 +63,7 @@
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
  
@@ -84,16 +85,20 @@
 </template>
  
 <script>
+
   import axios from 'axios'
   import userDetail from '@/components/userComponents/userDetail.vue'
   import userAdd from '@/components/userComponents/userAdd.vue'
   import { EventBus } from "./eventBus";
+  import ConfirmSnackBar from './ConfirmSnackBar.vue'
+
 
   export default {
     components:{
       //userFooterComponent
       userAdd,
-      userDetail
+      userDetail,
+      ConfirmSnackBar
     },
     data () {
       
@@ -117,6 +122,7 @@
           { text: '계약 만료일', value: 'expiredDate' , },
           { text: '정보보기/수정/삭제', value: 'action',sortable: false,},
         ],
+<<<<<<< HEAD
         users: [
           // {
           //   src:'aaa.png',
@@ -140,10 +146,42 @@
           //   hvNum: 8,
           //   endDay: '2021-01-01',
           // },
+=======
+        posts: [
+          {
+            src:'aaa.png',
+            userName: '이마트 천호역점',
+            status: 'active',
+            hvNum: 30,
+            endDay: '2019-12-20',
+            userEmail: 'abc@co.kr'
+            //action:'오니?',
+          },
+          {
+            src:'aaa.png',
+            userName: '롯데리아 길동사거리점',
+            status: 'block',
+            hvNum: 8,
+            endDay: '2020-03-20',
+            userEmail: 'abc@co.kr'
+
+          },
+          {
+            src:'aaa.png',
+            userName: '나이키 강동역점',
+            status: 'block',
+            hvNum: 8,
+            endDay: '2021-01-01',
+            userEmail: 'abc@co.kr'
+
+          },
+          
+>>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
         ],
         number:-1
       }
     },
+<<<<<<< HEAD
     created(){
       console.log(this.$route.params.CId)
       axios.post('/api/company/user',{
@@ -204,6 +242,50 @@
         confirm('정말로 삭제하시겠습니까?') && this.posts.splice(index, 1)
             },
       }
+=======
+     methods:{
+            getColor(status)
+            {
+              if(status=='active')
+              return 'green'
+              else return 'red'
+ 
+            },
+            btnClick(what){
+            //console.log(what)
+            EventBus.$emit("userAdd", what)
+             },
+
+           statusChange(item){
+           this.number=this.posts.indexOf(item)
+            if(this.posts[this.number].status =='active'){
+              this.posts[this.number].status ='block'
+            }
+            else if(this.posts[this.number].status =='block'){
+              this.posts[this.number].status ='active'
+            }
+   
+              // itemIndex = this.posts.indexOf(item)
+                             // console.log(this.posts.indexOf(item))
+                             // console.log(this.number)
+                            //  console.log(item.comName)           
+           },
+           editTable(item){
+             EventBus.$emit("userEditInfo", item)
+             console.log(this.item.userEmail)
+
+                  // console.log(item)
+           },
+           userDetail(item){
+             EventBus.$emit("userDetail", item)
+           },
+    
+           deleteComment(item){
+             EventBus.$emit("DelComment",item)//item.id,this.comments);
+             console.log('emit됨')
+            },
+        }
+>>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
   }
 </script>
  

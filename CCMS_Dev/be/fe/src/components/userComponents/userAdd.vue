@@ -31,6 +31,7 @@
         :rules="nameRules"
         label="사용자명*"
         required
+        prepend-inner-icon="mdi-account-check"
       ></v-text-field>
     </v-col>
  
@@ -39,6 +40,7 @@
          v-model="status"
         :items="actitems"
          label="활성화 여부*"
+         prepend-inner-icon="mdi-lock"
          >
       </v-select>
     </v-col>
@@ -49,33 +51,13 @@
         :counter="20"
         :rules="emailRules"
         label="이메일*"
+        prepend-inner-icon="mdi-email"
         required
       ></v-text-field>
     </v-col>
 
 
-     <v-col cols="12">
-      <v-text-field
-        v-model="hv"
-        :counter="20"
-        label="HyperVison*"
-        required
-      ></v-text-field>
-    </v-col>
- 
- 
- 
-    
- 
-   <!-- <v-col cols="12">
-      <v-text-field
-        v-model="business"
-        :counter="20"
-        :rules="businessRules"
-        label="사업자번호*"
-        required
-      ></v-text-field>
-    </v-col>-->
+     <HyperVisonSelect></HyperVisonSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -83,6 +65,7 @@
         :counter="30"
         :rules="addressRules"
         label="주소*"
+        prepend-inner-icon="mdi-map-marker"
         required
       ></v-text-field>
     </v-col>
@@ -93,6 +76,7 @@
         :counter="12"
         :rules="telRules"
         label="연락처*"
+        prepend-inner-icon="mdi-phone"
         required
       ></v-text-field>
     </v-col>
@@ -113,7 +97,7 @@
             :rules="endDayRules"
             label="만료일"
             :readonly="readonly"
-            prepend-icon="mdi-calendar"
+            prepend-inner-icon="mdi-calendar"
             v-on="on"
           ></v-text-field>
         </template>
@@ -127,8 +111,8 @@
     :rules="imgRules"
     v-model="picture"
     accept="image/png, image/jpeg, image/bmp"
-    placeholder="사진 추가"
-    prepend-icon="mdi-camera"
+    prepend-inner-icon=mdi-camera
+    prepend-icon=""
     label="사진"
   ></v-file-input>
     </v-col>
@@ -141,7 +125,7 @@
          <v-btn
          :disabled="!valid"
          color="success"
-        @click="validate"
+         @click="saveClick()"
          >
          저장
          </v-btn>
@@ -153,6 +137,8 @@
          </v-btn>
         </v-card-actions>
       </v-card>
+         <AlertSnackBar></AlertSnackBar>
+
     </v-dialog>
     </v-form>
 </template>
@@ -160,27 +146,35 @@
 <script>
 
 import { EventBus } from "./eventBus";
+import AlertSnackBar from './AlertSnackBar'
+import HyperVisonSelect from './HyperVisonSelect'
+
 
   export default {
-
+      components:{
+      AlertSnackBar,
+      HyperVisonSelect
+      },
     data: () => ({
       //endDay: new Date().toISOString().substr(0, 10),
       formTitle:'',
       menu: false,
       dialog: false,
       valid: true,
-      select: null,
-      status: '',
-      picture: null,   
       readonly: true,
-    
+      picture: null,   
+      status: '',
       name: '',
+      email: '',
+      endDay: '',
+      address: '',
+      tel: '',
+
       nameRules: [
         v => !!v || '사용자명을 입력해주세요',
         v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
       ],
  
-      email: '',
       emailRules: [
         v => !!v || 'E-mail을 입력해주세요',
         v => /.+@.+\..+/.test(v) || '잘못된 형식의 이메일 입니다',
@@ -189,32 +183,20 @@ import { EventBus } from "./eventBus";
       imgRules: [
          value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
-      hv:'',
       
       
-    endDay: '',
       endDayRules:[
       v => !!v || '만료일을 입력해주세요',
       ],
-    //   business: '',
-    //   businessRules: [
-    //     v => !!v || '사업자번호를 입력해주세요',
-    //     v => (v && v.length <= 20) || '20글자 초과 하실 수 없습니다.',
-    //   ],
- 
-      address: '',
-      addressRules: [
-        v => !!v || '주소를 입력해주세요',
-        v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
-      ],
 
+ 
       address: '',
       addressRules: [
         v => !!v || '주소를 입력해주세요',
         v => (v && v.length <= 30) || '30글자 초과 하실 수 없습니다.',
       ],
  
-      tel: '',
+      
       telRules: [
         v => !!v || '연락처 입력해주세요',
         v => (v && v.length <= 12) || '12글자 초과 하실 수 없습니다.',
@@ -230,15 +212,7 @@ import { EventBus } from "./eventBus";
     }),
     mounted(){
         EventBus.$on("userAdd", (what) => {
-          //console.log(what)
-            // if(what==='add')
-            // {
-            //     this.formTitle='기업 추가'
-            // }
-            // if(what==='edit')
-            // {
-            //     this.formTitle='기업 정보 수정'
-            // }
+     
             if(what==='userAdd')
             {
                 this.formTitle='사용자 추가'
@@ -248,32 +222,32 @@ import { EventBus } from "./eventBus";
                 this.formTitle='사용자 정보 수정'
             }
              this.dialog = true;
-
-        
-    });
-    EventBus.$on("userEditInfo",(item) => {
-                           this.name=item.userName
-                           this.status=item.status
-                           this.endDay=item.endDay
-                           console.log(this.name)
-                           
-
-    });
-    },
-    methods: {
-      validate () {
-        if (this.$refs.form.validate()) {
-          this.snackbar = true
-        }
-      },
- 
-       modalClose(){
-        this.dialog = false
-        this.$refs.form.reset()
-        this.$refs.form.resetValidation()
-         
+         });
+         EventBus.$on("userEditInfo",(item) => {
+            this.name=item.userName
+            this.status=item.status
+            this.endDay=item.endDay
+            this.email=item.userEmail
+            console.log(this.name)
+         });
         },
-        
+       methods: {
+      
+        modalClose(){
+          this.dialog = false
+          //this.$refs.form.reset()
+          this.$refs.form.resetValidation()
+          this.status=''
+          this.name=''
+          this.email=''
+          this.endDay=''
+          this.address=''
+          this.tel=''
+          EventBus.$emit("HyperVisonClean",(true))
+          },
+        saveClick() {
+          EventBus.$emit("SaveItem",('user'))
+          },
      
     },
   }

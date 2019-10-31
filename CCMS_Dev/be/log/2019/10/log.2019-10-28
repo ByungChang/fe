@@ -438,6 +438,7 @@
 2019-10-28 17:45:49 [METHOD] - "/company"에 get실행완료
 2019-10-28 17:52:33 [METHOD] - "/company"에 get실행
 2019-10-28 17:52:33 [METHOD] - "/company"에 get실행완료
+<<<<<<< HEAD
 2019-10-28 18:08:27 [METHOD] - "/board"에 get실행
 2019-10-28 18:08:27 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id`;
 2019-10-28 18:08:27 [METHOD] - "/board"에 get실행완료
@@ -547,3 +548,9 @@
 2019-10-28 19:06:42 [METHOD] - "/company"에 get실행완료
 2019-10-28 19:06:44 [METHOD] - "/company/user"에 get실행
 2019-10-28 19:06:44 [ERROR] - "/company/user"에 get에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+=======
+2019-10-28 18:02:38 [METHOD] - "/company"에 get실행
+2019-10-28 18:02:38 [METHOD] - "/company"에 get실행완료
+2019-10-28 18:04:12 [METHOD] - "/company"에 get실행
+2019-10-28 18:04:12 [METHOD] - "/company"에 get실행완료
+>>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608

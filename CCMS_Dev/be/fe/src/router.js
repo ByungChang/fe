@@ -37,6 +37,11 @@ export default new Router({
       props:true,
       component: () => import( '@/components/userComponents/userManagement.vue')
     },
+    {
+      path: '/snackbar',
+      name: 'snackbar',
+      component: () => import( '@/components/userComponents/ConfirmSnackBar.vue')
+    },
     
     {
       path: '*',

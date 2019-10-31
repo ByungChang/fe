@@ -2,7 +2,7 @@
   <v-card> 
     <companyAdd></companyAdd>
     <userDetail></userDetail>
-
+    <ConfirmSnackBar></ConfirmSnackBar>
     <v-card-title>
       기업 관리
       <v-spacer></v-spacer>
@@ -58,7 +58,7 @@
       <template v-slot:item.action="{ item }">
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn @click="btnClick('edit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
       </template>
     </v-data-table>
     
@@ -80,6 +80,10 @@
   import axios from 'axios'
   import companyAdd from '@/components/userComponents/companyAdd.vue'
   import userDetail from '@/components/userComponents/userDetail.vue'
+<<<<<<< HEAD
+=======
+  import ConfirmSnackBar from '@/components/userComponents/ConfirmSnackBar.vue'
+>>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
   import { EventBus } from "../components/userComponents/eventBus";
 
   Vue.use(VueMomentJS, moment)
@@ -88,7 +92,8 @@
     components:{
       //userFooterComponent
       companyAdd,
-      userDetail
+      userDetail,
+      ConfirmSnackBar
     },
     data () {
       return {
@@ -178,6 +183,7 @@
         EventBus.$emit("companyAdd", what)
       },
       statusChange(item){
+<<<<<<< HEAD
         this.number=this.companies.indexOf(item)
         if(this.companies[this.number].status =='active'){
           console.log(this.companies[this.number].status)
@@ -199,6 +205,33 @@
         const index = this.companies.indexOf(item)
         confirm('정말로 삭제하시겠습니까?') && this.companies.splice(index, 1)
       },
+=======
+           this.number=this.companies.indexOf(item)
+            if(this.companies[this.number].status =='active'){
+              console.log(this.companies[this.number].status)
+              this.companies[this.number].status ='block'
+            }
+            else if(this.companies[this.number].status =='block'){
+              this.companies[this.number].status ='active'
+            }
+   
+              // itemIndex = this.posts.indexOf(item)
+                             // console.log(this.posts.indexOf(item))
+                             // console.log(this.number)
+                            //  console.log(item.comName)           
+           },
+           editTable(item){
+             EventBus.$emit("comEditInfo", item)
+                  // console.log(item)
+           },
+           userDetail(item){
+             EventBus.$emit("companyDetail", item )
+           },
+           deleteComment(item){
+                EventBus.$emit("DelComment",item)//item.id,this.comments);
+                console.log('emit됨')
+            },
+>>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
    }
   }
 </script>
