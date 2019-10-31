@@ -5,7 +5,7 @@
    v-model="drawer"
     app
     clipped
-    color="deep-orange darken-1">
+    color="#2a3248">
     <v-list-item-group color="primary">
       <v-list-item
         v-for="(item, i) in items"

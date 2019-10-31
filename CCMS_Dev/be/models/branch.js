@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       address: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true
       },
       tel: {
         type: DataTypes.STRING(20),

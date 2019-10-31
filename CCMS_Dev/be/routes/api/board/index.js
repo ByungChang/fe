@@ -127,7 +127,6 @@ router.put('/', upload.any(), async (req, res, next) => {
     )
     
     await req.files.forEach(async (file) => {
-      console.log(file)
       let i = 0;
       let fileResult = await File.create({
         orgName: file.originalname,

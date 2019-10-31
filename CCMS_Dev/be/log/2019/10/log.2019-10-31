@@ -867,3 +867,199 @@
 2019-10-31 13:27:37 [METHOD] - "/company"에 get실행
 2019-10-31 13:27:37 [METHOD] - "/company"에 get실행완료
 >>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
+2019-10-31 14:42:45 [METHOD] - "/board"에 get실행
+2019-10-31 14:42:45 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 14:42:45 [METHOD] - "/board"에 get실행완료
+2019-10-31 14:42:48 [METHOD] - "/company"에 get실행
+2019-10-31 14:42:48 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:43:22 [METHOD] - "/company"에 get실행
+2019-10-31 14:43:22 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:46:08 [METHOD] - "/company"에 get실행
+2019-10-31 14:46:08 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:46:32 [METHOD] - "/company"에 post실행
+2019-10-31 14:46:32 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 14:46:32 [ERROR] - "/company"에 post에서 ERROR : SequelizeValidationError: notNull Violation: branchs.address cannot be null,
+notNull Violation: branchs.tel cannot be null
+2019-10-31 14:46:33 [METHOD] - "/company"에 get실행
+2019-10-31 14:46:33 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:54:37 [METHOD] - "/company"에 get실행
+2019-10-31 14:54:37 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:54:57 [METHOD] - "/company"에 post실행
+2019-10-31 14:54:57 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 14:54:57 [ERROR] - "/company"에 post에서 ERROR : SequelizeValidationError: notNull Violation: branchs.tel cannot be null
+2019-10-31 14:54:58 [METHOD] - "/company"에 get실행
+2019-10-31 14:54:58 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:57:06 [METHOD] - "/company"에 get실행
+2019-10-31 14:57:06 [METHOD] - "/company"에 get실행완료
+2019-10-31 14:57:27 [METHOD] - "/company"에 post실행
+2019-10-31 14:57:27 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 14:57:27 [ERROR] - "/company"에 post에서 ERROR : SequelizeValidationError: notNull Violation: branchs.tel cannot be null
+2019-10-31 14:57:28 [METHOD] - "/company"에 get실행
+2019-10-31 14:57:28 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:12:48 [METHOD] - "/company"에 get실행
+2019-10-31 16:12:48 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:15:15 [METHOD] - "/company"에 get실행
+2019-10-31 16:15:15 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:15:36 [METHOD] - "/company"에 post실행
+2019-10-31 16:15:36 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 16:15:36 [ERROR] - "/company"에 post에서 ERROR : SequelizeValidationError: notNull Violation: branchs.tel cannot be null
+2019-10-31 16:15:38 [METHOD] - "/company"에 get실행
+2019-10-31 16:15:38 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:16:36 [METHOD] - "/company"에 post실행
+2019-10-31 16:16:36 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 16:16:36 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-10-31 16:16:36 [METHOD] - "/company"에 post실행완료
+2019-10-31 16:16:37 [METHOD] - "/company"에 get실행
+2019-10-31 16:16:37 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:16:38 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:16:38 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:16:40 [METHOD] - "/board"에 get실행
+2019-10-31 16:16:40 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 16:16:40 [METHOD] - "/board"에 get실행완료
+2019-10-31 16:16:42 [METHOD] - "/board"에 get실행
+2019-10-31 16:16:42 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 16:16:42 [METHOD] - "/board"에 get실행완료
+2019-10-31 16:16:47 [METHOD] - "/company"에 get실행
+2019-10-31 16:16:47 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:16:57 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:16:57 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:18:45 [METHOD] - "/company"에 get실행
+2019-10-31 16:18:45 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:19:05 [METHOD] - "/company"에 post실행
+2019-10-31 16:19:05 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-10-31 16:19:05 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-10-31 16:19:05 [METHOD] - "/company"에 post실행완료
+2019-10-31 16:19:06 [METHOD] - "/company"에 get실행
+2019-10-31 16:19:06 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:19:08 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:19:08 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:19:12 [METHOD] - "/company"에 get실행
+2019-10-31 16:19:12 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:22:57 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:22:57 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:27:45 [METHOD] - "/company"에 get실행
+2019-10-31 16:27:45 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:27:46 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:27:46 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:28:59 [METHOD] - "/company"에 get실행
+2019-10-31 16:28:59 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:29:00 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:29:00 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:30:23 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:30:23 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:30:23 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:30:23 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:30:24 [METHOD] - "/company"에 get실행
+2019-10-31 16:30:24 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:30:25 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:30:25 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:30:27 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:30:27 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:30:29 [METHOD] - "/company"에 get실행
+2019-10-31 16:30:29 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:30:30 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:30:30 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:33:03 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:33:03 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:33:04 [METHOD] - "/company"에 get실행
+2019-10-31 16:33:04 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:33:05 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:33:05 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:35:48 [METHOD] - "/company"에 get실행
+2019-10-31 16:35:48 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:35:49 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:35:49 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:38:33 [METHOD] - "/company"에 get실행
+2019-10-31 16:38:33 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:38:34 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:38:34 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:40:01 [METHOD] - "/company"에 get실행
+2019-10-31 16:40:01 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:40:02 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:40:02 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:40:06 [METHOD] - "/company"에 get실행
+2019-10-31 16:40:06 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:40:07 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:40:07 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:46:53 [METHOD] - "/company"에 get실행
+2019-10-31 16:46:53 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:46:54 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:46:54 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:49:54 [METHOD] - "/company"에 get실행
+2019-10-31 16:49:54 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:49:55 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:49:55 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:51:38 [METHOD] - "/company"에 get실행
+2019-10-31 16:51:38 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:51:40 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:51:40 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:52:10 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:52:10 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:52:15 [METHOD] - "/company"에 get실행
+2019-10-31 16:52:15 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:52:22 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:52:22 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:53:13 [METHOD] - "/company"에 get실행
+2019-10-31 16:53:13 [METHOD] - "/company"에 get실행완료
+2019-10-31 16:53:21 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:53:21 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 16:53:22 [METHOD] - "/company/user"에 post실행
+2019-10-31 16:53:22 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 16:53:24 [METHOD] - "/company"에 get실행
+2019-10-31 16:53:24 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:03:10 [METHOD] - "/company"에 get실행
+2019-10-31 17:03:10 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:03:20 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:03:20 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 17:03:31 [METHOD] - "/company"에 get실행
+2019-10-31 17:03:31 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:03:33 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:03:33 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 17:03:59 [METHOD] - "/company"에 get실행
+2019-10-31 17:03:59 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:04:02 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:04:02 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 17:04:30 [METHOD] - "/company"에 get실행
+2019-10-31 17:04:30 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:05:52 [METHOD] - "/company"에 get실행
+2019-10-31 17:05:52 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:05:55 [METHOD] - "/board"에 get실행
+2019-10-31 17:05:55 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 17:05:55 [METHOD] - "/board"에 get실행완료
+2019-10-31 17:05:57 [METHOD] - "/company"에 get실행
+2019-10-31 17:05:57 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:05:58 [METHOD] - "/board"에 get실행
+2019-10-31 17:05:58 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 17:05:58 [METHOD] - "/board"에 get실행완료
+2019-10-31 17:06:06 [METHOD] - "/board"에 post실행
+2019-10-31 17:06:06 [QUERY] - INSERT INTO `boards` (`id`,`userId`,`title`,`content`,`hit`,`boardPostId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-10-31 17:06:06 [ERROR] - "/board"에 post에서 ERROR : SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`node_test`.`boards`, CONSTRAINT `boards_ibfk_2` FOREIGN KEY (`boardPostId`) REFERENCES `board_posts` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE)
+2019-10-31 17:06:07 [METHOD] - "/board"에 get실행
+2019-10-31 17:06:07 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 17:06:07 [METHOD] - "/board"에 get실행완료
+2019-10-31 17:07:38 [METHOD] - "/board"에 post실행
+2019-10-31 17:07:38 [QUERY] - INSERT INTO `boards` (`id`,`userId`,`title`,`content`,`hit`,`boardPostId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-10-31 17:07:40 [METHOD] - "/board"에 get실행
+2019-10-31 17:07:40 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 17:07:40 [METHOD] - "/board"에 get실행완료
+2019-10-31 17:07:53 [METHOD] - "/board"에 post실행
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `boards` (`id`,`userId`,`title`,`content`,`hit`,`boardPostId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `files` (`id`,`orgName`,`size`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `files` (`id`,`orgName`,`size`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `files` (`id`,`orgName`,`size`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `board_files` (`id`,`boardId`,`fileId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `board_files` (`id`,`boardId`,`fileId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:53 [QUERY] - INSERT INTO `board_files` (`id`,`boardId`,`fileId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);
+2019-10-31 17:07:54 [METHOD] - "/board"에 get실행
+2019-10-31 17:07:54 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-10-31 17:07:54 [METHOD] - "/board"에 get실행완료
+2019-10-31 17:07:55 [METHOD] - "/board/comment"에 post실행
+2019-10-31 17:07:55 [METHOD] - "/board/comment"에 post실행종료
+2019-10-31 17:07:59 [METHOD] - "/board/comment/add"에 post실행
+2019-10-31 17:07:59 [METHOD] - "/board/comment/add"에 post실행완료
+2019-10-31 17:08:00 [METHOD] - "/board/comment/add"에 post실행
+2019-10-31 17:08:00 [METHOD] - "/board/comment/add"에 post실행완료
+2019-10-31 17:08:18 [METHOD] - "/company"에 get실행
+2019-10-31 17:08:18 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:08:43 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:08:43 [METHOD] - "/company/user"에 post실행완료

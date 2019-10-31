@@ -36,7 +36,8 @@ export default {
     data () {
         return {
             files:[
-              
+              {id:1,orgName:'asdf'},
+              {id:2,orgName:'qwer'},
             ],
         }
     },

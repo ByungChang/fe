@@ -204,19 +204,19 @@ import HyperVisonSelect from './HyperVisonSelect'
          },
        methods: {
           saveClick () {
-        // axios.post('/api/company', {
-        //   name : this.name,
-        //   busNumber : this.business,
-        //   address : this.address,
-        //   tel : this.tel,
-        //   expiredDate : this.date,
-        // })
-        // .then((r) => {
-        //     console.log('post완료')
-        // })
-        // .catch((e) => {
-        //     console.error(e.message)
-        // })
+        axios.post('/api/company', {
+          name : this.name,
+          busNumber : this.business,
+          address : this.address,
+          tel : this.tel,
+          expiredDate : this.date,
+        })
+        .then((r) => {
+            console.log('post완료')
+        })
+        .catch((e) => {
+            console.error(e.message)
+        })
         EventBus.$emit("SaveItem",('company'))
       },
  

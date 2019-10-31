@@ -37,7 +37,6 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   logger.method('"/company"에 post실행')
-  var query;
   
   const { name, expiredDate, busNumber, address, tel } = req.body
   try {
@@ -49,15 +48,16 @@ router.post('/', async (req, res, next) => {
         logger.query(str)
       }
     })
+
     var companyId = result.dataValues.id  
     await Branch.create({
-      name : `${name} 본점`,
+      name : `${name}`,
       expiredDate,
       companyId ,
       busNumber,
       isMain : 'Y',
-      address,
-      tel,
+      Address:'',
+      tel:'',
     }, {
       logging: (str) => {
         str = str.substr(21);
@@ -88,7 +88,6 @@ try{
     }
   })
   logger.method('"/company/user"에 post실행완료')
-  //res.redirect('public/index.html');
   res.send({users : result})
 }
 catch(e){

@@ -80,10 +80,8 @@
   import axios from 'axios'
   import companyAdd from '@/components/userComponents/companyAdd.vue'
   import userDetail from '@/components/userComponents/userDetail.vue'
-<<<<<<< HEAD
-=======
+
   import ConfirmSnackBar from '@/components/userComponents/ConfirmSnackBar.vue'
->>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
   import { EventBus } from "../components/userComponents/eventBus";
 
   Vue.use(VueMomentJS, moment)
@@ -183,7 +181,6 @@
         EventBus.$emit("companyAdd", what)
       },
       statusChange(item){
-<<<<<<< HEAD
         this.number=this.companies.indexOf(item)
         if(this.companies[this.number].status =='active'){
           console.log(this.companies[this.number].status)
@@ -201,37 +198,11 @@
       userDetail(item){
         EventBus.$emit("companyDetail", item )
       },
-      deleteTable(item){
-        const index = this.companies.indexOf(item)
-        confirm('정말로 삭제하시겠습니까?') && this.companies.splice(index, 1)
-      },
-=======
-           this.number=this.companies.indexOf(item)
-            if(this.companies[this.number].status =='active'){
-              console.log(this.companies[this.number].status)
-              this.companies[this.number].status ='block'
-            }
-            else if(this.companies[this.number].status =='block'){
-              this.companies[this.number].status ='active'
-            }
-   
-              // itemIndex = this.posts.indexOf(item)
-                             // console.log(this.posts.indexOf(item))
-                             // console.log(this.number)
-                            //  console.log(item.comName)           
-           },
-           editTable(item){
-             EventBus.$emit("comEditInfo", item)
-                  // console.log(item)
-           },
-           userDetail(item){
-             EventBus.$emit("companyDetail", item )
-           },
-           deleteComment(item){
-                EventBus.$emit("DelComment",item)//item.id,this.comments);
+      deleteComment(item){
+                EventBus.$emit("DelComment",item)
                 console.log('emit됨')
             },
->>>>>>> 05a483264fc0475e69f79fa3ed2cbb4be3b71608
+
    }
   }
 </script>
