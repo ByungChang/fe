@@ -60,7 +60,7 @@
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
 </v-data-table>
@@ -177,8 +177,9 @@
         return 'green'
         else return 'red'
       },
+
       btnClick(what,cId){
-        EventBus.$emit("userAdd", what, cId)
+        EventBus.$emit("userAdd", what, cId)//fdfdf
       },
 
       statusChange(item){
@@ -199,7 +200,7 @@
       },
 
       deleteTable(item){
-        EventBus.$emit("DelUser",item)
+        EventBus.$emit("DelComment",item)
         console.log('emit됨')
         },
       }

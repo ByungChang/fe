@@ -227,9 +227,9 @@ import HyperVisonSelect from './HyperVisonSelect'
           this.dialog = true;
         });
         EventBus.$on("userEditInfo",(item) => {
-          this.name=item.userName
+          this.name=item.name
           this.status=item.status
-          this.endDay=item.endDay
+          this.endDay=item.expiredDate
           this.email=item.userEmail
         });
         EventBus.$on("select",(item) => {

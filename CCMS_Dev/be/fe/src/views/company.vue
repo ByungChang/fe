@@ -149,7 +149,6 @@
       }
     },
     mounted(){
-<<<<<<< HEAD
       EventBus.$on("delCompanyOk", (item) => { 
         this.info = [
           {
@@ -164,15 +163,7 @@
 
       axios.get('/api/company', {})
       .then((r) => {
-=======
-     
-      axios.get('/api/company', {})
-      .then((r) => {
-                 console.log('기모찌2')
 
-        console.log(r.data)
-        
->>>>>>> 1e8b8febf1c101902ae8dd33e379cd7661f3bf3a
         r.data.companies.forEach((company) => {
             company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
@@ -218,17 +209,12 @@
         console.log(item)
       },
       deleteComment(item){
-<<<<<<< HEAD
         console.log(item)
         this.companyId = item.companyId
         this.branchId = item.branchId
         EventBus.$emit("DelComment",item)
       },
-=======
-                EventBus.$emit("DelCom",item)
-                console.log('emit됨')
-            },
->>>>>>> 1e8b8febf1c101902ae8dd33e379cd7661f3bf3a
+
 
    }
   }
