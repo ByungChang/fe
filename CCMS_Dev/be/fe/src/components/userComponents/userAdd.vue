@@ -57,7 +57,7 @@
     </v-col>
 
 
-     <HyperVisonSelect></HyperVisonSelect>
+     <userHvSelect></userHvSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -148,13 +148,13 @@
 import { EventBus } from "./eventBus";
 import axios from "axios"
 import AlertSnackBar from './AlertSnackBar'
-import HyperVisonSelect from './HyperVisonSelect'
+import userHvSelect from './userHvSelect'
 
 
   export default {
       components:{
       AlertSnackBar,
-      HyperVisonSelect
+      userHvSelect
       },
     data: () => ({
       //endDay: new Date().toISOString().substr(0, 10),
@@ -226,12 +226,12 @@ import HyperVisonSelect from './HyperVisonSelect'
           }
           this.dialog = true;
         });
-        EventBus.$on("userEditInfo",(item) => {
-          this.name=item.name
-          this.status=item.status
-          this.endDay=item.expiredDate
-          this.email=item.userEmail
-        });
+        // EventBus.$on("userEditInfo",(item) => {
+        //   this.name=item.name
+        //   this.status=item.status
+        //   this.endDay=item.expiredDate
+        //   this.email=item.userEmail
+        // });
         EventBus.$on("select",(item) => {
           this.select = item
         });

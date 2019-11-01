@@ -56,7 +56,7 @@
       ></v-text-field>
     </v-col>
  
-    <HyperVisonSelect></HyperVisonSelect>
+    <companyHvSelect></companyHvSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -133,13 +133,13 @@
 import axios from 'axios'
 import { EventBus } from "./eventBus";
 import AlertSnackBar from './AlertSnackBar.vue'
-import HyperVisonSelect from './HyperVisonSelect'
+import companyHvSelect from './companyHvSelect'
 
 
   export default {
       components:{
         AlertSnackBar,
-        HyperVisonSelect
+        companyHvSelect
       },
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
