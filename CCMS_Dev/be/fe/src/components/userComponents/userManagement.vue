@@ -18,7 +18,7 @@
           </v-card-title>
           <v-card-title>
            <v-row justify="end">
-          <v-btn  @click="btnClick('userAdd')" dark>사용자 추가</v-btn>
+          <v-btn  @click="btnClick('userAdd',$route.params.CId)" dark>사용자 추가</v-btn>
       </v-row>
        
       </v-card-title>
@@ -34,7 +34,6 @@
     @page-count="pageCount = $event"  
   >
  
-  table에서 이미지를 넣는 template 현재윈도우가 1000px보다 작으면 이미지 size 50-->
   <template v-slot:item.src="{ item }">
     <v-avatar v-if="x>600"
       class="ma-3"
@@ -61,7 +60,7 @@
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
 </v-data-table>
@@ -125,7 +124,6 @@
             hvNum: 30,
             endDay: '2019-12-20',
             userEmail: 'abc@co.kr'
-            //action:'오니?',
           },
           {
             src:'aaa.png',
@@ -143,9 +141,7 @@
             hvNum: 8,
             endDay: '2021-01-01',
             userEmail: 'abc@co.kr'
-
           },
-          
         ],
         number:-1
       }
@@ -180,11 +176,11 @@
         if(status=='active')
         return 'green'
         else return 'red'
-
       },
-      btnClick(what){
-      EventBus.$emit("userAdd", what)
-        },
+
+      btnClick(what,cId){
+        EventBus.$emit("userAdd", what, cId)//fdfdf
+      },
 
       statusChange(item){
       this.number=this.posts.indexOf(item)
@@ -204,7 +200,7 @@
       },
 
       deleteTable(item){
-        EventBus.$emit("DelUser",item)
+        EventBus.$emit("DelComment",item)
         console.log('emit됨')
         },
       }

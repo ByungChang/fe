@@ -4,7 +4,6 @@
       ref="form"
       v-model="valid"
     >
-        <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
         <v-dialog v-model="dialog" scrollable max-width="600px">
           <AlertSnackBar></AlertSnackBar>
       <v-card>
@@ -57,7 +56,7 @@
       ></v-text-field>
     </v-col>
  
-    <HyperVisonSelect></HyperVisonSelect>
+    <companyHvSelect></companyHvSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -134,18 +133,20 @@
 import axios from 'axios'
 import { EventBus } from "./eventBus";
 import AlertSnackBar from './AlertSnackBar.vue'
-import HyperVisonSelect from './HyperVisonSelect'
+import companyHvSelect from './companyHvSelect'
 
 
   export default {
       components:{
         AlertSnackBar,
-        HyperVisonSelect
+        companyHvSelect
       },
     data: () => ({
       //date: new Date().toISOString().substr(0, 10),
+      device:[],
       readonly:true,
       formTitle:'',
+      select:[],
       menu: false,
       dialog: false,
       valid: true,
@@ -183,46 +184,48 @@ import HyperVisonSelect from './HyperVisonSelect'
         'active', 'block'
       ],
     }),
-    mounted(){
-        EventBus.$on("companyAdd", (what) => {
-            if(what==='add')
-            {
-                this.formTitle='기업 추가'
-            }
-            if(what==='edit')
-            {
-                this.formTitle='기업 정보 수정'
-            }
-             this.dialog = true;
-
-           });
-        EventBus.$on("comEditInfo",(item) => {
-                           this.name=item.comName
-                           this.status=item.status
-                           this.endDay=item.endDay                           
-           });
-         },
+    created(){
+      EventBus.$on("companyAdd", (what) => {
+        if(what==='add')
+        {
+            this.formTitle='기업 추가'
+        }
+        if(what==='edit')
+        {
+            this.formTitle='기업 정보 수정'
+        }
+        this.dialog = true; 
+      });
+      EventBus.$on("comEditInfo",(item) => {
+        this.name=item.comName
+        this.status=item.status
+        this.endDay=item.endDay                           
+      });
+      EventBus.$on("select",(item) => {
+        this.select = item
+      });
+    },
        methods: {
           saveClick () {
-        axios.post('/api/company', {
-          name : this.name,
-          busNumber : this.business,
-          address : this.address,
-          tel : this.tel,
-          expiredDate : this.date,
-        })
-        .then((r) => {
-            console.log('post완료')
-        })
-        .catch((e) => {
-            console.error(e.message)
-        })
-        EventBus.$emit("SaveItem",('company'))
-      },
- 
+            axios.post('/api/company', {
+              name : this.name,
+              busNumber : this.business,
+              address : this.address,
+              tel : this.tel,
+              expiredDate : this.date,
+              devices : this.select
+            })
+            .then((r) => {
+                console.log('post완료')
+            })
+            .catch((e) => {
+                console.error(e.message)
+            })
+            EventBus.$emit("SaveItem",('company'))
+          },
+    
        modalClose(){
         this.dialog = false
-        //this.$refs.form.reset()
         this.$refs.form.resetValidation()
         this.status= '',
         this.picture= null,
@@ -231,7 +234,6 @@ import HyperVisonSelect from './HyperVisonSelect'
         this.date= ''
         this.business= ''
         EventBus.$emit("HyperVisonClean",(true))
-          
       },
     },
   }

@@ -57,7 +57,7 @@
     </v-col>
 
 
-     <HyperVisonSelect></HyperVisonSelect>
+     <userHvSelect></userHvSelect>
  
     <v-col cols="12">
       <v-text-field
@@ -146,17 +146,20 @@
 <script>
 
 import { EventBus } from "./eventBus";
+import axios from "axios"
 import AlertSnackBar from './AlertSnackBar'
-import HyperVisonSelect from './HyperVisonSelect'
+import userHvSelect from './userHvSelect'
 
 
   export default {
       components:{
       AlertSnackBar,
-      HyperVisonSelect
+      userHvSelect
       },
     data: () => ({
       //endDay: new Date().toISOString().substr(0, 10),
+      select:[],
+      cId:0,
       formTitle:'',
       menu: false,
       dialog: false,
@@ -211,31 +214,32 @@ import HyperVisonSelect from './HyperVisonSelect'
       ],
     }),
     mounted(){
-        EventBus.$on("userAdd", (what) => {
-     
-            if(what==='userAdd')
-            {
-                this.formTitle='사용자 추가'
-            }
-            if(what==='userEdit')
-            {
-                this.formTitle='사용자 정보 수정'
-            }
-             this.dialog = true;
-         });
-         EventBus.$on("userEditInfo",(item) => {
-            this.name=item.userName
-            this.status=item.status
-            this.endDay=item.endDay
-            this.email=item.userEmail
-            console.log(this.name)
-         });
-        },
+        EventBus.$on("userAdd", (what,cId) => {
+          this.cId = cId
+          if(what==='userAdd')
+          {
+              this.formTitle='사용자 추가'
+          }
+          if(what==='userEdit')
+          {
+              this.formTitle='사용자 정보 수정'
+          }
+          this.dialog = true;
+        });
+        // EventBus.$on("userEditInfo",(item) => {
+        //   this.name=item.name
+        //   this.status=item.status
+        //   this.endDay=item.expiredDate
+        //   this.email=item.userEmail
+        // });
+        EventBus.$on("select",(item) => {
+          this.select = item
+        });
+      },
        methods: {
       
         modalClose(){
           this.dialog = false
-          //this.$refs.form.reset()
           this.$refs.form.resetValidation()
           this.status=''
           this.name=''
@@ -246,8 +250,22 @@ import HyperVisonSelect from './HyperVisonSelect'
           EventBus.$emit("HyperVisonClean",(true))
           },
         saveClick() {
+          axios.post('/api/company/userAdd', {
+              name : this.name,
+              companyId : this.cId,
+              address : this.address,
+              tel : this.tel,
+              expiredDate : this.endDay,
+              devices : this.select
+          })
+          .then((r) => {
+              console.log('post완료')
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
           EventBus.$emit("SaveItem",('user'))
-          },
+        },
      
     },
   }

@@ -23,11 +23,11 @@ export default {
         }
     },
     mounted(){
-        EventBus.$on("DelCom", (item/*item,comments*/) => { 
+
+        EventBus.$on("DelComment", (item) => { 
+
             this.confirm = true
-            // this.commentId = item
-            // this.comments = comments
-            // this.CommentORPost = 'Comment'
+            
         });
         EventBus.$on("DelUser", (item/*item,comments*/) => { 
             this.confirm = true
@@ -35,9 +35,12 @@ export default {
             // this.comments = comments
             // this.CommentORPost = 'Comment'
         });
-    
     },
     methods:{
+        confirmYes(){
+            EventBus.$emit('delCompanyOk',true)
+            this.confirm=false
+        },
         confirmNo(){
             this.confirm=false
         }

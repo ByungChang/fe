@@ -36,19 +36,19 @@
         </v-list-item-content>
       </v-list-item> 
 
-        <v-dialog max-width="400px" scrollable v-model="dialogHv">
-        <template v-slot:activator="{ on }">
+        
           <v-list>
             <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-on="on">HV title을 가져와야함</v-list-item-title>
+            <v-list-item-title @click="dialogHvOpen">HV title을 가져와야함</v-list-item-title>
           </v-list-item-content>
             </v-list-item>
           </v-list>
-        </template>
+         <v-dialog max-width="400px" scrollable v-model="dialogHv">
+
         <v-card>
            <v-app-bar dark  color="purple">
           <v-app-title>하이퍼비전 목록</v-app-title>
@@ -56,7 +56,7 @@
           <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
            </v-app-bar>
            <div>
-           <v-chip color="green" outlined>목록1</v-chip>
+           <v-chip color="green" outlined>목록2</v-chip>
            </div>
           
         </v-card>
@@ -76,19 +76,18 @@
         </v-list-item-content>
       </v-list-item> 
 
-       <v-dialog max-width="400px" scrollable v-model="dialogHv">
-        <template v-slot:activator="{ on }">
+       
           <v-list>
             <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-on="on">HV title을 가져와야함</v-list-item-title>
+            <v-list-item-title @click="dialogHvOpen">HV title을 가져와야함</v-list-item-title>
           </v-list-item-content>
             </v-list-item>
           </v-list>
-        </template>
+        <v-dialog max-width="400px" scrollable v-model="dialogHv">
         <v-card>
            <v-app-bar dark  color="purple">
           <v-app-title>하이퍼비전 목록</v-app-title>
@@ -96,7 +95,10 @@
           <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
            </v-app-bar>
            <div>
-           <v-chip color="green" outlined>목록1</v-chip>
+           <v-chip close @click:close="remove(item)" v-for="item in selected" :key="item.name">
+             {{item.name}}
+   
+           </v-chip>
            </div>
           
         </v-card>
@@ -146,6 +148,9 @@ export default {
     methods:{
         infoClose(){
           this.dialog=false
+        },
+        dialogHvOpen(){
+          this.dialogHv=true
         }
     },
     mounted(){

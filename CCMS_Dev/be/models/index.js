@@ -43,9 +43,10 @@ db.Company=require(`./company`)(sequelize,Sequelize);
 db.Branch=require(`./branch`)(sequelize,Sequelize);
 db.User_group=require(`./user_group`)(sequelize,Sequelize);
 db.Display=require(`./display`)(sequelize,Sequelize);
-db.Device=require(`./device`)(sequelize,Sequelize);
+db.Branch_device=require(`./branch_device`)(sequelize,Sequelize);
 db.Board_file=require(`./board_file`)(sequelize,Sequelize);
 db.File=require(`./file`)(sequelize,Sequelize);
+db.Device=require(`./device`)(sequelize,Sequelize);
 
 db.Board.belongsTo(db.Board_post,{foreignKey:'boardPostId', targetKey:'id'}); 
 db.Board_post.hasMany(db.Board, {foreignKey: 'boardPostId'});
@@ -68,13 +69,15 @@ db.Branch.hasMany(db.User_group, {foreignKey: 'branchId'});
 db.Display.belongsTo(db.User_group,{foreignKey:'userGroupId', targetKey:'id'});
 db.User_group.hasMany(db.Display, {foreignKey: 'userGroupId'});
 
-db.Device.belongsTo(db.Branch,{foreignKey:'branchId', targetKey:'id'});
-db.Branch.hasMany(db.Device, {foreignKey: 'branchId'});
+db.Branch_device.belongsTo(db.Branch,{foreignKey:'branchId', targetKey:'id'});
+db.Branch.hasMany(db.Branch_device, {foreignKey: 'branchId'});
 
 db.Board_file.belongsTo(db.Board,{foreignKey:'boardId', targetKey:'id'});
 db.Board.hasMany(db.Board_file, {foreignKey: 'boardId'});
 
 db.Board_file.belongsTo(db.File,{foreignKey:'fileId', targetKey:'id'});
 db.File.hasMany(db.Board_file, {foreignKey: 'fileId'});
+
+db.Branch_device.belongsTo(db.Device,{foreignKey:'deviceId', targetKey:'id'});
 
 module.exports = db;

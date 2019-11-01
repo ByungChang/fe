@@ -10,22 +10,15 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(255),
         allowNull: false
       },
-      location: {
-        type: DataTypes.STRING(255),
-        allowNull: false
-      },
       firmVersion: {
         type: DataTypes.STRING(255),
         allowNull: false
       },
-      branchId: {
-        type: DataTypes.BIGINT(20),
-        allowNull: false
-      },
       isOn: {
         type: DataTypes.STRING(1),
-        allowNull: true
+        allowNull: false
       },
+      
     }, {
       timestamps:true,
       tableName: 'devices'
