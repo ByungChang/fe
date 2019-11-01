@@ -583,3 +583,7 @@
 2019-11-01 15:01:06 [METHOD] - "/company/detail"에 post실행완료
 2019-11-01 15:01:30 [METHOD] - "/company/detail"에 post실행
 2019-11-01 15:01:30 [METHOD] - "/company/detail"에 post실행완료
+2019-11-01 18:03:42 [METHOD] - "/company"에 get실행
+2019-11-01 18:03:42 [METHOD] - "/company"에 get실행완료
+2019-11-01 18:03:44 [METHOD] - "/company/detail"에 post실행
+2019-11-01 18:03:44 [METHOD] - "/company/detail"에 post실행완료
