@@ -3,6 +3,7 @@
       v-model="DModal"
       width="800px"
       persistent
+      :scrollable="sgd=false"
     >
         <ConfirmSnackBar></ConfirmSnackBar>
         <v-card>
@@ -43,16 +44,18 @@
                         <v-divider style="background-color:#000000" ></v-divider>
                             <v-layout wrap row v-if="form.file">
                                 <v-flex>
-                                    <v-list>
-                                        <v-list-item
-                                            v-for="item in form.file"
-                                            :key="item.file.orgName"
-                                        >
-                                            <v-list-item-title>
-                                                <v-btn depressed small @click="fileDown(item.file.orgName)"><v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}</v-btn>
-                                            </v-list-item-title>
-                                        </v-list-item>
-                                    </v-list>
+                                    <div>
+                                     <v-chip color="deep-purple accent-4"
+                                        dark
+                                        
+                                        small 
+                                        close 
+                                        @click="fileDown(item.file.orgName)"
+                                         v-for="item in form.file" 
+                                        :key="item.file.orgName">
+                                        <v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}
+                                    </v-chip>
+                                    </div>
                                 </v-flex>
                             </v-layout>
                         <v-divider style="background-color:#000000" ></v-divider>
@@ -117,8 +120,16 @@
                 this.form = form
                 this.comments = comments
                 this.DModal = true
-            });
 
+                // this.form.file.forEach(item => {
+                //     console.log(item.orgName.length)
+                //     if(item.orgName.length > 17){
+                //         item.orgName=item.orgName.subString(0,17) + '...'
+                //     }
+                // });
+            });
+            
+            
             eventBus.$on('triggerDelCommentOk', (comments) => { 
                 this.comments = comments
             });

@@ -110,7 +110,8 @@
               </v-container>
             </v-row>
             <v-card-actions>
-              <v-btn
+              <v-row justify="end" class="mr-4">
+              <v-btn 
                 color="success"
                 @click="saveClick()"
               >저장</v-btn>
@@ -118,6 +119,8 @@
                 color="error"
                 @click="modalClose"
               >취소</v-btn>
+                          </v-row>
+
             </v-card-actions>
           
       </v-card>

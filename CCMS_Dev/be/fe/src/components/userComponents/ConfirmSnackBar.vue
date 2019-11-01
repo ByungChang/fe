@@ -23,11 +23,15 @@ export default {
         }
     },
     mounted(){
+<<<<<<< HEAD
         EventBus.$on("DelComment", (item) => { 
+=======
+        EventBus.$on("DelCom", (item/*item,comments*/) => { 
+>>>>>>> 1e8b8febf1c101902ae8dd33e379cd7661f3bf3a
             this.confirm = true
             
         });
-        EventBus.$on("Del", (item/*item,comments*/) => { 
+        EventBus.$on("DelUser", (item/*item,comments*/) => { 
             this.confirm = true
             // this.commentId = item
             // this.comments = comments
