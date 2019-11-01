@@ -150,11 +150,11 @@ export default {
     },
     mounted(){
       EventBus.$on("userDetail",(item) => {
-            this.lists1[0].title=item.userName   
+            this.lists1[0].title=item.name  
             this.lists1[1].title=item.status 
             //this.lists[2].title=item.hv
-            this.lists1[2].title=item.endDay  
-            this.lists1[3].title=item.Tel
+            this.lists1[2].title=item.expiredDate  
+            this.lists1[3].title=item.tel
             this.lists1[4].title=item.userMail
             this.lists1[5].title=item.userAdress
             
@@ -163,12 +163,12 @@ export default {
             this.userAccess=true
       });
       EventBus.$on("companyDetail",(item) => {
-            this.lists2[0].title=item.comName   
+            this.lists2[0].title=item.name   
             this.lists2[1].title=item.status 
             //this.lists[2].title=item.hv
-            this.lists2[2].title=item.endDay  
+            this.lists2[2].title=item.expiredDate  
             this.lists2[3].title=item.comEmail  
-            this.lists2[4].title=item.businessNum  
+            this.lists2[4].title=item.busNumber
 
             this.formTitle=item.comName
 

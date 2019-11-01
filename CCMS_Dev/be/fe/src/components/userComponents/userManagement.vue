@@ -61,7 +61,7 @@
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteTable(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
 </v-data-table>
@@ -204,7 +204,7 @@
       },
 
       deleteTable(item){
-        EventBus.$emit("DelComment",item)
+        EventBus.$emit("DelUser",item)
         console.log('emit됨')
         },
       }

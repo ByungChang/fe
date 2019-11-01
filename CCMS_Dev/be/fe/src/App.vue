@@ -72,6 +72,7 @@
     dark
     color="#1c065a"
     height="70px"
+    
      >
      <v-col
      class="text-center"

@@ -148,9 +148,13 @@
       }
     },
     mounted(){
+     
       axios.get('/api/company', {})
       .then((r) => {
+                 console.log('기모찌2')
+
         console.log(r.data)
+        
         r.data.companies.forEach((company) => {
             company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
@@ -196,10 +200,13 @@
             // console.log(item)
       },
       userDetail(item){
+        console.log('에밋가능하노????')
         EventBus.$emit("companyDetail", item )
+        
+        console.log(item)
       },
       deleteComment(item){
-                EventBus.$emit("DelComment",item)
+                EventBus.$emit("DelCom",item)
                 console.log('emit됨')
             },
 

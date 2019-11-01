@@ -1063,3 +1063,67 @@ notNull Violation: branchs.tel cannot be null
 2019-10-31 17:08:18 [METHOD] - "/company"에 get실행완료
 2019-10-31 17:08:43 [METHOD] - "/company/user"에 post실행
 2019-10-31 17:08:43 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 17:20:02 [METHOD] - "/company"에 get실행
+2019-10-31 17:20:02 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:22:09 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:22:09 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 17:22:14 [METHOD] - "/company/user"에 post실행
+2019-10-31 17:22:14 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 17:22:16 [METHOD] - "/company"에 get실행
+2019-10-31 17:22:16 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:33:33 [METHOD] - "/company"에 get실행
+2019-10-31 17:33:33 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:35:55 [METHOD] - "/company"에 get실행
+2019-10-31 17:35:55 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:52:21 [METHOD] - "/company"에 get실행
+2019-10-31 17:52:22 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:52:51 [METHOD] - "/company"에 get실행
+2019-10-31 17:52:51 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:53:21 [METHOD] - "/company"에 get실행
+2019-10-31 17:53:21 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:53:39 [METHOD] - "/company"에 get실행
+2019-10-31 17:53:39 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:58:51 [METHOD] - "/company"에 get실행
+2019-10-31 17:58:51 [METHOD] - "/company"에 get실행완료
+2019-10-31 17:59:10 [METHOD] - "/company"에 get실행
+2019-10-31 17:59:10 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:00:18 [METHOD] - "/company"에 get실행
+2019-10-31 18:00:18 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:00:33 [METHOD] - "/company"에 get실행
+2019-10-31 18:00:33 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:00:45 [METHOD] - "/company"에 get실행
+2019-10-31 18:00:45 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:00:49 [METHOD] - "/company"에 get실행
+2019-10-31 18:00:49 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:00:51 [METHOD] - "/company"에 get실행
+2019-10-31 18:00:51 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:01:04 [METHOD] - "/company"에 get실행
+2019-10-31 18:01:04 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:02:09 [METHOD] - "/company"에 get실행
+2019-10-31 18:02:09 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:11:08 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:11:08 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 18:11:43 [METHOD] - "/company"에 get실행
+2019-10-31 18:11:43 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:11:44 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:11:44 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 18:11:45 [METHOD] - "/company"에 get실행
+2019-10-31 18:11:45 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:11:46 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:11:46 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 18:12:00 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:12:00 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 18:12:10 [METHOD] - "/company"에 get실행
+2019-10-31 18:12:10 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:14:36 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:14:36 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 18:15:49 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:15:49 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 18:16:15 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:16:15 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value
+2019-10-31 18:16:16 [METHOD] - "/company"에 get실행
+2019-10-31 18:16:16 [METHOD] - "/company"에 get실행완료
+2019-10-31 18:19:33 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:19:33 [METHOD] - "/company/user"에 post실행완료
+2019-10-31 18:22:20 [METHOD] - "/company/user"에 post실행
+2019-10-31 18:22:20 [ERROR] - "/company/user"에 post에서 ERROR : Error: WHERE parameter "companyId" has invalid "undefined" value

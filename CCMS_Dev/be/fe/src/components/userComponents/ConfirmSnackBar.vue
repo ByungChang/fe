@@ -23,13 +23,13 @@ export default {
         }
     },
     mounted(){
-        EventBus.$on("DelComment", (item/*item,comments*/) => { 
+        EventBus.$on("DelCom", (item/*item,comments*/) => { 
             this.confirm = true
             // this.commentId = item
             // this.comments = comments
             // this.CommentORPost = 'Comment'
         });
-        EventBus.$on("Del", (item/*item,comments*/) => { 
+        EventBus.$on("DelUser", (item/*item,comments*/) => { 
             this.confirm = true
             // this.commentId = item
             // this.comments = comments
