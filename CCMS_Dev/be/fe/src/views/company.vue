@@ -31,7 +31,6 @@
       @page-count="pageCount = $event"  
     >
   
-    <!--table에서 이미지를 넣는 template 현재윈도우가 1000px보다 작으면 이미지 size 50-->
       <template v-slot:item.img="{ item }">
         <v-avatar v-if="x>600"
           class="ma-3"
@@ -54,7 +53,6 @@
         <v-btn @click="statusChange(item)" :color="getColor(item.status)">{{item.status}}</v-btn>
  </template>
 
-      <!--table action의 아이템 영역에 아이콘 삽입-->
       <template v-slot:item.action="{ item }">
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn @click="btnClick('edit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
@@ -88,7 +86,6 @@
 
   export default {
     components:{
-      //userFooterComponent
       companyAdd,
       userDetail,
       ConfirmSnackBar
@@ -98,7 +95,11 @@
         to:{
           path:'/userManagement'
         },
+        info:[],
         x:window.innerWidth,
+        companyId:0,
+        branchId:0,
+        devices:[],
         search:'',
         page: 1,
         pageCount: 0,
@@ -148,17 +149,24 @@
       }
     },
     mounted(){
+      EventBus.$on("delCompanyOk", (item) => { 
+        this.info = [
+          {
+            cId: this.companyId,
+          }
+        ]
+        axios.delete('/api/company', {data: { info : this.info} })
+        .then((r) => {
+          location.href = '/company'
+        });
+      });
+
       axios.get('/api/company', {})
       .then((r) => {
-        console.log(r.data)
         r.data.companies.forEach((company) => {
             company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
 
-
-        // for(company in r.data.companies){
-        //     company.expiredDate = this.$moment(r.data.companies[j].expiredDate).format('YYYY-MM-DD')
-        // }
         this.companies = r.data.companies
       });
     },
@@ -177,7 +185,6 @@
         else return 'red'
       },
       btnClick(what){
-        console.log(what)
         EventBus.$emit("companyAdd", what)
       },
       statusChange(item){
@@ -193,15 +200,16 @@
         },
       editTable(item){
         EventBus.$emit("comEditInfo", item)
-            // console.log(item)
       },
       userDetail(item){
         EventBus.$emit("companyDetail", item )
       },
       deleteComment(item){
-                EventBus.$emit("DelComment",item)
-                console.log('emit됨')
-            },
+        console.log(item)
+        this.companyId = item.companyId
+        this.branchId = item.branchId
+        EventBus.$emit("DelComment",item)
+      },
 
    }
   }

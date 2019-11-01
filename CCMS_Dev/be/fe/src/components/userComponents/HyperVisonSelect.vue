@@ -30,7 +30,7 @@
             </v-text-field>
          </v-card-title>
         <v-data-table
-        :items-per-page="perpage=5"
+         :items-per-page="perpage=5"
          v-model="selected"
          :search="search"
          :headers="headers"
@@ -49,7 +49,7 @@
 </template>
 <script>
 import { EventBus } from "./eventBus";
-
+import axios from 'axios'
   export default {
     data () {
       return {
@@ -71,61 +71,67 @@ import { EventBus } from "./eventBus";
 
         ],
         items: [
-          {
-            name: 'HV-00474438',
-          },
-          {
-            name: 'HV-00472237',
-          },
-          {
-            name: 'HV-00432123',
-          },
-          {
-            name: 'HV-00432121',
-          },
-          {
-            name: 'HV-00432122',
-          },
-          {
-            name: 'HV-00432125',
-          },
-          {
-            name: 'HV-00432129',
-          },
-           {
-            name: 'HV-00474440',
-          },
-           {
-            name: 'HV-00474431',
-          },
-           {
-            name: 'HV-00474430',
-          },
-           {
-            name: 'HV-00464438',
-          },
-
+          // {
+          //   name: 'HV-00474438',
+          // },
+          // {
+          //   name: 'HV-00472237',
+          // },
+          // {
+          //   name: 'HV-00432123',
+          // },
+          // {
+          //   name: 'HV-00432121',
+          // },
+          // {
+          //   name: 'HV-00432122',
+          // },
+          // {
+          //   name: 'HV-00432125',
+          // },
+          // {
+          //   name: 'HV-00432129',
+          // },
+          //  {
+          //   name: 'HV-00474440',
+          // },
+          //  {
+          //   name: 'HV-00474431',
+          // },
+          //  {
+          //   name: 'HV-00474430',
+          // },
+          //  {
+          //   name: 'HV-00464438',
+          // },
         ],
       }
     },
-    mounted(){
-         EventBus.$on("HyperVisonClean", (what) => {
-                    this.hvText=''
-                    this.selected=[]
-         });
+    created(){
+      axios.get('/api/company/device', {})
+        .then((r) => {
+          console.log(r)
+          console.log(r.data.device)
+          this.items = r.data.device
+        });
+
+      EventBus.$on("HyperVisonClean", (what) => {
+        console.log('클로즈')
+        this.hvText=''
+        this.selected=[]
+      });
     },
     methods:{
       remove(item){
-        console.log(item)
-      this.selected.splice(this.selected.indexOf(item), 1)
-      //this.selected = [...this.selected]
+        this.selected.splice(this.selected.indexOf(item), 1)
       },
       hvSelect(){
-         this.dialog=false
-         if(this.selected.length >= 1)
-        this.hvText=this.selected[0].name+'등('+this.selected.length +')개 선택됨'
-         else
-         this.hvText='*선택된 하이퍼비전이 없습니다.*'
+        this.dialog=false
+        EventBus.$emit("select",this.selected)
+        if(this.selected.length >= 1)
+          this.hvText=this.selected[0].name+'등('+this.selected.length +')개 선택됨'
+        else
+          this.hvText='*선택된 하이퍼비전이 없습니다.*'
       }
     }
   }
