@@ -165,6 +165,42 @@ router.post('/userAdd', async (req, res, next) => {
   }
 });
 
+router.post('/detail', async (req, res, next) => {
+  try {
+    logger.method('"/company/detail"에 post실행')
+    console.log(req.body)
+
+    const board_device = await Branch_device.findAll({
+      branchId : req.body.id,
+    },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      }
+    )
+    console.log(board_device)
+    const result = await Device.findAll({
+      id : board_device.deviceId,
+    },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      }
+    )
+    console.log(result)
+    logger.method('"/company/detail"에 post실행완료')
+    res.send({ devices: result })
+  }
+  catch (e) {
+    logger.error('"/company/detail"에 post에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
 router.delete('/', async (req, res, next) => { //이거 다시 하기
   try {
     logger.method('"/company"에 delete실행')

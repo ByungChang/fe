@@ -204,7 +204,6 @@
         console.log('emit됨')
         },
       }
-
   }
 </script>
  

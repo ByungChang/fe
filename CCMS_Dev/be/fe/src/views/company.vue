@@ -30,7 +30,6 @@
       :page.sync="page"
       @page-count="pageCount = $event"  
     >
-  
       <template v-slot:item.img="{ item }">
         <v-avatar v-if="x>600"
           class="ma-3"
@@ -145,7 +144,6 @@
           // },
         ],
             number:-1
-
       }
     },
     mounted(){
@@ -163,11 +161,9 @@
 
       axios.get('/api/company', {})
       .then((r) => {
-
         r.data.companies.forEach((company) => {
             company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
-
         this.companies = r.data.companies
       });
     },
@@ -179,15 +175,18 @@
       btnStatus(){
           
       },
+
       getColor(status)
       {
         if(status=='active')
         return 'green'
         else return 'red'
       },
+
       btnClick(what){
         EventBus.$emit("companyAdd", what)
       },
+
       statusChange(item){
         this.number=this.companies.indexOf(item)
         if(this.companies[this.number].status =='active'){
@@ -197,25 +196,25 @@
         else if(this.companies[this.number].status =='block'){
           this.companies[this.number].status ='active'
         }
+      },
 
-        },
       editTable(item){
         EventBus.$emit("comEditInfo", item)
       },
+
       userDetail(item){
-        console.log('에밋가능하노????')
-        EventBus.$emit("companyDetail", item )
-        
-        console.log(item)
+        axios.post('/api/company/detail',{id : item.id})
+        .then((r)=>{
+          EventBus.$emit("companyDetail", item, r.data.devices )
+        })
       },
+
       deleteComment(item){
         console.log(item)
         this.companyId = item.companyId
         this.branchId = item.branchId
         EventBus.$emit("DelComment",item)
       },
-
-
    }
   }
 </script>

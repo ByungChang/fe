@@ -508,3 +508,78 @@
 2019-11-01 11:40:11 [METHOD] - "/company/device"에 get실행
 2019-11-01 11:40:11 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
 2019-11-01 11:40:11 [METHOD] - "/company/device"에 get실행완료
+2019-11-01 14:19:22 [METHOD] - "/company"에 get실행
+2019-11-01 14:19:22 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:19:23 [METHOD] - "/company/user"에 post실행
+2019-11-01 14:19:23 [METHOD] - "/company/user"에 post실행완료
+2019-11-01 14:19:31 [METHOD] - "/company"에 get실행
+2019-11-01 14:19:31 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:19:40 [METHOD] - "/board"에 get실행
+2019-11-01 14:19:40 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 14:19:40 [METHOD] - "/board"에 get실행완료
+2019-11-01 14:19:44 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:19:44 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:20:32 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:20:32 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:20:38 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:20:38 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:20:46 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:20:46 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:21:07 [METHOD] - "/company"에 get실행
+2019-11-01 14:21:07 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:21:12 [METHOD] - "/company/user"에 post실행
+2019-11-01 14:21:12 [METHOD] - "/company/user"에 post실행완료
+2019-11-01 14:21:14 [METHOD] - "/board"에 get실행
+2019-11-01 14:21:14 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 14:21:14 [METHOD] - "/board"에 get실행완료
+2019-11-01 14:21:16 [METHOD] - "/company"에 get실행
+2019-11-01 14:21:16 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:21:23 [METHOD] - "/company/user"에 post실행
+2019-11-01 14:21:23 [METHOD] - "/company/user"에 post실행완료
+2019-11-01 14:21:28 [METHOD] - "/board"에 get실행
+2019-11-01 14:21:28 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 14:21:28 [METHOD] - "/board"에 get실행완료
+2019-11-01 14:21:29 [METHOD] - "/company"에 get실행
+2019-11-01 14:21:29 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:21:41 [METHOD] - "/company/device"에 get실행
+2019-11-01 14:21:41 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-01 14:21:41 [METHOD] - "/company/device"에 get실행완료
+2019-11-01 14:26:53 [METHOD] - "/board"에 get실행
+2019-11-01 14:26:53 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 14:26:53 [METHOD] - "/board"에 get실행완료
+2019-11-01 14:26:54 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:26:54 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:27:08 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:27:08 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:28:44 [METHOD] - "/board"에 get실행
+2019-11-01 14:28:44 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 14:28:44 [METHOD] - "/board"에 get실행완료
+2019-11-01 14:28:47 [METHOD] - "/board/comment"에 post실행
+2019-11-01 14:28:47 [METHOD] - "/board/comment"에 post실행종료
+2019-11-01 14:42:08 [METHOD] - "/company"에 get실행
+2019-11-01 14:42:08 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:42:13 [METHOD] - "/company/user"에 post실행
+2019-11-01 14:42:13 [METHOD] - "/company/user"에 post실행완료
+2019-11-01 14:43:21 [METHOD] - "/company"에 get실행
+2019-11-01 14:43:21 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:46:32 [METHOD] - "/company"에 get실행
+2019-11-01 14:46:32 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:54:35 [METHOD] - "/company"에 get실행
+2019-11-01 14:54:35 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:54:37 [METHOD] - "/company/detail"에 post실행
+2019-11-01 14:54:37 [ERROR] - "/company/detail"에 post에서 ERROR : ReferenceError: Board_device is not defined
+2019-11-01 14:55:11 [METHOD] - "/company/detail"에 post실행
+2019-11-01 14:55:11 [METHOD] - "/company/detail"에 post실행완료
+2019-11-01 14:58:42 [METHOD] - "/company"에 get실행
+2019-11-01 14:58:42 [METHOD] - "/company"에 get실행완료
+2019-11-01 14:58:44 [METHOD] - "/company/detail"에 post실행
+2019-11-01 14:58:44 [METHOD] - "/company/detail"에 post실행완료
+2019-11-01 15:01:04 [METHOD] - "/board"에 get실행
+2019-11-01 15:01:04 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-01 15:01:04 [METHOD] - "/board"에 get실행완료
+2019-11-01 15:01:04 [METHOD] - "/company"에 get실행
+2019-11-01 15:01:04 [METHOD] - "/company"에 get실행완료
+2019-11-01 15:01:06 [METHOD] - "/company/detail"에 post실행
+2019-11-01 15:01:06 [METHOD] - "/company/detail"에 post실행완료
+2019-11-01 15:01:30 [METHOD] - "/company/detail"에 post실행
+2019-11-01 15:01:30 [METHOD] - "/company/detail"에 post실행완료
