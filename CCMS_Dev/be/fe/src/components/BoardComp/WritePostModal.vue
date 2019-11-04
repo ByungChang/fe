@@ -1,81 +1,65 @@
 <template>
     <v-dialog
-      v-model="WModal"
-      width="800px"
-      persistent
-    >
-      <v-card>
-        
-        <v-card-title  v-model="form.title" style="color:white;background-color:#230871">
-          <p class=font-weight-white id=board>{{mode}}</p>
-        </v-card-title>
-          <v-row 
-          class="ma-0"
-          > 
-
-            <v-col
-              class="align-center justify-space-between"
-              cols="12"
-            >
-              <v-row align="center">
-                <v-avatar
-                  size="40px"
-                  class="mr-4"
-                >
-                </v-avatar>
+    v-model="WModal"
+    max-width="800px"
+    persistent
+    scrollable>
+    <v-card>
+   <v-card-title  
+   v-model="form.title" 
+   style="color:white;background-color:#230871"
+   class=font-weight-white id=board
+    >{{mode}}
+          <v-spacer></v-spacer>
                 <v-btn-toggle
                       v-model="text"
-                      color="deep-purple accent-3"
                       
-                      rounded
-                      style="background-color:grey"
+                      color="pink"
+                      style="background-color:white"
                     >
-                      <v-btn value="left" @click="setNormal" >
+                      <v-btn 
+                      tile 
+                      outlined
+                      value="left" @click="setNormal" >
                         일반
                       </v-btn>
-                      <v-btn value="center" @click="setNotice">
+                      <v-btn 
+                      tile 
+                      outlined
+                      value="center" 
+                      @click="setNotice">
                         공지
                       </v-btn>
                 </v-btn-toggle>
-                
-                <v-form ref="form" v-model="valid" lazy-validation style="width:500px">
+
+        </v-card-title>
+
+        
+        <v-form ref="form" v-model="valid" lazy-validation>
                   <v-text-field
+                    class="ma-2"
                     placeholder="제목을 입력해주세요" 
                     v-model="form.title"
                     :rules="titleRules"
                   ></v-text-field>
                 </v-form>
-              </v-row>
-            </v-col>
-            
-            <v-container>
-              <editor v-model="form.content"/>
-            </v-container>
-            
-          </v-row>
-          <v-divider style="background-color:#000000" ></v-divider>
-          
-          
-            <v-layout wrap row v-if="file_cpy[0]">
-                <v-flex>
-                    <v-list>
-                        <v-list-item
-                            v-for="item in file_cpy"
-                            :key="item.id"
+
+      
+
+    <v-card-text  class="pa-0">
+         <editor v-model="form.content"/>
+         <div style="border:2px black solid;border-radius:20px;border-color:#751df1" wrap row v-if="file_cpy[0]">
+                        <v-chip class="ma-1" color="#751df1"
+                          dark
+                          small
+                          v-for="item in file_cpy"
+                          :key="item.id"
                         >
-                            <v-list-item-title>
                               <v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}
                               <v-icon style="color:red;" @click="delFile(item)">mdi-close</v-icon>
-                            </v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-flex>
-            </v-layout>
-       
-            <v-divider style="background-color:#000000" ></v-divider>
-            <v-row>
-              <v-container>
-                <v-file-input
+                        </v-chip>
+            </div>
+             <v-file-input
                   v-model="files"
                   color="deep-purple accent-4"
                   counter
@@ -87,6 +71,7 @@
                   id="bin"
                   :show-size="1000"
                   enctype="multipart/form-data"
+                  class="mt-2"
                 >
                   <template v-slot:selection="{ index, text }">
                     <v-chip
@@ -107,10 +92,9 @@
                     </span>
                   </template>
                 </v-file-input>
-              </v-container>
-            </v-row>
-            <v-card-actions>
+                <v-card-actions>
               <v-row justify="end" class="mr-4">
+                
               <v-btn 
                 color="success"
                 @click="saveClick()"
@@ -119,14 +103,17 @@
                 color="error"
                 @click="modalClose"
               >취소</v-btn>
+              
                           </v-row>
 
             </v-card-actions>
-          
-      </v-card>
-        <AlertSnackBar></AlertSnackBar> 
-        <ErrorSnackBar></ErrorSnackBar>
-    </v-dialog>
+
+    </v-card-text>
+    </v-card>
+    <AlertSnackBar></AlertSnackBar> 
+        <!-- <ErrorSnackBar></ErrorSnackBar> -->
+    </v-dialog>    
+
 </template>
 <script>
 import axios from 'axios'
