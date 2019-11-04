@@ -1,107 +1,96 @@
 <template>
     <v-dialog
-      v-model="DModal"
-      width="800px"
-      persistent
-      :scrollable="sgd=false"
-    >
-        <ConfirmSnackBar></ConfirmSnackBar>
-        <v-card>
-            <v-system-bar window dark>
+    v-model="DModal"
+    max-width="800px"
+    persistent
+    scrollable>
+    <ConfirmSnackBar></ConfirmSnackBar>
+    <!-- <ErrorSnackBar></ErrorSnackBar>  -->
+
+    <v-card>
+        <v-system-bar window dark>
                 <span>작성일 : {{form.createdAt}}</span>
                 <v-spacer></v-spacer>
 
                 <v-icon v-if="user === form.writer"
-                    small
+                    size="30px"
                     class="mr-2"
                     @click="openEditModal(form)"
                 >
                     mdi-pencil
                 </v-icon>
                 <v-icon v-if="user === form.writer"
-                    small
+                     size="30px"
                     @click="deletePost(form)"
                 >
                     mdi-delete
                 </v-icon>
             <v-btn icon dark>
-                <v-icon @click="DModalClose">mdi-close</v-icon>
+                <v-icon 
+                 size="30px"
+                @click="DModalClose">mdi-close</v-icon>
             </v-btn>
             </v-system-bar>
+    <v-card-title style="color:white;background-color:#230871">{{form.title}}         
+    </v-card-title>
+     
+    <v-card-text class="pa-0">
+        <v-container>
+
+        <viewer :value="form.content" style="min-height: 300px" class="ma-4"></viewer>
+        </v-container>
+        <div style="border:2px black solid;border-radius:20px;border-color:#751df1" v-if="form.file">
+            <v-chip class="ma-1" color="#751df1"
+                dark 
+                small 
+                @click="fileDown(item.file.orgName)"
+                v-for="item in form.file" 
+                :key="item.file.orgName">
+                <v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}
+            </v-chip>
+     </div>
+        <v-list three-line>
+        <v-list-item
+            v-for="item in comments"
+            :key="item.id"
+            style="border-bottom:1px grey dashed"
+        >
+            <v-list-item-avatar>
+            <v-icon size="80"> mdi-account-circle</v-icon>
+            </v-list-item-avatar>
+    
+            <v-list-item-title>
+                <strong>{{item.user.userNm}}</strong> {{item.createdAt}}<!--item.title-->
+                <v-list-item-content>{{item.content}} </v-list-item-content>  
+            </v-list-item-title>
+
+            <v-icon v-if="user === item.user.userNm"
+                @click="modCommentDialog(item)"
+                size="30px"
+                >mdi-pencil
+            </v-icon>
         
-            <v-card-title 
-                style="color:white;background-color:#230871">{{form.title}}
-            </v-card-title>
+            <v-icon v-if="user === item.user.userNm"
+                size="30px"
+                right
+                @click="deleteComment(item)"
+            >mdi-delete
+            </v-icon>
+        </v-list-item>
+    </v-list>
 
-            <v-container
-                class="overflow-y-auto"
-                style="max-height: 500px"
-                id="scroll-target"
-            >
-                <v-layout wrap row>
-                    <v-flex>
-                        <viewer  :value="form.content" style="min-height:300px;"  class="ma-4"></viewer>
-                        <v-divider style="background-color:#000000" ></v-divider>
-                            <v-layout wrap row v-if="form.file">
-                                <v-flex>
-                                    <div>
-                                     <v-chip color="deep-purple accent-4"
-                                        dark
-                                        
-                                        small 
-                                        close 
-                                        @click="fileDown(item.file.orgName)"
-                                         v-for="item in form.file" 
-                                        :key="item.file.orgName">
-                                        <v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}
-                                    </v-chip>
-                                    </div>
-                                </v-flex>
-                            </v-layout>
-                        <v-divider style="background-color:#000000" ></v-divider>
-                        <v-list three-line>
-                            <v-list-item
-                                v-for="item in comments"
-                                :key="item.id"
-                                style="border-bottom:1px grey dashed"
-                            >
-                                <v-list-item-avatar>
-                                <v-icon size="80"> mdi-account-circle</v-icon>
-                                </v-list-item-avatar>
-                        
-                                <v-list-item-title>
-                                    <strong>{{item.user.userNm}}</strong> {{item.createdAt}}<!--item.title-->
-                                    <v-list-item-content>{{item.content}} </v-list-item-content>  
-                                </v-list-item-title>
-
-                                <v-icon v-if="user === item.user.userNm"
-                                    @click="modCommentDialog(item)"
-                                    small
-                                    >mdi-pencil
-                                </v-icon>
-                            
-                                <v-icon v-if="user === item.user.userNm"
-                                    small
-                                    right
-                                    @click="deleteComment(item)"
-                                >mdi-delete
-                                </v-icon>
-                            </v-list-item>
-                        </v-list>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-
-            <v-container>
-                <v-text-field
-                    v-model="commentAdd"
-                    label="댓글 작성"
-                    append-outer-icon="mdi-send"
-                    @click:append-outer="addComment"
-                ></v-text-field>
-            </v-container>
-        </v-card>
-        <ErrorSnackBar></ErrorSnackBar>
+        
+   
+    </v-card-text>
+    <v-text-field
+        v-model="commentAdd"
+        label="댓글 작성"
+        append-outer-icon="mdi-send"
+        @click:append-outer="addComment"
+        
+     ></v-text-field>
+    </v-card>
+    <!-- <ErrorSnackBar></ErrorSnackBar> -->
     </v-dialog>
 </template>
 <script>
@@ -216,6 +205,7 @@
                 eventBus.$emit('triggerDelComment',item.id,this.comments);
             },
             deletePost (item) {
+                console.log('asdd')
                 eventBus.$emit('triggerDelPost',item.id);
             },
             openEditModal(item){
