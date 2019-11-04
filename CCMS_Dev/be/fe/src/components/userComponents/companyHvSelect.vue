@@ -115,6 +115,11 @@ import axios from 'axios'
           this.items = r.data.device
         });
 
+      EventBus.$on("comHVList", (item) => {
+        console.log('컴리스트')
+        this.selected = item
+      });
+
       EventBus.$on("HyperVisonClean", (what) => {
         console.log('클로즈')
         this.hvText=''

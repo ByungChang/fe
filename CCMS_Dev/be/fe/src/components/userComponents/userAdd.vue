@@ -7,7 +7,7 @@
         <!-- <v-dialog v-model="dialog" persistent scrollable max-width="600px"  > -->
         <v-dialog v-model="dialog" scrollable max-width="600px">
       <v-card>
-          <v-app-bar dark color="blue-grey">
+          <v-app-bar dark color="#2a3248">
         <v-card-title>
           <span>{{formTitle}}</span>
         </v-card-title>
@@ -37,7 +37,7 @@
  
     <v-col cols="12">
       <v-select
-         v-model="status"
+         v-model="state"
         :items="actitems"
          label="활성화 여부*"
          prepend-inner-icon="mdi-lock"
@@ -157,16 +157,16 @@ import userHvSelect from './userHvSelect'
       userHvSelect
       },
     data: () => ({
-      //endDay: new Date().toISOString().substr(0, 10),
+      mode:'',
       select:[],
-      cId:0,
+      branchId:0,
       formTitle:'',
       menu: false,
       dialog: false,
       valid: true,
       readonly: true,
       picture: null,   
-      status: '',
+      state: '',
       name: '',
       email: '',
       endDay: '',
@@ -205,11 +205,8 @@ import userHvSelect from './userHvSelect'
         v => (v && v.length <= 12) || '12글자 초과 하실 수 없습니다.',
       ],
  
- 
-    //   items: [
-    //     'hv-1', 'hv-2', 'hv-3', 'hv-4', 'hv-5', 'hv-6', 'hv-7', 'hv-8'
-    //   ],
-        actitems: [
+
+      actitems: [
         'active', 'block'
       ],
     }),
@@ -218,20 +215,45 @@ import userHvSelect from './userHvSelect'
           this.cId = cId
           if(what==='userAdd')
           {
-              this.formTitle='사용자 추가'
+            this.mode='post'
+            this.formTitle='사용자 추가'
           }
           if(what==='userEdit')
           {
-              this.formTitle='사용자 정보 수정'
+            this.mode='put'
+            this.formTitle='사용자 정보 수정'
           }
+          this.state=''
+          this.select = []
+          this.name=''
+          this.email=''
+          this.endDay=''
+          this.address=''
+          this.tel=''
+          EventBus.$emit("HyperVisonClean",(true))
           this.dialog = true;
         });
-        // EventBus.$on("userEditInfo",(item) => {
-        //   this.name=item.name
-        //   this.status=item.status
-        //   this.endDay=item.expiredDate
-        //   this.email=item.userEmail
-        // });
+
+        EventBus.$on("userEditInfo",(item) => {
+          console.log(item)
+          this.mode='put'
+          this.name=item.name
+          this.branchId = item.id
+          this.endDay=item.expiredDate                          
+          this.address=item.address
+          this.tel=item.tel
+
+          axios.post('/api/company/editDevice',{branchId : item.id})
+          .then((r)=>{
+            EventBus.$emit('userHVList',r.data.result)
+          })
+
+        });
+
+        EventBus.$on("userAddOk", (what) => {
+          this.dialog = false;
+        });
+
         EventBus.$on("select",(item) => {
           this.select = item
         });
@@ -241,7 +263,7 @@ import userHvSelect from './userHvSelect'
         modalClose(){
           this.dialog = false
           this.$refs.form.resetValidation()
-          this.status=''
+          this.state=''
           this.name=''
           this.email=''
           this.endDay=''
@@ -250,21 +272,40 @@ import userHvSelect from './userHvSelect'
           EventBus.$emit("HyperVisonClean",(true))
           },
         saveClick() {
-          axios.post('/api/company/userAdd', {
-              name : this.name,
-              companyId : this.cId,
-              address : this.address,
-              tel : this.tel,
-              expiredDate : this.endDay,
-              devices : this.select
-          })
-          .then((r) => {
-              console.log('post완료')
-          })
-          .catch((e) => {
-              console.error(e.message)
-          })
-          EventBus.$emit("SaveItem",('user'))
+          if(this.mode === 'post'){
+            axios.post('/api/company/userAdd', {
+                name : this.name,
+                companyId : this.cId,
+                address : this.address,
+                tel : this.tel,
+                expiredDate : this.endDay,
+                devices : this.select
+            })
+            .then((r) => {
+              EventBus.$emit("SaveItem",'user',r)
+            })
+            .catch((e) => {
+                console.error(e.message)
+            })
+          }
+          else if(this.mode === 'put'){
+              axios.put('/api/company/user', {
+                branchId : this.branchId,
+                name : this.name,
+                busNumber : this.business,
+                address : this.address,
+                tel : this.tel,
+                expiredDate : this.date,
+                devices : this.select
+              })
+              .then((r) => {
+                console.log('put완료')
+                  EventBus.$emit("EditItem",('user'))
+              })
+              .catch((e) => {
+                  console.error(e.message)
+              })
+          }
         },
      
     },

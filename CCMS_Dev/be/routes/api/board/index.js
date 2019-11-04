@@ -1,5 +1,5 @@
 var createError = require('http-errors');
-var { User, Board, Board_post, File, Board_file } = require('../../../models');
+var { User, Board, Board_post, File, Board_file,Board_comment } = require('../../../models');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 //const { isLoggedIn, isNotLoggedIn } = require('../../middlewares');
@@ -161,16 +161,33 @@ router.put('/', upload.any(), async (req, res, next) => {
 router.delete('/', async (req, res, next) => { //이거 다시 하기
   try {
     logger.method('"/board"에 delete실행')
-    const result = await Board_file.destroy(
-      {
-        where: { boardId: req.body.id },
-        logging: (str) => { str = str.substr(21); logger.query(str) }
+    console.log(req.body)
+    await Board_file.destroy({
+      where: { boardId : req.body.boardId},
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
       }
-    )
+    })
+
+    await Board_comment.destroy({
+      where: { boardId : req.body.boardId},
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+
     await Board.destroy(
       {
-        where: { id: req.body.id },
-        logging: (str) => { str = str.substr(21); logger.query(str) }
+        where: { id : req.body.boardId},
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
       }
     )
     logger.method('"/board"에 delete실행완료')

@@ -1,7 +1,8 @@
 var createError = require('http-errors');
-var { Company, Branch, Device, Branch_device,User_group } = require('../../../models');
+var { Company, Branch, Device, Branch_device,User_group,User } = require('../../../models');
 const express = require('express');
 const jwt = require('jsonwebtoken');
+//const temp = require('../board/index')
 const router = express.Router();
 const logger = require('../../../config/logger');
 
@@ -11,24 +12,59 @@ router.get('/', async (req, res, next) => {
   try {
     logger.method('"/company"에 get실행')
 
-    let branch = await Branch.findAll({
+    const branch = await Branch.findAll({
       where: {
         isMain: 'Y'
-      }
+      },
+      include: [{
+        model: User_group,
+        include: [User]
+      }],
     },
-      {
+    {
+      
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+
+    let i =0
+    await branch.forEach(async (item) => {
+      const branchs = await Branch.findAll({
+        where:{companyId : item.companyId},
         include: [{
-          model: Branch,
+          model: User_group,
+          include: [User]
         }],
+      }, {
         logging: (str) => {
           str = str.substr(21);
           logger.query(str)
         }
       })
+      
 
-    logger.method('"/company"에 get실행완료')
-
-    await res.send({ companies: branch})
+      const branch_devices = await Branch_device.findAll({
+        where:{branchId : item.id}
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+      item.dataValues.userNum = branchs.length
+      item.dataValues.hvNum = branch_devices.length 
+      item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn
+      
+      
+      if(i === branch.length - 1){
+        logger.method('"/company"에 get실행완료')
+        
+        res.send({ companies: branch})
+      }
+      i++
+    });
   }
   catch (e) {
     logger.error('"/company"에 get에서 ERROR' + ' : ' + e)
@@ -58,10 +94,50 @@ router.get('/device', async (req, res, next) => {
   }
 });
 
+router.post('/userDevice', async (req, res, next) => {
+  try {
+    logger.method('"/company/userDevice"에 post실행')
+    const devices = await Branch_device.findAll(
+      {where : {branchId : req.body.companyId}},
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+    
+    console.log(devices)
+
+    var device = []
+    var i =0
+    await devices.forEach(async (item)=>{
+      const result = await Device.findOne(
+        {where : {id : item.deviceId}},
+        {
+          logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+      device.push(result)
+      if(i === devices.length - 1){
+        logger.method('"/company/userDevice"에 post실행완료')
+        await res.send({ device: device })
+      }
+      i++
+    })
+    
+  }
+  catch (e) {
+    logger.error('"/company/userDevice"에 post에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
 router.post('/', async (req, res, next) => {
   logger.method('"/company"에 post실행')
 
-  const { name, expiredDate, busNumber, address, tel, devices } = req.body
+  const { name, expiredDate, busNumber, address, tel, devices, email, state } = req.body
   console.log(devices)
   try {
     const result = await Company.create({
@@ -82,6 +158,32 @@ router.post('/', async (req, res, next) => {
       isMain: 'Y',
       Address: '',
       tel: '',
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+
+    const group = await User_group.create({
+      name: name,
+      groupAuth : 'company',
+      branchId : branch.id
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+
+    console.log(state)
+
+    await User.create({
+      orgId: email,
+      userNm : name,
+      userPw:'1234',
+      userYn:state,
+      userGroupId:group.id
     }, {
       logging: (str) => {
         str = str.substr(21);
@@ -112,12 +214,162 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.post('/user', async (req, res, next) => {
+router.put('/', async (req, res, next) => {
+  logger.method('"/company"에 put실행')
+
+  const { cId, name, expiredDate, busNumber, address, tel, devices } = req.body
+  
   try {
-    logger.method('"/company/user"에 post실행')
-    let result = await Branch.findAll({
+    await Company.update(
+      {
+        name : name
+      },
+      {
+        where: { id : cId }, logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        },
+        returning: true
+      },
+    )
+    
+    const find = await Branch.findOne(
+      {
+        where : {companyId : cId}
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      }
+    )
+    
+    await Branch.update(
+    {
+      name: `${name}`,
+      expiredDate,
+      address: '',
+      tel: '',
+      busNumber : busNumber
+    },{
+      where:{id:find.id}},
+    {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+    
+    await Branch_device.destroy({
+      where: { branchId : find.id},
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+    
+    await devices.forEach(async (item) => {
+      console.log(item)
+      await Branch_device.create(
+      { 
+        name : item.name, 
+        branchId : find.id,
+        deviceId : item.id,
+        location : '',
+        descript : ''
+      },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+    })
+
+    logger.method('"/company"에 put실행완료')
+    res.send({ page: true })
+  }
+  catch (e) {
+    logger.error('"/company"에 put에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
+router.put('/user', async (req, res, next) => {
+  logger.method('"/company/user"에 put실행')
+
+  const { branchId, name, expiredDate, busNumber, address, tel, devices } = req.body
+  
+  try {
+    const find = await Branch.findOne(
+      {
+        where : {id : branchId}
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      }
+    )
+    
+    await Branch.update(
+    {
+      name: `${name}`,
+      expiredDate,
+      address: address,
+      tel: tel,
+    },{
+      where:{id:find.id}},
+    {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+    
+    await Branch_device.destroy({
+      where: { branchId : find.id},
+    }, {
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
+      }
+    })
+    
+    await devices.forEach(async (item) => {
+      await Branch_device.create(
+      { 
+        name : item.name, 
+        branchId : find.id,
+        deviceId : item.id,
+        location : '',
+        descript : ''
+      },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+    })
+
+    logger.method('"/company"에 put실행완료')
+    res.send({ page: true })
+  }
+  catch (e) {
+    logger.error('"/company"에 put에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
+router.post('/edit', async (req, res, next) => {
+  logger.method('"/company/edit"에 post실행')
+
+  try {
+    const result = await Branch.findOne({
       where: {
-        companyId: req.body.companyId
+        companyId : req.body.id
       }
     },
       {
@@ -126,8 +378,110 @@ router.post('/user', async (req, res, next) => {
           logger.query(str)
         }
       })
-    logger.method('"/company/user"에 post실행완료')
-    res.send({ users: result })
+    logger.method('"/company/edit"에 post실행완료')
+    res.send({ busNum: result.busNumber })
+  }
+  catch (e) {
+    logger.error('"/company/edit"에 post에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
+router.post('/editDevice', async (req, res, next) => {
+  logger.method('"/company/editDevice"에 post실행')
+
+  try {
+    const branch_device = await Branch_device.findAll({
+      where: {
+        branchId : req.body.branchId
+      }
+    },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+    
+    var result=[]
+    var i = 0
+    branch_device.forEach(async (item)=>{
+      const device = await Device.findOne({
+        where: {
+          id : item.deviceId
+        }
+      },
+        {
+          logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+      result.push(device)
+      if(i === branch_device.length - 1){
+        console.log(result)
+        logger.method('"/company/editDevice"에 post실행완료')
+        res.send({ result: result })
+      }
+      i++
+    })
+  }
+  catch (e) {
+    logger.error('"/company/editDevice"에 post에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
+router.post('/user', async (req, res, next) => {
+  try {
+    logger.method('"/company/user"에 post실행')
+    let branch = await Branch.findAll({
+      where: {
+        companyId: req.body.companyId
+      },
+      include: [{
+        model: User_group,
+        include: [User]
+      }],
+    },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+
+    let i =0
+    await branch.forEach(async (item) => {
+      await Branch.findAll({
+        where:{companyId : item.companyId}
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+      
+      const branch_devices = await Branch_device.findAll({
+        where:{branchId : item.id}
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+
+      item.dataValues.hvNum = branch_devices.length //이거만 되면 화면에 나옴  [ 함수내에서는 변수 갱신이 안됨 ]
+      item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn
+      
+
+      if(i === branch.length - 1){
+        logger.method('"/company/user"에 post실행완료')
+        console.log(branch)
+        res.send({ users: branch})
+      }
+      i++
+    })
   }
   catch (e) {
     logger.error('"/company/user"에 post에서 ERROR' + ' : ' + e)
@@ -139,7 +493,7 @@ router.post('/userAdd', async (req, res, next) => {
   try {
     logger.method('"/company/userAdd"에 post실행')
     console.log(req.body)
-    const {name, expiredDate, companyId, address, tel} = req.body
+    const {name, expiredDate, companyId, address, tel, devices} = req.body
 
     let result = await Branch.create({
       name,
@@ -156,6 +510,22 @@ router.post('/userAdd', async (req, res, next) => {
           logger.query(str)
         }
       })
+
+      await devices.forEach(async (item) => {
+        const r =await Branch_device.create({
+          deviceId: item.id,
+          location: '',
+          branchId: result.id,
+          descript: '',
+        }, {
+          logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+        console.log(r)
+      });
+
     logger.method('"/company/userAdd"에 post실행완료')
     res.send({ users: result })
   }
@@ -168,10 +538,9 @@ router.post('/userAdd', async (req, res, next) => {
 router.post('/detail', async (req, res, next) => {
   try {
     logger.method('"/company/detail"에 post실행')
-    console.log(req.body)
 
     const board_device = await Branch_device.findAll({
-      branchId : req.body.id,
+      where: {branchId: req.body.id}
     },
       {
         logging: (str) => {
@@ -180,20 +549,29 @@ router.post('/detail', async (req, res, next) => {
         }
       }
     )
-    console.log(board_device)
-    const result = await Device.findAll({
-      id : board_device.deviceId,
-    },
+    
+    var result = []
+    var i = 0
+    await board_device.forEach(async (item)=>{
+      console.log('aaa')
+      let device = await Device.findAll({
+        where : {id : item.deviceId}
+      },
       {
         logging: (str) => {
           str = str.substr(21);
           logger.query(str)
         }
+      })
+      await result.push(device)
+      if(i == board_device.length - 1){
+        logger.method('"/company/detail"에 post실행완료')
+        res.send({ devices: result })
       }
-    )
-    console.log(result)
-    logger.method('"/company/detail"에 post실행완료')
-    res.send({ devices: result })
+      i++
+    });
+    if(board_device.length === 0)
+      res.send({ devices: [] })
   }
   catch (e) {
     logger.error('"/company/detail"에 post에서 ERROR' + ' : ' + e)
@@ -208,9 +586,6 @@ router.delete('/', async (req, res, next) => { //이거 다시 하기
     const r = await Branch.findAll({
       where: {companyId: req.body.info[0].cId}
     })
-
-    console.log(req.body.info[0].cId)
-    console.log(r)
 
     await r.forEach(async (item)=>{
       await Branch_device.destroy(
@@ -239,6 +614,37 @@ router.delete('/', async (req, res, next) => { //이거 다시 하기
           logging: (str) => { str = str.substr(21); logger.query(str) }
         }
       )
+    })
+
+    logger.method('"/company"에 delete실행완료')
+    await res.send({ page: true })
+  }
+  catch (e) {
+    logger.error('"/company"에 delete에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
+router.delete('/user', async (req, res, next) => { //이거 다시 하기
+  try {
+    logger.method('"/company/user"에 delete실행')
+
+    await Branch_device.destroy(
+      {
+        where: { branchId : req.body.info[0].id},
+        logging: (str) => { str = str.substr(21); logger.query(str) }
+      }
+    )
+
+    await User_group.destroy(
+      {
+        where: { branchId : req.body.info[0].id },
+        logging: (str) => { str = str.substr(21); logger.query(str) }
+      }
+    )
+
+    await Branch.destroy({
+      where: {id: req.body.info[0].id}
     })
 
     logger.method('"/company"에 delete실행완료')

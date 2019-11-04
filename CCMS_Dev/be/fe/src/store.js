@@ -8,7 +8,8 @@ export default new Vuex.Store({
     token: localStorage.getItem('token'),
     user:{
       name : 'Guest',
-      id : ''
+      id : '',
+      cId: 0
     }
   },
   mutations: {
@@ -21,7 +22,8 @@ export default new Vuex.Store({
       state.token = null
       state.user={
         name : 'Guest',
-        id : ''
+        id : '',
+        cId: 0
       }
     }
   },

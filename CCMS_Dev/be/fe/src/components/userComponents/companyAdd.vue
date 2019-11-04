@@ -7,7 +7,7 @@
         <v-dialog v-model="dialog" scrollable max-width="600px">
           <AlertSnackBar></AlertSnackBar>
       <v-card>
-          <v-app-bar dark color="blue-grey">
+          <v-app-bar dark color="#2a3248">
         <v-card-title>
           <span>{{formTitle}}</span>
         </v-card-title>
@@ -37,7 +37,7 @@
  
     <v-col cols="12">
       <v-select
-         v-model="status"
+         v-model="state"
         :items="actitems"
          label="활성화 여부*"
          prepend-inner-icon="mdi-lock"
@@ -142,7 +142,8 @@ import companyHvSelect from './companyHvSelect'
         companyHvSelect
       },
     data: () => ({
-      //date: new Date().toISOString().substr(0, 10),
+      cId:0,
+      mode:'',
       device:[],
       readonly:true,
       formTitle:'',
@@ -150,7 +151,7 @@ import companyHvSelect from './companyHvSelect'
       menu: false,
       dialog: false,
       valid: true,
-      status: '',
+      state: '',
       picture: null,
       name: '',
       email: '',
@@ -186,6 +187,7 @@ import companyHvSelect from './companyHvSelect'
     }),
     created(){
       EventBus.$on("companyAdd", (what) => {
+        this.mode = 'post'
         if(what==='add')
         {
             this.formTitle='기업 추가'
@@ -196,10 +198,23 @@ import companyHvSelect from './companyHvSelect'
         }
         this.dialog = true; 
       });
+
       EventBus.$on("comEditInfo",(item) => {
-        this.name=item.comName
-        this.status=item.status
-        this.endDay=item.endDay                           
+        this.mode='put'
+        this.name=item.name
+        this.cId = item.companyId
+        console.log(item.companyId)
+        axios.post('/api/company/edit',{id : item.companyId})
+        .then((r)=>{
+          console.log(r)
+          this.business=r.data.busNum
+        })
+        axios.post('/api/company/editDevice',{branchId : item.id})
+        .then((r)=>{
+          EventBus.$emit('comHVList',r.data.result)
+        })
+
+        this.date=item.expiredDate                          
       });
       EventBus.$on("select",(item) => {
         this.select = item
@@ -207,27 +222,48 @@ import companyHvSelect from './companyHvSelect'
     },
        methods: {
           saveClick () {
-            axios.post('/api/company', {
-              name : this.name,
-              busNumber : this.business,
-              address : this.address,
-              tel : this.tel,
-              expiredDate : this.date,
-              devices : this.select
-            })
-            .then((r) => {
-                console.log('post완료')
-            })
-            .catch((e) => {
-                console.error(e.message)
-            })
-            EventBus.$emit("SaveItem",('company'))
+            if(this.mode === 'post'){
+              axios.post('/api/company', {
+                name : this.name,
+                busNumber : this.business,
+                address : this.address,
+                tel : this.tel,
+                expiredDate : this.date,
+                devices : this.select,
+                email : this.email,
+                state : this.state
+              })
+              .then((r) => {
+                  console.log('post완료')
+              })
+              .catch((e) => {
+                  console.error(e.message)
+              })
+              EventBus.$emit("SaveItem",('company'))
+            }
+            else if (this.mode === 'put'){
+              axios.put('/api/company', {
+                cId : this.cId,
+                name : this.name,
+                busNumber : this.business,
+                address : this.address,
+                tel : this.tel,
+                expiredDate : this.date,
+                devices : this.select
+              })
+              .then((r) => {
+                  EventBus.$emit("EditItem",('company'))
+              })
+              .catch((e) => {
+                  console.error(e.message)
+              })
+            }
           },
     
        modalClose(){
         this.dialog = false
         this.$refs.form.resetValidation()
-        this.status= '',
+        this.state= '',
         this.picture= null,
         this.name= ''
         this.email= ''

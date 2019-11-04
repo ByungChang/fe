@@ -45,17 +45,17 @@
       </template>
 
        <template v-slot:item.name="{item}">
-   <v-list-item style="text-align:left" @click="companyDetail(item)" >{{item.name}}</v-list-item>
+        <v-list-item style="text-align:left" @click="companyDetail(item)" >{{item.name}}</v-list-item>
       </template>
 
-      <template v-slot:item.status="{ item }">
-        <v-btn @click="statusChange(item)" :color="getColor(item.status)">{{item.status}}</v-btn>
+      <template v-slot:item.state="{ item }">
+        <v-btn @click="statusChange(item)" :color="getColor(item.state)">{{item.state}}</v-btn>
  </template>
 
       <template v-slot:item.action="{ item }">
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn @click="btnClick('edit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteCompany(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
       </template>
     </v-data-table>
     
@@ -105,7 +105,7 @@
         headers: [
           { text: '프로필사진', align: 'center', value: 'img', sortable: false},
            { text: '회사', value: 'name', align:'center' },
-          { text: '상태', value: 'status',align:'center',  },
+          { text: '상태', value: 'state',align:'center',  },
           { text: '유저수', value: 'userNum', align:'center'},
           { text: 'HYPER VSN', value: 'hvNum', align:'center'  },
           { text: '계약 만료일', value: 'expiredDate' , align:'center' },
@@ -162,6 +162,7 @@
       axios.get('/api/company', {})
       .then((r) => {
         r.data.companies.forEach((company) => {
+          console.log(r)
             company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
         this.companies = r.data.companies
@@ -169,17 +170,16 @@
     },
     methods:{
       companyDetail(item){
+        console.log(item)
         let CId = item.companyId
-        this.$router.replace({name:'userManagement', params:{CId}});
+        localStorage.setItem("cId",item.id);
+        this.$router.push({name:'userManagement', params:{CId}});
       },
-      btnStatus(){
-          
-      },
-
+ 
       getColor(status)
       {
-        if(status=='active')
-        return 'green'
+        if(status ==='active')
+          return 'green'
         else return 'red'
       },
 
@@ -188,13 +188,13 @@
       },
 
       statusChange(item){
+        console.log(item)
         this.number=this.companies.indexOf(item)
-        if(this.companies[this.number].status =='active'){
-          console.log(this.companies[this.number].status)
-          this.companies[this.number].status ='block'
+        if(this.companies[this.number].state ==='active'){
+          this.companies[this.number].state ='block'
         }
-        else if(this.companies[this.number].status =='block'){
-          this.companies[this.number].status ='active'
+        else if(this.companies[this.number].state ==='block'){
+          this.companies[this.number].state ='active'
         }
       },
 
@@ -209,11 +209,10 @@
         })
       },
 
-      deleteComment(item){
-        console.log(item)
+      deleteCompany(item){
         this.companyId = item.companyId
         this.branchId = item.branchId
-        EventBus.$emit("DelComment",item)
+        EventBus.$emit("DelCompany",item)
       },
    }
   }

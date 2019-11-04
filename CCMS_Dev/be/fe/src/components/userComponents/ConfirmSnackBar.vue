@@ -19,26 +19,30 @@ import { EventBus } from "./eventBus";
 export default {
     data(){
         return{
-            confirm:false
+            confirm:false,
+            CorB:'',
+            branchId:0
         }
     },
     mounted(){
 
-        EventBus.$on("DelComment", (item) => { 
-
+        EventBus.$on("DelCompany", (item) => {
+            this.branchId = item.id
+            this.CorB = 'company'
             this.confirm = true
-            
         });
-        EventBus.$on("DelUser", (item/*item,comments*/) => { 
+        EventBus.$on("DelUser", (item,CorB) => {
+            this.branchId = item.id
+            this.CorB = 'branch'
             this.confirm = true
-            // this.commentId = item
-            // this.comments = comments
-            // this.CommentORPost = 'Comment'
         });
     },
     methods:{
         confirmYes(){
-            EventBus.$emit('delCompanyOk',true)
+            if(this.CorB === 'company')
+                EventBus.$emit('delCompanyOk',true)
+            else if(this.CorB === 'branch')
+                EventBus.$emit('delUserOk',this.branchId)
             this.confirm=false
         },
         confirmNo(){

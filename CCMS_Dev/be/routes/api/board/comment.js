@@ -50,7 +50,7 @@ router.post('/add', async (req, res, next)=> {
     await res.send({ comment: result})
   }
   catch(e){
-    logger.error('"/board/comment/add"에 post에서 ERROR')
+    logger.error('"/board/comment/add"에 post에서 ERROR' + e)
     res.send({ success: false, msg: e.message })
   }
 });

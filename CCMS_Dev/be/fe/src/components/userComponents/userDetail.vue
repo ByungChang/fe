@@ -2,7 +2,7 @@
 
 <v-dialog v-model="dialog" scrollable max-width="400px" >
   <v-card>
-      <v-app-bar dark color="purple">
+      <v-app-bar dark color="#2a3248">
         <v-card-title>
           <span>{{formTitle}} 회원정보</span>
         </v-card-title>
@@ -36,32 +36,34 @@
         </v-list-item-content>
       </v-list-item> 
 
-        
+        <v-dialog max-width="400px" scrollable v-model="dialogHv">
+        <template v-slot:activator="{ on }">
           <v-list>
             <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-<<<<<<< HEAD
-            <v-list-item-title v-on="on" @click="a">HV title을 가져와야함</v-list-item-title>
-=======
-            <v-list-item-title @click="dialogHvOpen">HV title을 가져와야함</v-list-item-title>
->>>>>>> de058c2d929c728f2930736333971f4fea396eb5
+            <v-list-item-title v-on="on" @click="a">보유중인 HYPERVSN 보기</v-list-item-title>
           </v-list-item-content>
             </v-list-item>
           </v-list>
-         <v-dialog max-width="400px" scrollable v-model="dialogHv">
-
+        </template>
         <v-card>
-           <v-app-bar dark  color="purple">
-          <v-app-title>하이퍼비전 목록</v-app-title>
-          <v-spacer></v-spacer>
-          <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
-           </v-app-bar>
-           <div>
-           <v-chip color="green" outlined>목록2</v-chip>
-           </div>
+          <v-app-bar dark  color="#2a3248">
+            <v-app-title>하이퍼비전 목록</v-app-title>
+            <v-spacer></v-spacer>
+            <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
+          </v-app-bar>
+          <div style="align:center;">
+            <v-chip 
+                v-for="item in devices"
+                :key="item.name"
+                color="purple"
+                outlined>
+              {{item[0].name}}
+            </v-chip>
+          </div>
           
         </v-card>
         </v-dialog>     
@@ -80,44 +82,32 @@
         </v-list-item-content>
       </v-list-item> 
 
-       
+       <v-dialog max-width="400px" scrollable v-model="dialogHv">
+        <template v-slot:activator="{ on }">
           <v-list>
             <v-list-item>
           <v-list-item-icon>
             <v-icon color="indigo">mdi-help</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-<<<<<<< HEAD
-            <v-list-item-title v-on="on">보유중인 HYPER VSN 목록</v-list-item-title>
-=======
-            <v-list-item-title @click="dialogHvOpen">HV title을 가져와야함</v-list-item-title>
->>>>>>> de058c2d929c728f2930736333971f4fea396eb5
+            <v-list-item-title v-on="on">보유중인 HYPERVSN 보기</v-list-item-title>
           </v-list-item-content>
             </v-list-item>
           </v-list>
-        <v-dialog max-width="400px" scrollable v-model="dialogHv">
+        </template>
         <v-card>
-          <v-app-bar dark  color="purple">
+          <v-app-bar dark  color="#2a3248">
           <v-app-title>하이퍼비전 목록</v-app-title>
           <v-spacer></v-spacer>
           <v-btn @click="dialogHv=flase" icon><v-icon>mdi-close</v-icon></v-btn>
-<<<<<<< HEAD
             </v-app-bar>
             <div>
               <v-chip 
                 v-for="item in devices"
                 :key="item.name"
-                color="green"
+                color="purple"
                 outlined>
-              {{item.name}}</v-chip>
-=======
-           </v-app-bar>
-           <div>
-           <v-chip close @click:close="remove(item)" v-for="item in selected" :key="item.name">
-             {{item.name}}
-   
-           </v-chip>
->>>>>>> de058c2d929c728f2930736333971f4fea396eb5
+              {{item[0].name}}</v-chip>
            </div>
         </v-card>
         </v-dialog>
@@ -151,7 +141,7 @@ export default {
         { title: '', icon: 'mdi-account-check',titleHead:'기업'},
         { title: '', icon: 'mdi-lock',titleHead:'활성화 상태' },
         { title: '', icon: 'mdi-calendar',titleHead:'계약 만료일'},
-        { title: '', icon: 'mdi-email',titleHead:'이메일' },
+        // { title: '', icon: 'mdi-email',titleHead:'이메일' },
         { title: '', icon: 'mdi-domain',titleHead:'사업자 번호' },
 
            ],
@@ -160,31 +150,29 @@ export default {
     methods:{
         infoClose(){
           this.dialog=false
-        },
-        dialogHvOpen(){
-          this.dialogHv=true
         }
     },
     mounted(){
-      EventBus.$on("userDetail",(item) => {
-            this.lists1[0].title=item.name  
-            this.lists1[1].title=item.status 
-            this.lists1[2].title=item.expiredDate  
-            this.lists1[3].title=item.tel
-            this.lists1[4].title=item.userMail
-            this.lists1[5].title=item.userAdress
-            this.formTitle=item.userName
-            this.dialog=true
-            this.userAccess=true
+      EventBus.$on("userDetail",(item,devices) => {
+        
+        this.devices=devices
+        this.lists1[0].title=item.name  
+        this.lists1[1].title=item.state 
+        this.lists1[2].title=item.expiredDate  
+        this.lists1[3].title=item.tel
+        this.lists1[4].title=item.userMail
+        this.lists1[5].title=item.address
+        this.formTitle=item.userName
+        this.dialog=true
+        this.userAccess=true
       });
       EventBus.$on("companyDetail",(item,devices) => {
-        console.log(devices)
         this.devices=devices
         this.lists2[0].title=item.name   
-        this.lists2[1].title=item.status 
+        this.lists2[1].title=item.state 
         this.lists2[2].title=item.expiredDate  
-        this.lists2[3].title=item.comEmail  
-        this.lists2[4].title=item.busNumber
+        // this.lists2[3].title=item.comEmail  
+        this.lists2[3].title=item.busNumber
 
         this.formTitle=item.comName
         this.dialog=true

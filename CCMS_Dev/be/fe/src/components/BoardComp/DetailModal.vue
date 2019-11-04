@@ -28,7 +28,7 @@
                 <v-icon @click="DModalClose">mdi-close</v-icon>
             </v-btn>
             </v-system-bar>
-        
+
             <v-card-title 
                 style="color:white;background-color:#230871">{{form.title}}
             </v-card-title>
@@ -47,7 +47,6 @@
                                     <div>
                                      <v-chip color="deep-purple accent-4"
                                         dark
-                                        
                                         small 
                                         close 
                                         @click="fileDown(item.file.orgName)"

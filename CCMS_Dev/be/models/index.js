@@ -63,6 +63,9 @@ db.User.hasMany(db.Board_comment, {foreignKey: 'userId'});
 db.Branch.belongsTo(db.Company,{foreignKey:'companyId', targetKey:'id'});
 db.Company.hasMany(db.Branch, {foreignKey: 'companyId'});
 
+db.User.belongsTo(db.User_group,{foreignKey:'userGroupId', targetKey:'id'});
+db.User_group.hasMany(db.User, {foreignKey: 'userGroupId'});
+
 db.User_group.belongsTo(db.Branch,{foreignKey:'branchId', targetKey:'id'});
 db.Branch.hasMany(db.User_group, {foreignKey: 'branchId'});
 
