@@ -1,8 +1,7 @@
 var createError = require('http-errors');
 var { Company, Branch, Device, Branch_device,User_group,User } = require('../../../models');
 const express = require('express');
-const jwt = require('jsonwebtoken');
-//const temp = require('../board/index')
+const {verifyToken} = require('../method')
 const router = express.Router();
 const logger = require('../../../config/logger');
 
@@ -11,59 +10,61 @@ router.use(express.json())
 router.get('/', async (req, res, next) => {
   try {
     logger.method('"/company"에 get실행')
-
-    const branch = await Branch.findAll({
-      where: {
-        isMain: 'Y'
-      },
-      include: [{
-        model: User_group,
-        include: [User]
-      }],
-    },
-    {
-      
-      logging: (str) => {
-        str = str.substr(21);
-        logger.query(str)
-      }
-    })
-
-    let i =0
-    await branch.forEach(async (item) => {
-      const branchs = await Branch.findAll({
-        where:{companyId : item.companyId},
+    const token = req.headers.authorization
+    await verifyToken(token).then(async (r)=>{
+      const branch = await Branch.findAll({
+        where: {
+          isMain: 'Y'
+        },
         include: [{
           model: User_group,
           include: [User]
         }],
-      }, {
-        logging: (str) => {
-          str = str.substr(21);
-          logger.query(str)
-        }
-      })
-      
-
-      const branch_devices = await Branch_device.findAll({
-        where:{branchId : item.id}
-      }, {
-        logging: (str) => {
-          str = str.substr(21);
-          logger.query(str)
-        }
-      })
-      item.dataValues.userNum = branchs.length
-      item.dataValues.hvNum = branch_devices.length 
-      item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn
-      
-      
-      if(i === branch.length - 1){
-        logger.method('"/company"에 get실행완료')
+      },
+      {
         
-        res.send({ companies: branch})
-      }
-      i++
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+
+      let i =0
+      await branch.forEach(async (item) => {
+        const branchs = await Branch.findAll({
+          where:{companyId : item.companyId},
+          include: [{
+            model: User_group,
+            include: [User]
+          }],
+        }, {
+          logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+        
+
+        const branch_devices = await Branch_device.findAll({
+          where:{branchId : item.id}
+        }, {
+          logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+        item.dataValues.userNum = branchs.length
+        item.dataValues.hvNum = branch_devices.length
+        
+        item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn
+        item.dataValues.email = item.dataValues.user_groups[0].users[0].orgId
+        
+        if(i === branch.length - 1){
+          logger.method('"/company"에 get실행완료')
+          res.send({ success : true , companies: branch})
+        }
+        i++
+      })
     });
   }
   catch (e) {
@@ -71,6 +72,37 @@ router.get('/', async (req, res, next) => {
     res.send({ success: false, msg: e.message })
   }
 });
+
+router.get('/getInfo', async (req,res,next)=>{
+  try{
+    const token = req.headers.authorization
+    logger.method('"/company/getInfo"에 get실행')
+      await verifyToken(token).then(async (r)=>{
+        const user = await User.findOne(
+        {
+          where : {id : r.id},
+          include: [{
+            model: User_group,
+            include: [Branch]
+        }],},
+        {
+            logging: (str) => {
+            str = str.substr(21);
+            logger.query(str)
+          }
+        })
+        const auth = user.dataValues.user_group.dataValues.groupAuth
+        const cId = user.dataValues.user_group.dataValues.branch.dataValues.companyId
+        
+        logger.method('"/company/getInfo"에 get실행완료')
+        await res.send({ success: true, auth, cId })
+      })
+  }
+  catch(e){
+    logger.error('"/company/getInfo"에 get에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+})
 
 router.get('/device', async (req, res, next) => {
   try {
@@ -105,8 +137,6 @@ router.post('/userDevice', async (req, res, next) => {
           logger.query(str)
         }
       })
-    
-    console.log(devices)
 
     var device = []
     var i =0
@@ -138,7 +168,7 @@ router.post('/', async (req, res, next) => {
   logger.method('"/company"에 post실행')
 
   const { name, expiredDate, busNumber, address, tel, devices, email, state } = req.body
-  console.log(devices)
+  
   try {
     const result = await Company.create({
       name
@@ -270,7 +300,7 @@ router.put('/', async (req, res, next) => {
     })
     
     await devices.forEach(async (item) => {
-      console.log(item)
+      
       await Branch_device.create(
       { 
         name : item.name, 
@@ -363,6 +393,44 @@ router.put('/user', async (req, res, next) => {
   }
 });
 
+router.put('/state', async (req, res, next) => {
+  logger.method('"/company/state"에 put실행')
+
+  const { id, state} = req.body
+  console.log(id)
+  try {
+    const find = await User_group.findOne({
+      where: {
+        branchId : id
+      }
+    },
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+    
+    await User.update(
+      {userYn : state},
+      {where : {userGroupId : find.id}},
+      {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      }
+    ) ///////////////////////////////기업 블락하면 유저도 다 블락하는데 다시 액티브하면 이전상태 어떻게????
+    
+    logger.method('"/company/state"에 put실행완료')
+    res.send({ page: true })
+  }
+  catch (e) {
+    logger.error('"/company/state"에 put에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+});
+
 router.post('/edit', async (req, res, next) => {
   logger.method('"/company/edit"에 post실행')
 
@@ -450,18 +518,11 @@ router.post('/user', async (req, res, next) => {
           logger.query(str)
         }
       })
+    
 
     let i =0
     await branch.forEach(async (item) => {
-      await Branch.findAll({
-        where:{companyId : item.companyId}
-      }, {
-        logging: (str) => {
-          str = str.substr(21);
-          logger.query(str)
-        }
-      })
-      
+      //console.log(item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn)
       const branch_devices = await Branch_device.findAll({
         where:{branchId : item.id}
       }, {
@@ -473,11 +534,10 @@ router.post('/user', async (req, res, next) => {
 
       item.dataValues.hvNum = branch_devices.length //이거만 되면 화면에 나옴  [ 함수내에서는 변수 갱신이 안됨 ]
       item.dataValues.state = item.dataValues.user_groups[0].users[0].userYn
+      item.dataValues.email = item.dataValues.user_groups[0].users[0].orgId
       
-
       if(i === branch.length - 1){
         logger.method('"/company/user"에 post실행완료')
-        console.log(branch)
         res.send({ users: branch})
       }
       i++
@@ -492,9 +552,8 @@ router.post('/user', async (req, res, next) => {
 router.post('/userAdd', async (req, res, next) => {
   try {
     logger.method('"/company/userAdd"에 post실행')
-    console.log(req.body)
-    const {name, expiredDate, companyId, address, tel, devices} = req.body
-
+    const {name, expiredDate, companyId, address, tel, devices, email, state} = req.body
+    console.log(email,state)
     let result = await Branch.create({
       name,
       expiredDate,
@@ -510,7 +569,31 @@ router.post('/userAdd', async (req, res, next) => {
           logger.query(str)
         }
       })
-
+      console.log('a')
+      const group = await User_group.create({
+        name: name,
+        groupAuth : 'user',
+        branchId : result.id
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+      console.log('b')
+      await User.create({
+        orgId: email,
+        userNm : name,
+        userPw:'1234',
+        userYn:state,
+        userGroupId:group.id
+      }, {
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+      console.log('c')
       await devices.forEach(async (item) => {
         const r =await Branch_device.create({
           deviceId: item.id,
@@ -523,7 +606,7 @@ router.post('/userAdd', async (req, res, next) => {
             logger.query(str)
           }
         })
-        console.log(r)
+        console.log('d')
       });
 
     logger.method('"/company/userAdd"에 post실행완료')

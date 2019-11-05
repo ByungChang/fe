@@ -159,18 +159,20 @@
         });
       });
 
-      axios.get('/api/company', {})
+      const token = localStorage.getItem('token')
+      axios.get('/api/company', { headers: { Authorization: token } })
       .then((r) => {
+        if (!r.data.success) return console.error(r.data.msg)
         r.data.companies.forEach((company) => {
-          console.log(r)
-            company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
+          company.expiredDate = this.$moment(company.expiredDate).format('YYYY-MM-DD')
         });
         this.companies = r.data.companies
+      }).catch((e) => {
+          console.error(e.message)
       });
     },
     methods:{
       companyDetail(item){
-        console.log(item)
         let CId = item.companyId
         localStorage.setItem("cId",item.id);
         this.$router.push({name:'userManagement', params:{CId}});
@@ -188,13 +190,26 @@
       },
 
       statusChange(item){
-        console.log(item)
         this.number=this.companies.indexOf(item)
         if(this.companies[this.number].state ==='active'){
           this.companies[this.number].state ='block'
+          axios.put('/api/company/state', {
+            id : item.id,
+            state : 'block'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
         }
         else if(this.companies[this.number].state ==='block'){
           this.companies[this.number].state ='active'
+          axios.put('/api/company/state', {
+            userGroupId : item.userGroupId,
+            state : 'active'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
         }
       },
 
@@ -206,6 +221,8 @@
         axios.post('/api/company/detail',{id : item.id})
         .then((r)=>{
           EventBus.$emit("companyDetail", item, r.data.devices )
+        }).catch((e) => {
+          console.error(e.message)
         })
       },
 

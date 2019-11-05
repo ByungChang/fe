@@ -141,7 +141,7 @@ export default {
         { title: '', icon: 'mdi-account-check',titleHead:'기업'},
         { title: '', icon: 'mdi-lock',titleHead:'활성화 상태' },
         { title: '', icon: 'mdi-calendar',titleHead:'계약 만료일'},
-        // { title: '', icon: 'mdi-email',titleHead:'이메일' },
+        //{ title: '', icon: 'mdi-email',titleHead:'이메일' },
         { title: '', icon: 'mdi-domain',titleHead:'사업자 번호' },
 
            ],
@@ -154,13 +154,12 @@ export default {
     },
     mounted(){
       EventBus.$on("userDetail",(item,devices) => {
-        
         this.devices=devices
         this.lists1[0].title=item.name  
         this.lists1[1].title=item.state 
         this.lists1[2].title=item.expiredDate  
         this.lists1[3].title=item.tel
-        this.lists1[4].title=item.userMail
+        this.lists1[4].title=item.email
         this.lists1[5].title=item.address
         this.formTitle=item.userName
         this.dialog=true
@@ -171,10 +170,10 @@ export default {
         this.lists2[0].title=item.name   
         this.lists2[1].title=item.state 
         this.lists2[2].title=item.expiredDate  
-        // this.lists2[3].title=item.comEmail  
+        //this.lists2[3].title=item.email  
         this.lists2[3].title=item.busNumber
 
-        this.formTitle=item.comName
+        this.formTitle=item.name
         this.dialog=true
         this.userAccess=false
       });

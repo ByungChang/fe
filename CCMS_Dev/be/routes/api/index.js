@@ -8,12 +8,13 @@ const logger = require('../../config/logger');
 router.use('/board', require('./board'));
 router.use('/company', require('./company'));
 router.use(express.json())
+require('dotenv').config();
 
-
-const signToken = (org_id, user_pw) => {
+const signToken = (org_id, user_pw, userNm, id) => {
   logger.method('"/"에 signToken메소드 실행')
   return new Promise((resolve, reject) => {
-    jwt.sign({ org_id, user_pw }, '시크릿키', (err, token) => {
+    
+    jwt.sign({ org_id, user_pw, userNm, id }, process.env.JWT_SECRET, (err, token) => {
       if (err){ 
         logger.error('"/"에 signToken메소드 에러')
         reject(err)
@@ -41,7 +42,7 @@ router.post('/', (req, res) => {
         logger.warn('"/"에 post에서 비밀번호가 틀렸을 때')
         return res.send({ success: false, msg: '비밀번호가 틀렸습니다'})
       }
-      return signToken(r.orgId, r.userPw)
+      return signToken(r.orgId, r.userPw, r.userNm, r.id)
     })
     .then((r) => {
       logger.notice('ORG_ID : '+user.orgId+' 로그인')

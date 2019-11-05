@@ -1,22 +1,20 @@
 var createError = require('http-errors');
-var { User, Board, Board_post, File, Board_file,Board_comment } = require('../../../models');
+var { User, Board, Board_post, File, Board_file, Board_comment } = require('../../../models');
 const express = require('express');
-const jwt = require('jsonwebtoken');
 //const { isLoggedIn, isNotLoggedIn } = require('../../middlewares');
 const router = express.Router();
 const logger = require('../../../config/logger');
-const fs = require('fs')
+const {verifyToken} = require('../method')
+
 const path = require('path');
 
 //파일첨부
 const multer = require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    console.log('dfdf')
     callback(null, "upload/")
   },
   filename: function (req, file, callback) {
-    console.log('1111')
     callback(null, file.originalname)
   }
 })
@@ -29,23 +27,26 @@ router.use(express.json())
 router.get('/', async (req, res, next) => {
   try {
     logger.method('"/board"에 get실행')
-    let result = await Board.findAll({
-      include: [{
-        model: Board_post,
-      }, {
-        model: User,
-      }, {
-        model: Board_file,
-        include: [File]
-      }],
+    const token = req.headers.authorization
+    await verifyToken(token).then(async (r)=>{
+      let result = await Board.findAll({
+        include: [{
+          model: Board_post,
+        }, {
+          model: User, required: false
+        }, {
+          model: Board_file,
+          include: [File]
+        }],
 
-      logging: (str) => {
-        str = str.substr(21);
-        logger.query(str)
-      }
-    })
-    logger.method('"/board"에 get실행완료')
-    await res.send({ posts: result })
+        logging: (str) => {
+          str = str.substr(21);
+          logger.query(str)
+        }
+      })
+      logger.method('"/board"에 get실행완료')
+      await res.send({ success: true, posts: result })
+    }) 
   }
   catch (e) {
     logger.error('"/board"에 get에서 ERROR' + ' : ' + e)
@@ -55,17 +56,35 @@ router.get('/', async (req, res, next) => {
 
 router.post('/fileDown', async (req, res, next) => {
   try {
-    console.log(req.body)
+    logger.method('"/board/fileDown"에 post실행')
     const file = path.join(`${__dirname}`, '../../../', 'upload', req.body.fileName);
     res.download(file);
+    logger.method('"/board/fileDown"에 post실행완료')
   } catch (e) {
-    console.log(e);
+    logger.error('"/board/fileDown"에 gepost에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
   }
 });
+
+router.get('/getInfo', async (req,res,next)=>{
+  try{
+    const token = req.headers.authorization
+    logger.method('"/board/getInfo"에 get실행')
+      await verifyToken(token).then(async (r)=>{
+        logger.method('"/board/getInfo"에 get실행완료')
+        await res.send({ success: true, user: r.userNm, id: r.id})
+      })
+  }
+  catch(e){
+    logger.error('"/board/getInfo"에 get에서 ERROR' + ' : ' + e)
+    res.send({ success: false, msg: e.message })
+  }
+})
 
 router.post('/', upload.any(), async (req, res, next) => {
   try {
     logger.method('"/board"에 post실행')
+    console.log(req.body)
     const boardResult = await Board.create({
       userId: req.body.userId,
       title: req.body.title,
@@ -125,7 +144,7 @@ router.put('/', upload.any(), async (req, res, next) => {
         returning: true
       },
     )
-    
+
     await req.files.forEach(async (file) => {
       let i = 0;
       let fileResult = await File.create({
@@ -163,7 +182,7 @@ router.delete('/', async (req, res, next) => { //이거 다시 하기
     logger.method('"/board"에 delete실행')
     console.log(req.body)
     await Board_file.destroy({
-      where: { boardId : req.body.boardId},
+      where: { boardId: req.body.boardId },
     }, {
       logging: (str) => {
         str = str.substr(21);
@@ -172,7 +191,7 @@ router.delete('/', async (req, res, next) => { //이거 다시 하기
     })
 
     await Board_comment.destroy({
-      where: { boardId : req.body.boardId},
+      where: { boardId: req.body.boardId },
     }, {
       logging: (str) => {
         str = str.substr(21);
@@ -182,13 +201,13 @@ router.delete('/', async (req, res, next) => { //이거 다시 하기
 
     await Board.destroy(
       {
-        where: { id : req.body.boardId},
+        where: { id: req.body.boardId },
       }, {
-        logging: (str) => {
-          str = str.substr(21);
-          logger.query(str)
-        }
+      logging: (str) => {
+        str = str.substr(21);
+        logger.query(str)
       }
+    }
     )
     logger.method('"/board"에 delete실행완료')
     await res.send({ page: true })
@@ -204,13 +223,13 @@ router.delete('/fileDel', async (req, res, next) => {
     logger.method('"/board/fileDel"에 delete실행')
     const files = req.body.files
     console.log(files)
-    files.forEach(async (file)=>{
+    files.forEach(async (file) => {
       await Board_file.destroy(
         {
           where: { fileId: file.fileId },
           logging: (str) => { str = str.substr(21); logger.query(str) }
         }
-      ).then((r)=>{
+      ).then((r) => {
         console.log('삭제')
       })
       await File.destroy(

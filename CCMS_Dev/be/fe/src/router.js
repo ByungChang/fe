@@ -29,7 +29,7 @@ export default new Router({
     {
       path: '/company',
       name: 'company',
-      component: () => import( './views/company.vue')
+      component: () => import( './views/company.vue'),
     },
     {
       path: '/profile',

@@ -31,52 +31,6 @@
                 @click="DModalClose">mdi-close</v-icon>
             </v-btn>
             </v-system-bar>
-<<<<<<< HEAD
-
-            <v-card-title 
-                style="color:white;background-color:#230871">{{form.title}}
-            </v-card-title>
-
-            <v-container
-                class="overflow-y-auto"
-                style="max-height: 500px"
-                id="scroll-target"
-            >
-                <v-layout wrap row>
-                    <v-flex>
-                        <viewer  :value="form.content" style="min-height:300px;"  class="ma-4"></viewer>
-                        <v-divider style="background-color:#000000" ></v-divider>
-                            <v-layout wrap row v-if="form.file">
-                                <v-flex>
-                                    <div>
-                                     <v-chip color="deep-purple accent-4"
-                                        dark
-                                        small 
-                                        close 
-                                        @click="fileDown(item.file.orgName)"
-                                         v-for="item in form.file" 
-                                        :key="item.file.orgName">
-                                        <v-icon >mdi-paperclip</v-icon>{{item.file.orgName}}
-                                    </v-chip>
-                                    </div>
-                                </v-flex>
-                            </v-layout>
-                        <v-divider style="background-color:#000000" ></v-divider>
-                        <v-list three-line>
-                            <v-list-item
-                                v-for="item in comments"
-                                :key="item.id"
-                                style="border-bottom:1px grey dashed"
-                            >
-                                <v-list-item-avatar>
-                                <v-icon size="80"> mdi-account-circle</v-icon>
-                                </v-list-item-avatar>
-                        
-                                <v-list-item-title>
-                                    <strong>{{item.user.userNm}}</strong> {{item.createdAt}}<!--item.title-->
-                                    <v-list-item-content>{{item.content}} </v-list-item-content>  
-                                </v-list-item-title>
-=======
     <v-card-title style="color:white;background-color:#230871">{{form.title}}         
     </v-card-title>
      
@@ -109,7 +63,6 @@
                 <strong>{{item.user.userNm}}</strong> {{item.createdAt}}<!--item.title-->
                 <v-list-item-content>{{item.content}} </v-list-item-content>  
             </v-list-item-title>
->>>>>>> 7292439ffcb5eb7c02dae75b7e97b0c4fd0fce33
 
             <v-icon v-if="user === item.user.userNm"
                 @click="modCommentDialog(item)"
@@ -125,8 +78,6 @@
             </v-icon>
         </v-list-item>
     </v-list>
-
-        
    
     </v-card-text>
     <v-text-field
@@ -149,20 +100,24 @@
     export default {
         mounted()  {
             var self = this;
-            this.user = localStorage.getItem('user')
-            this.id = localStorage.getItem('id')
+            const token = localStorage.getItem('token')
+            axios.get(`/api/board/getInfo`, { headers: { Authorization: token } })
+            .then((r) => {
+                if (!r.data.success) return console.error(r.data.msg)
+                    
+                if(r.data.success){
+                    this.user = r.data.user
+                    this.id = r.data.id
+                }
+            })
+
+            // this.user = localStorage.getItem('user')
+            // this.id = localStorage.getItem('id')
             eventBus.$on('triggerDModal', (boardId,form,comments) => { 
                 this.boardId = boardId
                 this.form = form
                 this.comments = comments
                 this.DModal = true
-
-                // this.form.file.forEach(item => {
-                //     console.log(item.orgName.length)
-                //     if(item.orgName.length > 17){
-                //         item.orgName=item.orgName.subString(0,17) + '...'
-                //     }
-                // });
             });
             
             
@@ -218,7 +173,6 @@
                     content:this.commentAdd,
                 })
                 .then((r) => {
-                    console.log(r.data.comment)
                     var temp = {
                         id:1,
                         orgId:1,
@@ -239,7 +193,6 @@
                         user:temp,
                         createdAt:'New'
                     }
-                    console.log(comment)
                     this.comments.push(comment)
                     this.commentAdd=''
                 })
@@ -252,7 +205,6 @@
                 eventBus.$emit('triggerDelComment',item.id,this.comments);
             },
             deletePost (item) {
-                console.log('asdd')
                 eventBus.$emit('triggerDelPost',item.id);
             },
             openEditModal(item){
@@ -261,7 +213,6 @@
             },
             fileDown(item){
                 let fileName = item;
-                console.log(fileName)
                 axios.post('/api/board/fileDown',{fileName : fileName}, {
                     responseType: "blob"
                 }).then((response) => {

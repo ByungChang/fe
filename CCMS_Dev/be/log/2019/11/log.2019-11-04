@@ -3342,3 +3342,1168 @@
 2019-11-04 15:53:01 [METHOD] - "/board/comment"에 post실행
 2019-11-04 15:53:01 [METHOD] - "/board/comment"에 post실행종료
 >>>>>>> 7292439ffcb5eb7c02dae75b7e97b0c4fd0fce33
+2019-11-04 16:02:05 [METHOD] - "/company"에 get실행
+2019-11-04 16:02:05 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:03:02 [METHOD] - "/company"에 get실행
+2019-11-04 16:03:02 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:03:03 [METHOD] - "/board"에 get실행
+2019-11-04 16:03:03 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 16:03:03 [METHOD] - "/board"에 get실행완료
+2019-11-04 16:03:05 [METHOD] - "/board/comment"에 post실행
+2019-11-04 16:03:05 [METHOD] - "/board/comment"에 post실행종료
+2019-11-04 16:04:14 [METHOD] - "/company"에 get실행
+2019-11-04 16:04:14 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:04:15 [METHOD] - "/board"에 get실행
+2019-11-04 16:04:15 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 16:04:15 [METHOD] - "/board"에 get실행완료
+2019-11-04 16:04:16 [METHOD] - "/board/comment"에 post실행
+2019-11-04 16:04:16 [METHOD] - "/board/comment"에 post실행종료
+2019-11-04 16:04:23 [METHOD] - "/board/comment"에 post실행
+2019-11-04 16:04:23 [METHOD] - "/board/comment"에 post실행종료
+2019-11-04 16:04:40 [METHOD] - "/company"에 get실행
+2019-11-04 16:04:40 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:04:41 [METHOD] - "/board"에 get실행
+2019-11-04 16:04:41 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 16:04:41 [METHOD] - "/board"에 get실행완료
+2019-11-04 16:08:45 [METHOD] - "/board"에 get실행
+2019-11-04 16:08:45 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 16:08:45 [METHOD] - "/board"에 get실행완료
+2019-11-04 16:08:56 [METHOD] - "/board"에 post실행
+2019-11-04 16:08:56 [QUERY] - INSERT INTO `boards` (`id`,`userId`,`title`,`content`,`hit`,`boardPostId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 16:08:57 [METHOD] - "/board"에 get실행
+2019-11-04 16:08:57 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 16:08:57 [METHOD] - "/board"에 get실행완료
+2019-11-04 16:09:05 [METHOD] - "/company"에 get실행
+2019-11-04 16:09:05 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:09:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:10 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:10 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:10:11 [METHOD] - "/company"에 get실행
+2019-11-04 16:10:11 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:10:12 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:12 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:10:24 [METHOD] - "/company"에 get실행
+2019-11-04 16:10:24 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:10:25 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:25 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:10:44 [METHOD] - "/company"에 get실행
+2019-11-04 16:10:44 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:10:45 [METHOD] - "/company"에 get실행
+2019-11-04 16:10:45 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:10:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:54 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:10:54 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:11:24 [METHOD] - "/company"에 get실행
+2019-11-04 16:11:24 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:11:26 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:11:26 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:11:34 [METHOD] - "/company"에 get실행
+2019-11-04 16:11:34 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:11:35 [METHOD] - "/company"에 get실행
+2019-11-04 16:11:35 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:11:37 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:11:37 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:14:13 [METHOD] - "/company"에 get실행
+2019-11-04 16:14:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:14:15 [METHOD] - "/company"에 get실행
+2019-11-04 16:14:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:14:16 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:14:16 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:14:42 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:14:42 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:14:44 [METHOD] - "/company"에 get실행
+2019-11-04 16:14:44 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:14:44 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:14:44 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:15:01 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:16:03 [METHOD] - "/company"에 get실행
+2019-11-04 16:16:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:16:03 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:16:18 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:16:18 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:16:18 [METHOD] - "/company"에 get실행
+2019-11-04 16:16:18 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:16:19 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:16:19 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:16:46 [METHOD] - "/company"에 get실행
+2019-11-04 16:16:46 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:16:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:16:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:17:16 [METHOD] - "/company"에 get실행
+2019-11-04 16:17:16 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:17:17 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:17:18 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:17:19 [METHOD] - "/company"에 get실행
+2019-11-04 16:17:19 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:18:38 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:18:38 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:19:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:19:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:19:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:19:24 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:19:24 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:19:40 [METHOD] - "/company"에 get실행
+2019-11-04 16:19:40 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:19:41 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:19:41 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:19:51 [METHOD] - "/company"에 get실행
+2019-11-04 16:19:51 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:19:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:19:53 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:20:00 [METHOD] - "/company"에 get실행
+2019-11-04 16:20:00 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:20:01 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:20:01 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:20:23 [METHOD] - "/company"에 get실행
+2019-11-04 16:20:23 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:20:25 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:20:25 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:20:37 [METHOD] - "/company"에 get실행
+2019-11-04 16:20:37 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:20:38 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:20:38 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:21:13 [METHOD] - "/company"에 get실행
+2019-11-04 16:21:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:21:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:13 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:21:19 [METHOD] - "/company"에 get실행
+2019-11-04 16:21:19 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:21:20 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:20 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:21:38 [METHOD] - "/company"에 get실행
+2019-11-04 16:21:39 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:21:39 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:46 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:21:47 [METHOD] - "/company"에 get실행
+2019-11-04 16:21:47 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:21:48 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:48 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:21:56 [METHOD] - "/company"에 get실행
+2019-11-04 16:21:57 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:21:57 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:21:57 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:22:26 [METHOD] - "/company"에 get실행
+2019-11-04 16:22:26 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:22:26 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:22:41 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:22:41 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:22:42 [METHOD] - "/company"에 get실행
+2019-11-04 16:22:42 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:22:43 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:22:43 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:22:56 [METHOD] - "/company"에 get실행
+2019-11-04 16:22:56 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:22:57 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:22:57 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:23:11 [METHOD] - "/company"에 get실행
+2019-11-04 16:23:11 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:23:12 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:23:30 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:23:53 [METHOD] - "/company"에 get실행
+2019-11-04 16:23:53 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:23:54 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:06 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:07 [METHOD] - "/company"에 get실행
+2019-11-04 16:24:07 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:24:08 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:16 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:16 [METHOD] - "/company"에 get실행
+2019-11-04 16:24:16 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:24:17 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:37 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:24:38 [METHOD] - "/company"에 get실행
+2019-11-04 16:24:38 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:24:39 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:01 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:01 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:25:03 [METHOD] - "/company"에 get실행
+2019-11-04 16:25:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:25:03 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:03 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:25:17 [METHOD] - "/company"에 get실행
+2019-11-04 16:25:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:25:18 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:18 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:25:31 [METHOD] - "/company"에 get실행
+2019-11-04 16:25:31 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:25:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:32 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:25:41 [METHOD] - "/company"에 get실행
+2019-11-04 16:25:41 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:25:42 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:42 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:25:56 [METHOD] - "/company"에 get실행
+2019-11-04 16:25:56 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:25:57 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:25:57 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:26:02 [METHOD] - "/company"에 get실행
+2019-11-04 16:26:02 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:26:03 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:26:03 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:26:28 [METHOD] - "/company"에 get실행
+2019-11-04 16:26:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:26:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:26:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:26:37 [METHOD] - "/company"에 get실행
+2019-11-04 16:26:37 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:26:38 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:26:38 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:26:54 [METHOD] - "/company"에 get실행
+2019-11-04 16:26:54 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:26:54 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:26:54 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:27:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:27:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:27:04 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:27:04 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:27:16 [METHOD] - "/company"에 get실행
+2019-11-04 16:27:16 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:27:17 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:27:17 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:27:32 [METHOD] - "/company"에 get실행
+2019-11-04 16:27:32 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:27:32 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:27:41 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:27:42 [METHOD] - "/company"에 get실행
+2019-11-04 16:27:42 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:27:43 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:29:43 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:30:29 [METHOD] - "/company"에 get실행
+2019-11-04 16:30:29 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:30:30 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:30:30 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:32:24 [METHOD] - "/company"에 get실행
+2019-11-04 16:32:24 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:32:24 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:32:24 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:33:13 [METHOD] - "/company"에 get실행
+2019-11-04 16:33:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:33:14 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:33:14 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:33:59 [METHOD] - "/company"에 get실행
+2019-11-04 16:33:59 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:33:59 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:33:59 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:34:19 [METHOD] - "/company"에 get실행
+2019-11-04 16:34:19 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:34:20 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:34:20 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:34:27 [METHOD] - "/company"에 get실행
+2019-11-04 16:34:27 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:34:27 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:34:27 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:34:42 [METHOD] - "/company"에 get실행
+2019-11-04 16:34:42 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:34:43 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:34:43 [ERROR] - "/company/user"에 post에서 ERROR : TypeError: Cannot read property 'id' of undefined
+2019-11-04 16:34:52 [METHOD] - "/company"에 get실행
+2019-11-04 16:34:52 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:34:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:34:53 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:35:03 [METHOD] - "/company"에 get실행
+2019-11-04 16:35:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:35:04 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:35:04 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:35:33 [METHOD] - "/company"에 get실행
+2019-11-04 16:35:33 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:35:34 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:35:34 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:35:45 [METHOD] - "/company"에 get실행
+2019-11-04 16:35:46 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:35:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:35:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:35:58 [METHOD] - "/company"에 get실행
+2019-11-04 16:35:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:35:59 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:35:59 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:36:19 [METHOD] - "/company"에 get실행
+2019-11-04 16:36:19 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:36:20 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:36:27 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:36:27 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:36:28 [METHOD] - "/company"에 get실행
+2019-11-04 16:36:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:36:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:36:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:37:03 [METHOD] - "/company"에 get실행
+2019-11-04 16:37:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:37:03 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:37:03 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:37:15 [METHOD] - "/company"에 get실행
+2019-11-04 16:37:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:37:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:37:15 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:37:28 [METHOD] - "/company"에 get실행
+2019-11-04 16:37:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:37:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:37:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:37:35 [METHOD] - "/company"에 get실행
+2019-11-04 16:37:35 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:37:36 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:37:36 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:42:28 [METHOD] - "/company"에 get실행
+2019-11-04 16:42:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:42:28 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:42:28 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: item is not defined
+2019-11-04 16:42:52 [METHOD] - "/company"에 get실행
+2019-11-04 16:42:52 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:42:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:42:53 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: item is not defined
+2019-11-04 16:43:15 [METHOD] - "/company"에 get실행
+2019-11-04 16:43:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:43:16 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:43:16 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: item is not defined
+2019-11-04 16:43:33 [METHOD] - "/company"에 get실행
+2019-11-04 16:43:33 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:43:34 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:43:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:43:48 [METHOD] - "/company"에 get실행
+2019-11-04 16:43:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:43:49 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:44:01 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:44:01 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:44:44 [METHOD] - "/company"에 get실행
+2019-11-04 16:44:44 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:44:45 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:44:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:44:53 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:45:17 [METHOD] - "/company"에 get실행
+2019-11-04 16:45:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:45:17 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:45:17 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:46:20 [METHOD] - "/company"에 get실행
+2019-11-04 16:46:20 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:46:21 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:46:21 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:47:13 [METHOD] - "/company"에 get실행
+2019-11-04 16:47:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:47:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:23 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:24 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:47:24 [METHOD] - "/company"에 get실행
+2019-11-04 16:47:24 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:47:25 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:25 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:47:30 [METHOD] - "/company"에 get실행
+2019-11-04 16:47:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:47:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:31 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:47:45 [METHOD] - "/company"에 get실행
+2019-11-04 16:47:45 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:47:46 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:46 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:47:53 [METHOD] - "/company"에 get실행
+2019-11-04 16:47:53 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:47:54 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:47:54 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:48:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:48:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:48:04 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:48:04 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:48:17 [METHOD] - "/company"에 get실행
+2019-11-04 16:48:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:48:17 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:48:17 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:48:32 [METHOD] - "/company"에 get실행
+2019-11-04 16:48:32 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:48:33 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:49:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:49:13 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:49:13 [METHOD] - "/company"에 get실행
+2019-11-04 16:49:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:49:14 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:49:14 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:49:45 [METHOD] - "/company"에 get실행
+2019-11-04 16:49:45 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:49:45 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:49:45 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:50:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:50:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:50:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:50:05 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:50:18 [METHOD] - "/company"에 get실행
+2019-11-04 16:50:18 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:50:18 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:50:18 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:50:26 [METHOD] - "/company"에 get실행
+2019-11-04 16:50:26 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:50:27 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:50:27 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:50:45 [METHOD] - "/company"에 get실행
+2019-11-04 16:50:45 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:50:45 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:50:45 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:51:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:51:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:51:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:51:05 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:51:19 [METHOD] - "/company"에 get실행
+2019-11-04 16:51:19 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:51:19 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:51:19 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:51:26 [METHOD] - "/company"에 get실행
+2019-11-04 16:51:27 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:51:27 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:51:27 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:51:48 [METHOD] - "/company"에 get실행
+2019-11-04 16:51:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:51:49 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:51:49 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:51:58 [METHOD] - "/company"에 get실행
+2019-11-04 16:51:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:51:59 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:51:59 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:52:06 [METHOD] - "/company"에 get실행
+2019-11-04 16:52:06 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:52:06 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:52:06 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:52:39 [METHOD] - "/company"에 get실행
+2019-11-04 16:52:39 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:52:40 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:52:40 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:52:56 [METHOD] - "/company"에 get실행
+2019-11-04 16:52:56 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:52:56 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:52:57 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:53:04 [METHOD] - "/company"에 get실행
+2019-11-04 16:53:04 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:53:04 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:53:11 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:53:11 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:53:12 [METHOD] - "/company"에 get실행
+2019-11-04 16:53:12 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:53:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:53:13 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:54:59 [METHOD] - "/company"에 get실행
+2019-11-04 16:54:59 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:55:15 [METHOD] - "/company"에 get실행
+2019-11-04 16:55:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:55:33 [METHOD] - "/company"에 get실행
+2019-11-04 16:55:34 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:55:48 [METHOD] - "/company"에 get실행
+2019-11-04 16:55:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:56:33 [METHOD] - "/company"에 get실행
+2019-11-04 16:56:33 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:56:55 [METHOD] - "/company"에 delete실행
+2019-11-04 16:56:55 [METHOD] - "/company"에 delete실행완료
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 73
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 74
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 73
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 74
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `branchs` WHERE `id` = 73
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `branchs` WHERE `id` = 74
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `companys` WHERE `id` = 28
+2019-11-04 16:56:55 [QUERY] - DELETE FROM `companys` WHERE `id` = 28
+2019-11-04 16:56:56 [METHOD] - "/company"에 get실행
+2019-11-04 16:56:59 [METHOD] - "/company/device"에 get실행
+2019-11-04 16:56:59 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 16:56:59 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 16:57:18 [METHOD] - "/company"에 post실행
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 16:57:18 [METHOD] - "/company"에 post실행완료
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 16:57:18 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 16:57:20 [METHOD] - "/company"에 get실행
+2019-11-04 16:57:20 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:57:23 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:57:23 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:59:12 [METHOD] - "/company"에 get실행
+2019-11-04 16:59:12 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:59:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:59:13 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:59:28 [METHOD] - "/company"에 get실행
+2019-11-04 16:59:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:59:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:59:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:59:44 [METHOD] - "/company"에 get실행
+2019-11-04 16:59:44 [METHOD] - "/company"에 get실행완료
+2019-11-04 16:59:44 [METHOD] - "/company/user"에 post실행
+2019-11-04 16:59:45 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 16:59:47 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 16:59:47 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:00:14 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:00:14 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:00:14 [METHOD] - "/company/userAdd"에 post실행완료
+2019-11-04 17:00:14 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:00:14 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:00:14 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:00:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:00:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:00:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:00:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:00:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:00:55 [METHOD] - "/company"에 get실행
+2019-11-04 17:00:55 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:00:56 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:01:03 [METHOD] - "/company"에 get실행
+2019-11-04 17:01:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:01:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:01:33 [METHOD] - "/company"에 get실행
+2019-11-04 17:01:33 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:01:57 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:01:59 [METHOD] - "/company"에 get실행
+2019-11-04 17:01:59 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:02:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:02:06 [METHOD] - "/company"에 get실행
+2019-11-04 17:02:06 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:02:07 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:02:21 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:02:22 [METHOD] - "/company"에 get실행
+2019-11-04 17:02:22 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:02:23 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:02:27 [METHOD] - "/company"에 get실행
+2019-11-04 17:02:27 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행
+2019-11-04 17:02:29 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 75
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 76
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 75
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 76
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `branchs` WHERE `id` = 75
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `branchs` WHERE `id` = 76
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `companys` WHERE `id` = 29
+2019-11-04 17:02:29 [QUERY] - DELETE FROM `companys` WHERE `id` = 29
+2019-11-04 17:02:29 [METHOD] - "/company"에 get실행
+2019-11-04 17:02:30 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:02:30 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:02:30 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:02:45 [METHOD] - "/company"에 post실행
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:02:45 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:02:45 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:02:46 [METHOD] - "/company"에 get실행
+2019-11-04 17:02:46 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:02:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:02:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:02:57 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:02:57 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:03:17 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:03:17 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:03:17 [METHOD] - "/company/userAdd"에 post실행완료
+2019-11-04 17:03:17 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:03:17 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:03:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:03:31 [METHOD] - "/company"에 get실행
+2019-11-04 17:03:31 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:03:32 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:03:48 [METHOD] - "/company"에 get실행
+2019-11-04 17:03:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행
+2019-11-04 17:03:50 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 77
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 78
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 77
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 78
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `branchs` WHERE `id` = 77
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `branchs` WHERE `id` = 78
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `companys` WHERE `id` = 30
+2019-11-04 17:03:50 [QUERY] - DELETE FROM `companys` WHERE `id` = 30
+2019-11-04 17:03:50 [METHOD] - "/company"에 get실행
+2019-11-04 17:03:51 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:03:51 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:03:51 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:04:02 [METHOD] - "/company"에 post실행
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:04:02 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:04:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:04:03 [METHOD] - "/company"에 get실행
+2019-11-04 17:04:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:04:04 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:04:04 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:04:09 [METHOD] - "/company"에 get실행
+2019-11-04 17:04:09 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:04:10 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:04:10 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:06:54 [METHOD] - "/company"에 get실행
+2019-11-04 17:06:54 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:06:54 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:06:54 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: name is not defined
+2019-11-04 17:06:55 [METHOD] - "/company"에 get실행
+2019-11-04 17:06:55 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:06:56 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:06:56 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: name is not defined
+2019-11-04 17:06:58 [METHOD] - "/company"에 get실행
+2019-11-04 17:06:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행
+2019-11-04 17:07:00 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:07:00 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 79
+2019-11-04 17:07:00 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 79
+2019-11-04 17:07:00 [QUERY] - DELETE FROM `branchs` WHERE `id` = 79
+2019-11-04 17:07:00 [QUERY] - DELETE FROM `companys` WHERE `id` = 31
+2019-11-04 17:07:00 [METHOD] - "/company"에 get실행
+2019-11-04 17:07:01 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:07:01 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:07:01 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:07:11 [METHOD] - "/company"에 post실행
+2019-11-04 17:07:11 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:07:11 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:07:11 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:07:11 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:07:11 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:07:11 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:07:12 [METHOD] - "/company"에 get실행
+2019-11-04 17:07:12 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:07:13 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:07:13 [ERROR] - "/company/user"에 post에서 ERROR : ReferenceError: name is not defined
+2019-11-04 17:11:35 [METHOD] - "/company"에 get실행
+2019-11-04 17:11:35 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:11:37 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:11:37 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:11:42 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:11:42 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:11:52 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:11:52 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:11:52 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:11:52 [ERROR] - "/company/userAdd"에 post에서 ERROR : SequelizeValidationError: notNull Violation: users.orgId cannot be null
+2019-11-04 17:11:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:11:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:11:55 [METHOD] - "/company"에 get실행
+2019-11-04 17:11:55 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:11:55 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:13:53 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:13:55 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:14:17 [METHOD] - "/company"에 get실행
+2019-11-04 17:14:23 [METHOD] - "/company"에 get실행
+2019-11-04 17:16:23 [METHOD] - "/company"에 get실행
+2019-11-04 17:18:33 [METHOD] - "/board"에 get실행
+2019-11-04 17:18:33 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 17:18:33 [METHOD] - "/board"에 get실행완료
+2019-11-04 17:18:40 [METHOD] - "/"에 post실행
+2019-11-04 17:18:40 [METHOD] - "/"에 signToken메소드 실행
+2019-11-04 17:18:40 [METHOD] - "/"에 signToken메소드 실행완료
+2019-11-04 17:18:40 [NOTICE] - ORG_ID : 123@123.1 로그인
+2019-11-04 17:18:40 [METHOD] - "/"에 post실행 완료
+2019-11-04 17:18:41 [METHOD] - "/board"에 get실행
+2019-11-04 17:18:41 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 17:18:41 [METHOD] - "/board"에 get실행완료
+2019-11-04 17:18:44 [METHOD] - "/board/comment"에 post실행
+2019-11-04 17:18:44 [METHOD] - "/board/comment"에 post실행종료
+2019-11-04 17:18:45 [METHOD] - "/board"에 delete실행
+2019-11-04 17:18:45 [METHOD] - "/board"에 delete실행완료
+2019-11-04 17:18:46 [METHOD] - "/board"에 get실행
+2019-11-04 17:18:46 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 17:18:46 [METHOD] - "/board"에 get실행완료
+2019-11-04 17:18:58 [METHOD] - "/company"에 get실행
+2019-11-04 17:19:00 [METHOD] - "/company"에 get실행
+2019-11-04 17:19:01 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:19:01 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:19:01 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:19:11 [METHOD] - "/company"에 post실행
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:19:11 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:19:11 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:19:12 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:07 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:07 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:20:16 [METHOD] - "/company"에 delete실행
+2019-11-04 17:20:16 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:16 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 82
+2019-11-04 17:20:16 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 82
+2019-11-04 17:20:16 [QUERY] - DELETE FROM `branchs` WHERE `id` = 82
+2019-11-04 17:20:16 [QUERY] - DELETE FROM `companys` WHERE `id` = 33
+2019-11-04 17:20:16 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:16 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:20:18 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:27 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:27 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:20:28 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:28 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:20:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 delete실행
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 delete실행
+2019-11-04 17:20:31 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 81
+2019-11-04 17:20:31 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 81
+2019-11-04 17:20:31 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 81
+2019-11-04 17:20:31 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 81
+2019-11-04 17:20:31 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:31 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:20:31 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:20:32 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:32 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행
+2019-11-04 17:20:34 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:20:34 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 80
+2019-11-04 17:20:34 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 80
+2019-11-04 17:20:34 [QUERY] - DELETE FROM `branchs` WHERE `id` = 80
+2019-11-04 17:20:34 [QUERY] - DELETE FROM `companys` WHERE `id` = 32
+2019-11-04 17:20:34 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:35 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:20:35 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:20:35 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:20:47 [METHOD] - "/company"에 post실행
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:20:47 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:20:47 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:20:48 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:20:49 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:20:49 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:20:51 [METHOD] - "/company"에 get실행
+2019-11-04 17:20:51 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:21:08 [METHOD] - "/company"에 get실행
+2019-11-04 17:21:08 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:21:10 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:21:10 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:21:22 [METHOD] - "/company"에 get실행
+2019-11-04 17:21:22 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:21:22 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:21:23 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:22:39 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:22:39 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:22:50 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:22:50 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:22:50 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:22:50 [ERROR] - "/company/userAdd"에 post에서 ERROR : SequelizeValidationError: notNull Violation: users.orgId cannot be null
+2019-11-04 17:24:47 [METHOD] - "/company"에 get실행
+2019-11-04 17:24:47 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:24:48 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:24:49 [METHOD] - "/company"에 get실행
+2019-11-04 17:24:49 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:24:51 [METHOD] - "/company"에 delete실행
+2019-11-04 17:24:51 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:24:51 [METHOD] - "/company"에 delete실행
+2019-11-04 17:24:51 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 83
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 84
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 84
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 83
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `branchs` WHERE `id` = 84
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `branchs` WHERE `id` = 83
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `companys` WHERE `id` = 34
+2019-11-04 17:24:51 [QUERY] - DELETE FROM `companys` WHERE `id` = 34
+2019-11-04 17:24:51 [METHOD] - "/company"에 get실행
+2019-11-04 17:24:52 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:24:52 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:24:52 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:25:02 [METHOD] - "/company"에 post실행
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:25:02 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:25:02 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:25:03 [METHOD] - "/company"에 get실행
+2019-11-04 17:25:03 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:25:05 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:25:05 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:25:08 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:25:08 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:25:20 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:25:20 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:25:20 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:25:20 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:25:20 [METHOD] - "/company/userAdd"에 post실행완료
+2019-11-04 17:25:20 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:25:20 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:25:28 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:25:28 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:25:45 [METHOD] - "/company"에 get실행
+2019-11-04 17:25:45 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:25:49 [METHOD] - "/company"에 delete실행
+2019-11-04 17:25:49 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:25:49 [METHOD] - "/company"에 delete실행
+2019-11-04 17:25:49 [METHOD] - "/company"에 delete실행완료
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 85
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `branch_devices` WHERE `branchId` = 86
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 85
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `user_groups` WHERE `branchId` = 86
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `branchs` WHERE `id` = 85
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `branchs` WHERE `id` = 86
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `companys` WHERE `id` = 35
+2019-11-04 17:25:49 [QUERY] - DELETE FROM `companys` WHERE `id` = 35
+2019-11-04 17:25:50 [METHOD] - "/company"에 get실행
+2019-11-04 17:25:50 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:25:50 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:25:50 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:26:20 [METHOD] - "/company"에 post실행
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `companys` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:26:20 [METHOD] - "/company"에 post실행완료
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:26:20 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:26:21 [METHOD] - "/company"에 get실행
+2019-11-04 17:26:21 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:26:23 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:26:23 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:26:25 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:26:25 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:26:55 [METHOD] - "/company/userAdd"에 post실행
+2019-11-04 17:26:55 [QUERY] - INSERT INTO `branchs` (`id`,`name`,`expiredDate`,`companyId`,`busNumber`,`isMain`,`address`,`tel`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);
+2019-11-04 17:26:55 [QUERY] - INSERT INTO `user_groups` (`id`,`name`,`groupAuth`,`branchId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+2019-11-04 17:26:55 [QUERY] - INSERT INTO `users` (`id`,`orgId`,`userNm`,`userPw`,`userYn`,`userGroupId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?);
+2019-11-04 17:26:55 [METHOD] - "/company/userAdd"에 post실행완료
+2019-11-04 17:26:55 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:26:55 [QUERY] - INSERT INTO `branch_devices` (`id`,`deviceId`,`location`,`branchId`,`descript`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);
+2019-11-04 17:26:56 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:26:56 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:26:59 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:26:59 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:27:08 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:27:08 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:27:21 [METHOD] - "/company"에 get실행
+2019-11-04 17:27:21 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:27:22 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:27:22 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:27:27 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:27:27 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:27:27 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:27:27 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:27:27 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:27:27 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:27:27 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:27:27 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:27:27 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:27:27 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:27:27 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:29:48 [METHOD] - "/company"에 get실행
+2019-11-04 17:29:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:29:49 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:29:49 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:29:51 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:29:51 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:29:51 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:29:51 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:29:55 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:29:55 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:30:02 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:30:02 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:30:06 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:30:06 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:30:17 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:30:17 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:30:22 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:30:22 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:31:30 [METHOD] - "/company"에 get실행
+2019-11-04 17:31:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:31:45 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:31:45 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:31:46 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:31:46 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:31:48 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:31:48 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:32:46 [METHOD] - "/company"에 get실행
+2019-11-04 17:32:46 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:32:47 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:32:47 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:32:49 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:32:49 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:33:02 [METHOD] - "/company"에 get실행
+2019-11-04 17:33:02 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:33:03 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:33:03 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:33:05 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:33:05 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:33:08 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:33:08 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:33:16 [METHOD] - "/company"에 get실행
+2019-11-04 17:33:16 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:17 [METHOD] - "/company/device"에 get실행
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:17 [QUERY] - SELECT `id`, `name`, `firmVersion`, `isOn`, `createdAt`, `updatedAt` FROM `devices` AS `devices`;
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/edit"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/device"에 get실행완료
+2019-11-04 17:33:17 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:34 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:33:34 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:33:37 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:33:37 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:40 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:47 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:48 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:48 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:33:48 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:34:06 [METHOD] - "/company"에 get실행
+2019-11-04 17:34:06 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:34:07 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:34:07 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:34:30 [METHOD] - "/company"에 get실행
+2019-11-04 17:34:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:34:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:34:31 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:35:53 [METHOD] - "/company"에 get실행
+2019-11-04 17:35:53 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:35:54 [METHOD] - "/company"에 get실행
+2019-11-04 17:35:54 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:35:55 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:35:55 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:37:22 [METHOD] - "/company"에 get실행
+2019-11-04 17:37:23 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:37:24 [METHOD] - "/company"에 get실행
+2019-11-04 17:37:24 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:37:25 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:37:25 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:37:27 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:37:27 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:37:29 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:37:29 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:37:58 [METHOD] - "/company"에 get실행
+2019-11-04 17:37:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:38:17 [METHOD] - "/company"에 get실행
+2019-11-04 17:38:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:38:29 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:38:29 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:38:31 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:38:31 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:39:30 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:39:30 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:39:30 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:39:30 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:40:54 [METHOD] - "/company"에 get실행
+2019-11-04 17:40:54 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:40:55 [METHOD] - "/company"에 get실행
+2019-11-04 17:40:55 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:40:56 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:40:56 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:40:59 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:40:59 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:42:34 [METHOD] - "/company"에 get실행
+2019-11-04 17:42:34 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:42:35 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:42:35 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:42:37 [METHOD] - "/company"에 get실행
+2019-11-04 17:42:37 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:42:38 [METHOD] - "/company"에 get실행
+2019-11-04 17:42:38 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:42:39 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:42:39 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:42:42 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:42:42 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:44:13 [METHOD] - "/company"에 get실행
+2019-11-04 17:44:13 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:44:14 [METHOD] - "/company"에 get실행
+2019-11-04 17:44:14 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:44:15 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:44:15 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:44:16 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:44:16 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:44:22 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:44:22 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:44:22 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:44:22 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:44:27 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:44:27 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 17:44:30 [METHOD] - "/company/user"에 put실행
+2019-11-04 17:44:30 [METHOD] - "/company"에 put실행완료
+2019-11-04 17:44:31 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:44:31 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:44:33 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:44:36 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:44:39 [METHOD] - "/company"에 get실행
+2019-11-04 17:44:39 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:44:40 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:44:40 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:44:44 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:44:44 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:44:44 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 17:44:44 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 17:44:46 [METHOD] - "/company/user"에 put실행
+2019-11-04 17:44:46 [METHOD] - "/company"에 put실행완료
+2019-11-04 17:44:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:44:47 [METHOD] - "/company/user"에 post실행
+2019-11-04 17:44:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:44:47 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 17:44:48 [METHOD] - "/company"에 get실행
+2019-11-04 17:44:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:44:54 [METHOD] - "/company/detail"에 post실행
+2019-11-04 17:44:54 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 17:46:36 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:46:44 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 17:53:15 [METHOD] - "/company"에 get실행
+2019-11-04 17:53:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:53:16 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:53:16 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:56:58 [METHOD] - "/company"에 get실행
+2019-11-04 17:56:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:57:00 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:57:00 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:57:05 [METHOD] - "/company"에 get실행
+2019-11-04 17:57:06 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:57:09 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:57:09 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:57:30 [METHOD] - "/company"에 get실행
+2019-11-04 17:57:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:57:31 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:57:31 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:57:46 [METHOD] - "/company"에 get실행
+2019-11-04 17:57:46 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:57:50 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:57:50 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:58:17 [METHOD] - "/company"에 get실행
+2019-11-04 17:58:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:58:18 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:58:18 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:59:05 [METHOD] - "/company"에 get실행
+2019-11-04 17:59:05 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:59:06 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:59:06 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:59:48 [METHOD] - "/company"에 get실행
+2019-11-04 17:59:48 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:59:49 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:59:49 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 17:59:58 [METHOD] - "/company"에 get실행
+2019-11-04 17:59:58 [METHOD] - "/company"에 get실행완료
+2019-11-04 17:59:59 [METHOD] - "/company/state"에 put실행
+2019-11-04 17:59:59 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 18:00:09 [METHOD] - "/company"에 get실행
+2019-11-04 18:00:09 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:00:10 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:00:10 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 18:00:30 [METHOD] - "/company"에 get실행
+2019-11-04 18:00:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:00:30 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:00:30 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "userGroupId" has invalid "undefined" value
+2019-11-04 18:02:30 [METHOD] - "/company"에 get실행
+2019-11-04 18:02:30 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:02:31 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:02:31 [METHOD] - "/company/state"에 put실행완료
+2019-11-04 18:02:39 [METHOD] - "/company"에 get실행
+2019-11-04 18:02:39 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:02:42 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:02:42 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "branchId" has invalid "undefined" value
+2019-11-04 18:02:44 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:02:44 [METHOD] - "/company/state"에 put실행완료
+2019-11-04 18:07:55 [METHOD] - "/company"에 get실행
+2019-11-04 18:07:55 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:07:57 [METHOD] - "/company/user"에 post실행
+2019-11-04 18:07:57 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 18:07:58 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:07:58 [METHOD] - "/company/state"에 put실행완료
+2019-11-04 18:08:00 [METHOD] - "/company"에 get실행
+2019-11-04 18:08:00 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:08:01 [METHOD] - "/company/user"에 post실행
+2019-11-04 18:08:01 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 18:08:05 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:08:05 [METHOD] - "/company/state"에 put실행완료
+2019-11-04 18:08:06 [METHOD] - "/company"에 get실행
+2019-11-04 18:08:06 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:08:07 [METHOD] - "/company/user"에 post실행
+2019-11-04 18:08:07 [METHOD] - "/company/user"에 post실행완료
+2019-11-04 18:10:49 [METHOD] - "/company/detail"에 post실행
+2019-11-04 18:10:49 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 18:10:54 [METHOD] - "/company/detail"에 post실행
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:10:56 [METHOD] - "/company/userDevice"에 post실행
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 18:10:56 [METHOD] - "/company/editDevice"에 post실행완료
+2019-11-04 18:10:56 [METHOD] - "/company/userDevice"에 post실행완료
+2019-11-04 18:10:59 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:10:59 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:10:59 [METHOD] - "/company/editDevice"에 post실행
+2019-11-04 18:11:11 [METHOD] - "/company"에 get실행
+2019-11-04 18:11:11 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:11:12 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:11:12 [METHOD] - "/company/state"에 put실행완료
+2019-11-04 18:11:15 [METHOD] - "/company"에 get실행
+2019-11-04 18:11:15 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:11:15 [METHOD] - "/company/state"에 put실행
+2019-11-04 18:11:15 [ERROR] - "/company/state"에 put에서 ERROR : Error: WHERE parameter "branchId" has invalid "undefined" value
+2019-11-04 18:11:17 [METHOD] - "/company"에 get실행
+2019-11-04 18:11:17 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:15:31 [METHOD] - "/board"에 get실행
+2019-11-04 18:15:31 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 18:15:31 [METHOD] - "/board"에 get실행완료
+2019-11-04 18:27:27 [METHOD] - "/board"에 get실행
+2019-11-04 18:27:27 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 18:27:27 [METHOD] - "/board"에 get실행완료
+2019-11-04 18:28:01 [METHOD] - "/board"에 get실행
+2019-11-04 18:28:01 [QUERY] - SELECT `boards`.`id`, `boards`.`userId`, `boards`.`title`, `boards`.`content`, `boards`.`hit`, `boards`.`boardPostId`, `boards`.`createdAt`, `boards`.`updatedAt`, `board_post`.`id` AS `board_post.id`, `board_post`.`name` AS `board_post.name`, `board_post`.`createdAt` AS `board_post.createdAt`, `board_post`.`updatedAt` AS `board_post.updatedAt`, `user`.`id` AS `user.id`, `user`.`orgId` AS `user.orgId`, `user`.`userNm` AS `user.userNm`, `user`.`userPw` AS `user.userPw`, `user`.`userYn` AS `user.userYn`, `user`.`userGroupId` AS `user.userGroupId`, `user`.`createdAt` AS `user.createdAt`, `user`.`updatedAt` AS `user.updatedAt`, `board_files`.`id` AS `board_files.id`, `board_files`.`boardId` AS `board_files.boardId`, `board_files`.`fileId` AS `board_files.fileId`, `board_files`.`createdAt` AS `board_files.createdAt`, `board_files`.`updatedAt` AS `board_files.updatedAt`, `board_files->file`.`id` AS `board_files.file.id`, `board_files->file`.`orgName` AS `board_files.file.orgName`, `board_files->file`.`size` AS `board_files.file.size`, `board_files->file`.`createdAt` AS `board_files.file.createdAt`, `board_files->file`.`updatedAt` AS `board_files.file.updatedAt` FROM `boards` AS `boards` LEFT OUTER JOIN `board_posts` AS `board_post` ON `boards`.`boardPostId` = `board_post`.`id` LEFT OUTER JOIN `users` AS `user` ON `boards`.`userId` = `user`.`id` LEFT OUTER JOIN `board_files` AS `board_files` ON `boards`.`id` = `board_files`.`boardId` LEFT OUTER JOIN `files` AS `board_files->file` ON `board_files`.`fileId` = `board_files->file`.`id`;
+2019-11-04 18:28:01 [METHOD] - "/board"에 get실행완료
+2019-11-04 18:28:43 [METHOD] - "/company"에 get실행
+2019-11-04 18:28:43 [METHOD] - "/company"에 get실행완료
+2019-11-04 18:28:46 [METHOD] - "/company/detail"에 post실행
+2019-11-04 18:28:46 [METHOD] - "/company/detail"에 post실행완료
+2019-11-04 18:28:58 [METHOD] - "/company/user"에 post실행
+2019-11-04 18:28:58 [METHOD] - "/company/user"에 post실행완료

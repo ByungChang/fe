@@ -242,6 +242,8 @@ import userHvSelect from './userHvSelect'
           this.endDay=item.expiredDate                          
           this.address=item.address
           this.tel=item.tel
+          this.email=item.email
+          this.state=item.state
 
           axios.post('/api/company/editDevice',{branchId : item.id})
           .then((r)=>{
@@ -279,7 +281,9 @@ import userHvSelect from './userHvSelect'
                 address : this.address,
                 tel : this.tel,
                 expiredDate : this.endDay,
-                devices : this.select
+                devices : this.select,
+                state : this.state,
+                email : this.email
             })
             .then((r) => {
               EventBus.$emit("SaveItem",'user',r)
@@ -299,7 +303,6 @@ import userHvSelect from './userHvSelect'
                 devices : this.select
               })
               .then((r) => {
-                console.log('put완료')
                   EventBus.$emit("EditItem",('user'))
               })
               .catch((e) => {

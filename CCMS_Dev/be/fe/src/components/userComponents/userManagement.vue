@@ -156,7 +156,7 @@
     created(){
       EventBus.$on('userAddOk',(item)=>{
         axios.post('/api/company/user',{
-          companyId : this.$route.params.CId
+          companyId : this.$route.params.CId,
         })
         .then((r)=>{
           let j=0;
@@ -167,11 +167,11 @@
 
               r.data.users[j].expiredDate = y+'-'+m+'-'+d
           }
-          console.log(this.users)
           this.users = r.data.users
           
         })
         .catch((e)=>{
+          console.error(e.message)
         })
       })
 
@@ -199,7 +199,7 @@
             
           })
           .catch((e)=>{
-
+            console.error(e.message)
           })  
         });
       });
@@ -217,10 +217,9 @@
             r.data.users[j].expiredDate = y+'-'+m+'-'+d
         }
         this.users = r.data.users
-        console.log(users)
       })
       .catch((e)=>{
-
+        console.error(e.message)
       })
 
     },
@@ -241,11 +240,27 @@
 
       statusChange(item){
         this.number=this.users.indexOf(item)
+
         if(this.users[this.number].state =='active'){
           this.users[this.number].state ='block'
+           axios.put('/api/company/state', {
+            id : item.id,
+            state : 'block'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
         }
+
         else if(this.users[this.number].state =='block'){
           this.users[this.number].state ='active'
+           axios.put('/api/company/state', {
+            id : item.id,
+            state : 'active'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
         }
       },
 
@@ -254,18 +269,17 @@
       },
 
       userDetail(item){
-        console.log(item)
         axios.post('/api/company/detail',{id : item.id})
         .then((r)=>{
-          console.log(r)
           EventBus.$emit("userDetail", item, r.data.devices )
+        }).catch((e) => {
+          console.error(e.message)
         })
       },
 
       deleteUser(item){
         EventBus.$emit("DelUser",item)
       },
-      
     }
   }
 </script>

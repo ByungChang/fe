@@ -136,57 +136,47 @@
     },
     mounted () 
     {
-        const token = localStorage.token
-        this.user = localStorage.getItem('user')
-        this.id = localStorage.getItem('id')
-        axios.get('/api/board', {
-            //headers: { Authorization: token },
-    })
-    .then((r) => {
-        console.log(r)
-        let j=0;
-        for(j=0;j<r.data.posts.length;j++){
-            var y = r.data.posts[j].createdAt.substr(0, 4);
-            var m = r.data.posts[j].createdAt.substr(5, 2);
-            var d = r.data.posts[j].createdAt.substr(8, 2);
-            var h = r.data.posts[j].createdAt.substr(11, 2);
-            var min = r.data.posts[j].createdAt.substr(14, 2);
-            var s = r.data.posts[j].createdAt.substr(17, 2);
-            var temp = y+'-'+m+'-'+d+' '+h+':'+min+':'+s
+      // this.user = localStorage.getItem('user')
+      // this.id = localStorage.getItem('id')
+      const token = localStorage.getItem('token')
+      axios.get(`/api/board`, { headers: { Authorization: token } })
+        .then((r) => {
+          if (!r.data.success) return console.error(r.data.msg)
+          let j=0;
+          for(j=0;j<r.data.posts.length;j++){
+              var y = r.data.posts[j].createdAt.substr(0, 4);
+              var m = r.data.posts[j].createdAt.substr(5, 2);
+              var d = r.data.posts[j].createdAt.substr(8, 2);
+              var h = r.data.posts[j].createdAt.substr(11, 2);
+              var min = r.data.posts[j].createdAt.substr(14, 2);
+              var s = r.data.posts[j].createdAt.substr(17, 2);
+              var temp = y+'-'+m+'-'+d+' '+h+':'+min+':'+s
 
-            var diffDate_1 = temp instanceof Date ? temp :new Date(temp);
-            var diffDate_2 = new Date();
-        
-            diffDate_1 =new Date(diffDate_1.getFullYear(), diffDate_1.getMonth()+1, diffDate_1.getDate());
-            diffDate_2 =new Date(diffDate_2.getFullYear(), diffDate_2.getMonth()+1, diffDate_2.getDate());
-        
-            var diff = Math.abs(diffDate_2.getTime() - diffDate_1.getTime());
-            diff = Math.ceil(diff / (1000 * 3600 * 24));
-
-            if(diff<1)
-                r.data.posts[j].createdAt = h+':'+min+':'+s
-            else
-                r.data.posts[j].createdAt = y+'-'+m+'-'+d +' '+h+':'+min+':'+s
+              var diffDate_1 = temp instanceof Date ? temp :new Date(temp);
+              var diffDate_2 = new Date();
+          
+              diffDate_1 =new Date(diffDate_1.getFullYear(), diffDate_1.getMonth()+1, diffDate_1.getDate());
+              diffDate_2 =new Date(diffDate_2.getFullYear(), diffDate_2.getMonth()+1, diffDate_2.getDate());
+          
+              var diff = Math.abs(diffDate_2.getTime() - diffDate_1.getTime());
+              diff = Math.ceil(diff / (1000 * 3600 * 24));
+              r.data.posts[j].createdAt = y+'-'+m+'-'+d +' '+h+':'+min+':'+s
+          }
+          
+          this.posts = r.data.posts
+          this.posts.reverse()
+          this.posts.sort(function (a, b) {
+          
+            if(a.board_post.name !== b.board_post.name){
+              return a.board_post.name < b.board_post.name ? -1 : 1;  
             }
-            
-            this.posts = r.data.posts
-            this.posts.reverse()
-            this.posts.sort(function (a, b) {
-            
-              if(a.board_post.name !== b.board_post.name){
-                return a.board_post.name < b.board_post.name ? -1 : 1;  
-              }
-              else
-                return a.id > b.id ? -1 : 1;
-            });
-            // this.posts.sort(function (a, b) { 
-            //   return a.board_post.name < b.board_post.name ? -1 : 1;  
-            // });
-        console.log(this.posts)
-    })
-    .catch((e) => {
-        console.error(e.message)
-    })
+            else
+              return a.id > b.id ? -1 : 1;
+          });
+        })
+      .catch((e) => {
+          console.error(e.message)
+      })
     },
     methods: 
     {

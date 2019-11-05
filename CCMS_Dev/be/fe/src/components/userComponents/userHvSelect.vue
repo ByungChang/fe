@@ -106,13 +106,14 @@ import axios from 'axios'
     },
     created(){
       EventBus.$on("userHVList", (item) => {
-        console.log('유지hv리스트')
         this.selected = item
       });
 
       axios.post('/api/company/userDevice', {companyId : localStorage.getItem('cId')})
       .then((r) => {
         this.items = r.data.device
+      }).catch((e) => {
+          console.error(e.message)
       });
 
       EventBus.$on("HyperVisonClean", (what) => {

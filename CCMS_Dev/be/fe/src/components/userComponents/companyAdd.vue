@@ -203,10 +203,10 @@ import companyHvSelect from './companyHvSelect'
         this.mode='put'
         this.name=item.name
         this.cId = item.companyId
-        console.log(item.companyId)
+        this.state = item.state
+        this.email = item.email
         axios.post('/api/company/edit',{id : item.companyId})
         .then((r)=>{
-          console.log(r)
           this.business=r.data.busNum
         })
         axios.post('/api/company/editDevice',{branchId : item.id})
@@ -232,9 +232,6 @@ import companyHvSelect from './companyHvSelect'
                 devices : this.select,
                 email : this.email,
                 state : this.state
-              })
-              .then((r) => {
-                  console.log('post완료')
               })
               .catch((e) => {
                   console.error(e.message)
