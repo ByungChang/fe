@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-card>   
     <v-card-title>
       Q&A
@@ -43,9 +44,12 @@
         </template>
         
         <template v-slot:item.title="props">
+          <v-row>
             <a @click="boardDetail(props.item)" style="color:black;text-align:left;display:block;">
                 {{props.item.title}}
-            </a>
+            </a> 
+            <v-icon v-if="props.item.board_files.length !== 0">mdi-paperclip</v-icon>
+          </v-row>
         </template>
 
     </v-data-table>
@@ -72,6 +76,9 @@
     
     <AddCommentModal></AddCommentModal>
   </v-card>
+   <foot></foot>
+
+</div>
 </template>
 
 <script>
@@ -143,6 +150,7 @@
             //headers: { Authorization: token },
     })
     .then((r) => {
+      console.log('1번')
         console.log(r)
         let j=0;
         for(j=0;j<r.data.posts.length;j++){
@@ -182,6 +190,7 @@
             // this.posts.sort(function (a, b) { 
             //   return a.board_post.name < b.board_post.name ? -1 : 1;  
             // });
+            console.log('2번')
         console.log(this.posts)
     })
     .catch((e) => {
@@ -256,6 +265,7 @@
               }
               this.comments = r.data.comments
               eventBus.$emit('triggerDModal',this.boardId,this.form,this.comments);
+             
               })
           .catch((e) => {
               console.error(e.message)

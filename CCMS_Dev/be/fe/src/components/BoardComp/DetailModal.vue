@@ -107,6 +107,7 @@
             eventBus.$on('triggerDModal', (boardId,form,comments) => { 
                 this.boardId = boardId
                 this.form = form
+                
                 this.comments = comments
                 this.DModal = true
 
@@ -149,6 +150,7 @@
                 this.form.content = ''
                 this.form.file=''
                 this.DModal = false
+                 
                 
             },
             UModalClose(){
@@ -211,6 +213,7 @@
             openEditModal(item){
                 this.DModal = false
                 eventBus.$emit('triggerEditModal',item);
+               
             },
             fileDown(item){
                 let fileName = item;

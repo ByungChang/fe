@@ -1,5 +1,6 @@
 <template>
-  <v-card> 
+<div>
+  <v-card>
     <companyAdd></companyAdd>
     <userDetail></userDetail>
     <ConfirmSnackBar></ConfirmSnackBar>
@@ -69,6 +70,10 @@
       </v-pagination>
     </div>
   </v-card>
+   <foot></foot>
+
+</div>
+
 </template>
  
 <script>

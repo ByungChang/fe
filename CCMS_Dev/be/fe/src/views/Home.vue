@@ -1,11 +1,11 @@
 <template>
-    <div>여기는 홈화면 입니다</div>
-</template>>
+ <foot></foot>
+</template>
 
 <script>
   import axios from 'axios'
-
   export default { 
+    
     created() { 
         // this.$http.get("/api/logins").then(response => { 
         //     this.users = response.data; 
