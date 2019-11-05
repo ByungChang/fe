@@ -125,22 +125,35 @@ export default {
     data(){
         return{
             file_cpy:[],
+            user:'',
             file_cpy_save:[],
             del_files:[],
             files:[],
+            id:0,
             fileList:false,
             fileId:0,
             WModal:false,
             mode:'',
             form: {},
             catagory:'일반',
-            user:localStorage.getItem('user'),
+            // user:localStorage.getItem('user'),
             titleRules: [
                 v => !!v || '제목을 입력해주세요',
             ],
         }
     },
     mounted(){
+        const token = localStorage.getItem('token')
+        axios.get(`/api/board/getInfo`, { headers: { Authorization: token } })
+        .then((r) => {
+            console.log(r)
+            if (!r.data.success) return console.error(r.data.msg)
+                
+            if(r.data.success){
+              this.user = r.data.user
+              this.id = r.data.id
+            }
+        })
         eventBus.$on('triggerAddModal', (item) => { 
           this.WModal=true
           this.mode='게시글 생성'
@@ -166,7 +179,6 @@ export default {
               return
 
           if(this.catagory !== ''){
-            
             if(this.catagory === '공지')
               var cata = 1
             if(this.catagory === '일반')
@@ -175,13 +187,12 @@ export default {
             let fd = new FormData()
 
             let i=0;
-            console.log(this.files)
             this.files.forEach(file => {
               fd.append(`${i}`, file)
               i++
             });
 
-            fd.append('userId', localStorage.getItem('id'))
+            fd.append('userId', this.id)
             fd.append('title', this.form.title)
             fd.append('boardPostId', cata)
             fd.append('content', this.form.content)
@@ -202,9 +213,6 @@ export default {
               axios.delete('/api/board/fileDel', 
               {
                   data: { files: this.del_files } 
-              })
-              .then((r) => {
-                console.log('r받음')
               })
               .catch((e) => {
                   this.alertText='에러가 발생했습니다'
@@ -230,7 +238,6 @@ export default {
             this.catagory = '공지'
         },
         modalClose(){
-          console.log('모달 닫기')
           this.form.title = ''
           this.form.content = ''
           this.form.file = []
@@ -263,7 +270,6 @@ export default {
             if(temp.file.orgName === item.file.orgName){
               this.del_files.push(this.file_cpy[i])
               this.file_cpy.splice(i,1)
-              console.log(this.del_files)
             }
             i++
           })

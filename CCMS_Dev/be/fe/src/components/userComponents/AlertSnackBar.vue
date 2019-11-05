@@ -1,4 +1,5 @@
 <template>
+    
     <v-snackbar
         :timeout='false'
         v-model="alert"
@@ -9,37 +10,57 @@
         dark
         icon="mdi-alert-circle-outline"
         transition="scale-transition"
-    >완료되었습니다
+    >{{message}}
         <v-btn flat  color="blue lighten-2"  @click="alertConfirm">확인</v-btn>
     </v-snackbar>
 </template>
+
 <script>
-//import axios from 'axios'
-  import { EventBus } from "./eventBus";
+import { EventBus } from "./eventBus";
 
 export default {
     data() {
         return {
             alert:false,
-            access:false
+            access:false,
+            user:[],
+            message:''
         }
     },
     mounted(){
-        EventBus.$on("SaveItem",(item) => { 
-             this.alert = true
-            if(item=='user')
-            this.access=false
+        EventBus.$on("SaveItem",(item,r) => { 
 
-            if(item=='company')
-            this.access=true
+             this.alert = true
+             this.message = '생성되었습니다'
+            if(item==='user'){
+                console.log(r)
+                this.user = r
+                this.access=false
+            }
+            if(item==='company')
+                this.access=true
+        });
+        EventBus.$on("EditItem",(item,r) => { 
+
+             this.alert = true
+             this.message = '수정이 완료되었습니다'
+            if(item==='user'){
+                this.user = r
+                this.access=false
+            }
+            if(item==='company')
+                this.access=true
         });
     },
     methods:{
         alertConfirm(){
-            if(this.access==false)
-            location.href='/userManagement'
-            if(this.access==true)
-            location.href='/company'
+            if(this.access===false){
+                this.alert = false
+                EventBus.$emit('userAddOk',this.user)
+            }
+
+            if(this.access===true)
+                location.href='/company'
         }
     }
 }

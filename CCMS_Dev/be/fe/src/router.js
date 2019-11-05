@@ -29,8 +29,12 @@ export default new Router({
     {
       path: '/company',
       name: 'company',
+<<<<<<< HEAD
       component: () => import( './views/company.vue')
       
+=======
+      component: () => import( './views/company.vue'),
+>>>>>>> df031a02d4863d4d37e78da808bb3a5404330257
     },
     {
       path: '/profile',

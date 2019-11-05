@@ -138,6 +138,8 @@ export default {
     return {
       valid:true,
       user:'',
+      auth:'',
+      cId:0,
       clipped: false,
       drawer: true,
       fixed: false,
@@ -165,30 +167,36 @@ export default {
           v => !!v || '패스워드를 입력해주세요',
       ],
     }
-  }, 
+  },
+  mounted(){
+    
+  },
   methods: {
     logoClick(){
       location.href="/"
     },
     loginClick(){
       let user={};
-      const token = localStorage.getItem('token')
       if (this.$refs.form.validate()) {
         axios.post('/api', {
           orgId:this.id,
           userPw:this.pw,
         })
         .then((r) => {
-          if (!r.data.success)
-            return console.error(r.data.msg)
-
-          localStorage.setItem("user",r.data.user);
-          localStorage.setItem("id",r.data.id);
-          this.user = localStorage.getItem('user')
-
-          localStorage.setItem('token', r.data.token)
-          this.$store.commit('getToken', r.data.user)
-          //const name = localStorage.setItem("user",r.data.user);
+          if (r.data.success){
+            localStorage.setItem('token', r.data.token)
+            this.$store.commit('getToken', r.data.user)
+            
+          }
+          const token = localStorage.getItem('token')
+          axios.get(`/api/company/getInfo`, { headers: { Authorization: token } })
+          .then((r) => {
+              if (!r.data.success) return console.error(r.data.msg)
+              if(r.data.success){
+                this.auth = r.data.user
+                this.cId = r.data.id
+              }
+          })
         })
         .catch((e) => {
           alert("에러가 발생하였습니다.")

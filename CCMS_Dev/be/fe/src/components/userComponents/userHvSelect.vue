@@ -60,15 +60,12 @@ import axios from 'axios'
         pageCount: 0,
         page:1,
         headers: [
-
           {
             text: '하이퍼 비전',
             align: 'start',
             sortable: true,
             value: 'name',
           },
-          
-
         ],
         items: [
           // {
@@ -108,15 +105,18 @@ import axios from 'axios'
       }
     },
     created(){
-      axios.get('/api/company/device', {})
-        .then((r) => {
-          console.log(r)
-          console.log(r.data.device)
-          this.items = r.data.device
-        });
+      EventBus.$on("userHVList", (item) => {
+        this.selected = item
+      });
+
+      axios.post('/api/company/userDevice', {companyId : localStorage.getItem('cId')})
+      .then((r) => {
+        this.items = r.data.device
+      }).catch((e) => {
+          console.error(e.message)
+      });
 
       EventBus.$on("HyperVisonClean", (what) => {
-        console.log('클로즈')
         this.hvText=''
         this.selected=[]
       });

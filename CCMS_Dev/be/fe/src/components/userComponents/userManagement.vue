@@ -1,6 +1,8 @@
   
  <template>
+ 
 <v-card> 
+  
   <userAdd></userAdd>
   <userDetail></userDetail>
   <ConfirmSnackBar></ConfirmSnackBar>
@@ -31,7 +33,8 @@
     :items-per-page="3"
     class="font-weight-bold"
     :page.sync="page"
-    @page-count="pageCount = $event"  
+    @page-count="pageCount = $event"
+    
   >
  
   <template v-slot:item.src="{ item }">
@@ -52,15 +55,15 @@
    <v-list-item style="text-align:left">{{item.name}}</v-list-item>
  </template>
 
- <template v-slot:item.status="{ item }">
-        <v-btn @click="statusChange(item)" :color="getColor(item.status)">{{item.status}}</v-btn>
+ <template v-slot:item.state="{ item }">
+        <v-btn @click="statusChange(item)" :color="getColor(item.state)">{{item.state}}</v-btn>
  </template>
 
  <template v-slot:item.action="{ item }">
     <v-btn @click="userDetail(item)" icon ><v-icon>mdi-information-outline</v-icon></v-btn>
     <v-btn 
     @click="btnClick('userEdit'), editTable(item)" icon ><v-icon>mdi-square-edit-outline</v-icon></v-btn>
-    <v-btn @click="deleteComment(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+    <v-btn @click="deleteUser(item)" icon ><v-icon>mdi-trash-can-outline</v-icon></v-btn>
     
  </template>
 </v-data-table>
@@ -73,8 +76,8 @@
     >
     </v-pagination>
   </div>
+  <router-view :key="$route.fullPath"></router-view>
 </v-card>
- 
 </template>
  
 <script>
@@ -97,8 +100,11 @@
       
       return {
         companyId:0,
+        mode:'',
         x:window.innerWidth,
+        devices:[],
         search:'',
+        state:'',
         page: 1,
         pageCount: 0,
         headers: [
@@ -110,44 +116,94 @@
  
           },
           { text: '사용자', value: 'name', align:'center'},
-          { text: '상태', value: 'status',align:'center',  },
-          { text: 'HYPER VSN', value: 'hvNum',  },
+          { text: '상태', value: 'state',align:'center',  },
+          { text: 'HYPER VSN', value: 'hvNum',align:'center',  },
           { text: '계약 만료일', value: 'expiredDate' , },
           { text: '정보보기/수정/삭제', value: 'action',sortable: false,},
         ],
 
         users: [
-          {
-            src:'aaa.png',
-            userName: '이마트 천호역점',
-            status: 'active',
-            hvNum: 30,
-            endDay: '2019-12-20',
-            userEmail: 'abc@co.kr'
-          },
-          {
-            src:'aaa.png',
-            userName: '롯데리아 길동사거리점',
-            status: 'block',
-            hvNum: 8,
-            endDay: '2020-03-20',
-            userEmail: 'abc@co.kr'
+          // {
+          //   src:'aaa.png',
+          //   userName: '이마트 천호역점',
+          //   status: 'active',
+          //   hvNum: 30,
+          //   endDay: '2019-12-20',
+          //   userEmail: 'abc@co.kr'
+          // },
+          // {
+          //   src:'aaa.png',
+          //   userName: '롯데리아 길동사거리점',
+          //   status: 'block',
+          //   hvNum: 8,
+          //   endDay: '2020-03-20',
+          //   userEmail: 'abc@co.kr'
 
-          },
-          {
-            src:'aaa.png',
-            userName: '나이키 강동역점',
-            status: 'block',
-            hvNum: 8,
-            endDay: '2021-01-01',
-            userEmail: 'abc@co.kr'
-          },
+          // },
+          // {
+          //   src:'aaa.png',
+          //   userName: '나이키 강동역점',
+          //   status: 'block',
+          //   hvNum: 8,
+          //   endDay: '2021-01-01',
+          //   userEmail: 'abc@co.kr'
+          // },
         ],
         number:-1
       }
     },
 
     created(){
+      EventBus.$on('userAddOk',(item)=>{
+        axios.post('/api/company/user',{
+          companyId : this.$route.params.CId,
+        })
+        .then((r)=>{
+          let j=0;
+          for(j=0;j<r.data.users.length;j++){
+              var y = r.data.users[j].expiredDate.substr(0, 4);
+              var m = r.data.users[j].expiredDate.substr(5, 2);
+              var d = r.data.users[j].expiredDate.substr(8, 2);
+
+              r.data.users[j].expiredDate = y+'-'+m+'-'+d
+          }
+          this.users = r.data.users
+          
+        })
+        .catch((e)=>{
+          console.error(e.message)
+        })
+      })
+
+      EventBus.$on("delUserOk", (item) => { 
+        this.info = [
+          {
+            id: item,
+          }
+        ]
+        axios.delete('/api/company/user', {data: { info : this.info} })
+        .then((r) => {
+            axios.post('/api/company/user',{
+            companyId : this.$route.params.CId
+          })
+          .then((r)=>{
+            let j=0;
+            for(j=0;j<r.data.users.length;j++){
+                var y = r.data.users[j].expiredDate.substr(0, 4);
+                var m = r.data.users[j].expiredDate.substr(5, 2);
+                var d = r.data.users[j].expiredDate.substr(8, 2);
+
+                r.data.users[j].expiredDate = y+'-'+m+'-'+d
+            }
+            this.users = r.data.users
+            
+          })
+          .catch((e)=>{
+            console.error(e.message)
+          })  
+        });
+      });
+
       axios.post('/api/company/user',{
         companyId : this.$route.params.CId
       })
@@ -161,11 +217,11 @@
             r.data.users[j].expiredDate = y+'-'+m+'-'+d
         }
         this.users = r.data.users
-        console.log(this.users)
       })
       .catch((e)=>{
-
+        console.error(e.message)
       })
+
     },
     methods:{
       btnStatus(){
@@ -179,32 +235,52 @@
       },
 
       btnClick(what,cId){
-        EventBus.$emit("userAdd", what, cId)//fdfdf
+        EventBus.$emit("userAdd", what, cId)
       },
 
       statusChange(item){
-      this.number=this.posts.indexOf(item)
-      if(this.posts[this.number].status =='active'){
-        this.posts[this.number].status ='block'
-      }
-      else if(this.posts[this.number].status =='block'){
-        this.posts[this.number].status ='active'
-      }
+        this.number=this.users.indexOf(item)
 
+        if(this.users[this.number].state =='active'){
+          this.users[this.number].state ='block'
+           axios.put('/api/company/state', {
+            id : item.id,
+            state : 'block'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
+        }
+
+        else if(this.users[this.number].state =='block'){
+          this.users[this.number].state ='active'
+           axios.put('/api/company/state', {
+            id : item.id,
+            state : 'active'
+          })
+          .catch((e) => {
+              console.error(e.message)
+          })
+        }
       },
+
       editTable(item){
         EventBus.$emit("userEditInfo", item)
       },
+
       userDetail(item){
-        EventBus.$emit("userDetail", item)
+        axios.post('/api/company/detail',{id : item.id})
+        .then((r)=>{
+          EventBus.$emit("userDetail", item, r.data.devices )
+        }).catch((e) => {
+          console.error(e.message)
+        })
       },
 
-      deleteTable(item){
-        EventBus.$emit("DelComment",item)
-        console.log('emit됨')
-        },
-      }
-
+      deleteUser(item){
+        EventBus.$emit("DelUser",item)
+      },
+    }
   }
 </script>
  

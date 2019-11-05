@@ -110,13 +110,16 @@ import axios from 'axios'
     created(){
       axios.get('/api/company/device', {})
         .then((r) => {
-          console.log(r)
-          console.log(r.data.device)
           this.items = r.data.device
-        });
+        }).catch((e) => {
+          console.error(e.message)
+      });
+
+      EventBus.$on("comHVList", (item) => {
+        this.selected = item
+      });
 
       EventBus.$on("HyperVisonClean", (what) => {
-        console.log('클로즈')
         this.hvText=''
         this.selected=[]
       });

@@ -78,8 +78,6 @@
             </v-icon>
         </v-list-item>
     </v-list>
-
-        
    
     </v-card-text>
     <v-text-field
@@ -102,21 +100,25 @@
     export default {
         mounted()  {
             var self = this;
-            this.user = localStorage.getItem('user')
-            this.id = localStorage.getItem('id')
+            const token = localStorage.getItem('token')
+            axios.get(`/api/board/getInfo`, { headers: { Authorization: token } })
+            .then((r) => {
+                if (!r.data.success) return console.error(r.data.msg)
+                    
+                if(r.data.success){
+                    this.user = r.data.user
+                    this.id = r.data.id
+                }
+            })
+
+            // this.user = localStorage.getItem('user')
+            // this.id = localStorage.getItem('id')
             eventBus.$on('triggerDModal', (boardId,form,comments) => { 
                 this.boardId = boardId
                 this.form = form
                 
                 this.comments = comments
                 this.DModal = true
-
-                // this.form.file.forEach(item => {
-                //     console.log(item.orgName.length)
-                //     if(item.orgName.length > 17){
-                //         item.orgName=item.orgName.subString(0,17) + '...'
-                //     }
-                // });
             });
             
             
@@ -173,7 +175,6 @@
                     content:this.commentAdd,
                 })
                 .then((r) => {
-                    console.log(r.data.comment)
                     var temp = {
                         id:1,
                         orgId:1,
@@ -194,7 +195,6 @@
                         user:temp,
                         createdAt:'New'
                     }
-                    console.log(comment)
                     this.comments.push(comment)
                     this.commentAdd=''
                 })
@@ -207,7 +207,6 @@
                 eventBus.$emit('triggerDelComment',item.id,this.comments);
             },
             deletePost (item) {
-                console.log('asdd')
                 eventBus.$emit('triggerDelPost',item.id);
             },
             openEditModal(item){
@@ -217,7 +216,6 @@
             },
             fileDown(item){
                 let fileName = item;
-                console.log(fileName)
                 axios.post('/api/board/fileDown',{fileName : fileName}, {
                     responseType: "blob"
                 }).then((response) => {

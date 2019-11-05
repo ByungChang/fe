@@ -23,6 +23,7 @@ sequelize.sync();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('port', process.env.PORT || 3000);
+require('dotenv').config();
 
 app.use('/api', require('./routes/api'));
 app.use('/upload', express.static('uploads'));
@@ -42,7 +43,6 @@ app.use(session({
 }));
 app.use(flash());
 app.use('/', index);
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
