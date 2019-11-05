@@ -62,4 +62,4 @@ typings/
 
 log/
 upload/*
-.fe/dist/
+fe/dist/*
